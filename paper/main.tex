@@ -31,7 +31,7 @@
   country={Chile}}
 
 \begin{abstract}
-Spectral indices for hydrothermal alteration mapping have historically been designed through expert knowledge, primarily for the Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER) sensor. We present symbolic regression (SR) as a data-driven feature engineering approach that automatically discovers interpretable spectral formulas from Sentinel-2 Level-2A data, optimized for discriminating hydrothermal alteration types. Using field-mapped alteration polygons from the Atlas Metal\'ifero de la III Regi\'on (Chile) as ground truth, PySR discovered six compact indices (1--3 bands, complexity 3--8) in a one-versus-rest framework across alteration classes: silicic, advanced argillic, argillic-phyllic, propylitic, iron oxide, and potassic-skarn. The key finding is that a Random Forest classifier trained on the six SR-derived features (mean AUC = 0.898) matches the performance of the same classifier trained on all 10 raw Sentinel-2 bands (mean AUC = 0.899), demonstrating that SR effectively distills the discriminative spectral information into a compact, interpretable feature space. Combining SR indices with classical spectral ratios yields the best overall performance (mean AUC = 0.920). External validation at Cuprite, Nevada (USA)---a geologically independent site on a different continent---confirms that the feature engineering equivalence replicates (SR AUC = 0.942 vs.\ raw bands 0.940), demonstrating that the approach is not site-specific. As standalone indices, the propylitic formula ($B_{03} - 0.48 \cdot B_{11}$; AUC = 0.91, DeLong $p < 0.001$) significantly outperforms classical indices, though standalone transferability varies by class and geological context. Physical interpretation confirms that the discovered formulas exploit mineral absorption mechanisms consistent with spectroscopic theory. The proposed SR-based feature engineering methodology is reproducible, sensor-specific, and applicable to other remote sensing classification problems.
+Spectral indices for hydrothermal alteration mapping have historically been designed through expert knowledge for the ASTER sensor. We present symbolic regression (SR) as a data-driven feature engineering approach that discovers interpretable spectral formulas from Sentinel-2 data. Using field-mapped alteration polygons from Chile's Atacama Region as ground truth, PySR discovered six compact indices (1--3 bands, complexity 3--8) across alteration classes: silicic, advanced argillic, argillic-phyllic, propylitic, iron oxide, and potassic-skarn. A Random Forest trained on six SR-derived features (mean AUC = 0.898) matches its performance on all 10 raw Sentinel-2 bands (0.899), demonstrating near-lossless compression into an interpretable feature space. Combining SR and classical indices yields the best performance (mean AUC = 0.920), confirmed across four classifiers and two deep learning architectures. External validation at Cuprite, Nevada (USA) replicates the equivalence (SR 0.942 vs.\ raw 0.940), confirming cross-continent generalization. As standalone indices, the propylitic formula ($B_{03} - 0.48 \cdot B_{11}$; AUC = 0.91, DeLong $p < 0.001$) significantly outperforms classical indices, though standalone transferability varies by class and geological context. Physical interpretation confirms that discovered formulas exploit mineral absorption mechanisms consistent with spectroscopic theory. The methodology is reproducible, sensor-specific, and applicable to other remote sensing classification problems.
 \end{abstract}
 
 \begin{keyword}
@@ -39,6 +39,13 @@ symbolic regression \sep spectral indices \sep feature engineering \sep hydrothe
 \end{keyword}
 
 \end{frontmatter}
+
+%% Highlights (required by RSE — submitted as separate file)
+%% - SR compresses 10 Sentinel-2 bands into 6 interpretable features without AUC loss
+%% - Combined SR and classical indices achieve best alteration mapping (AUC 0.926)
+%% - Feature engineering equivalence replicates across continents (Chile and Nevada)
+%% - Six classifiers and two DL architectures confirm robustness of the approach
+%% - Propylitic SR index significantly outperforms classical indices (DeLong p<0.001)
 
 %% ============================================================
 \section{Introduction}
@@ -563,9 +570,17 @@ Sentinel-2 L2A imagery is freely available from the Copernicus Open Access Hub a
 
 The author declares no competing interests.
 
+\section*{Funding}
+
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of Generative AI and AI-assisted Technologies in the Manuscript Preparation Process}
+
+During the preparation of this work the author used Claude Code (Anthropic, Claude Opus 4) in order to assist with code development for the analysis pipeline, figure generation scripts, and manuscript drafting. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
+
 \section*{Acknowledgements}
 
-The author acknowledges SERNAGEOMIN for making the Atlas Metal\'ifero de la III Regi\'on publicly available. Sentinel-2 data were accessed through Google Earth Engine. Symbolic regression was performed using the PySR library \citep{Cranmer2023}. Mineral spectral reference curves are from the USGS Spectral Library v7 \citep{Kokaly2017}.
+The author acknowledges SERNAGEOMIN for making the Atlas Metal\'ifero de la III Regi\'on publicly available. Sentinel-2 data were accessed through Google Earth Engine \citep{Gorelick2017}. Symbolic regression was performed using the PySR library \citep{Cranmer2023}. USGS alteration data for Cuprite were accessed via the WMS service at \texttt{mrdata.usgs.gov} \citep{Rockwell2017}. Mineral spectral reference curves are from the USGS Spectral Library v7 \citep{Kokaly2017}.
 
 
 %% ============================================================

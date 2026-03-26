@@ -1,0 +1,5 @@
+SR compresses 10 Sentinel-2 bands into 6 interpretable features without AUC loss
+Combined SR and classical indices achieve best alteration mapping (AUC 0.926)
+Feature engineering equivalence replicates across continents (Chile and Nevada)
+Six classifiers and two DL architectures confirm robustness of the approach
+Propylitic SR index significantly outperforms classical indices (DeLong p<0.001)
