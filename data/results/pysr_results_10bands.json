@@ -1,0 +1,230 @@
+{
+  "Adv_Argillic": {
+    "class_id": 2,
+    "n_train": 1665,
+    "best_equation": "0.8560658 - tanh(B12 / B11)",
+    "complexity": 6,
+    "loss": 0.08288976,
+    "auc": 0.9509029376722833,
+    "f1": 0.7666666666666667,
+    "threshold": 0.25000000000000006,
+    "time_s": 60.32459044456482,
+    "top_equations": [
+      {
+        "equation": "0.69941074 - tanh(tanh(square(B12 / B11)))",
+        "complexity": 8,
+        "loss": 0.07573568
+      },
+      {
+        "equation": "0.718664 - (B11 + tanh(tanh(square(B12 / B11))))",
+        "complexity": 10,
+        "loss": 0.07496877
+      },
+      {
+        "equation": "0.71861035 - (tanh(tanh(square(B12 / B11))) + tanh(B11))",
+        "complexity": 11,
+        "loss": 0.07495957
+      },
+      {
+        "equation": "(square(-0.8392546) - (tanh(tanh(square(B12 / B11))) + B11)) + B04",
+        "complexity": 13,
+        "loss": 0.07424311
+      },
+      {
+        "equation": "(sqrt(0.499093) - (tanh(tanh(square(B12 / B11))) + tanh(B11))) * 1.175721",
+        "complexity": 14,
+        "loss": 0.0730392
+      }
+    ]
+  },
+  "Argillic": {
+    "class_id": 3,
+    "n_train": 1260,
+    "best_equation": "tanh(B02 / B07) * 0.28329077",
+    "complexity": 6,
+    "loss": 0.10232766,
+    "auc": 0.687310606060606,
+    "f1": 0.28921244209133024,
+    "threshold": 0.1,
+    "time_s": 53.5709707736969,
+    "top_equations": [
+      {
+        "equation": "(tanh(B02 / B8A) * 0.3625603) * tanh(B11 / B02)",
+        "complexity": 11,
+        "loss": 0.100064136
+      },
+      {
+        "equation": "tanh(B11 / B07) * (tanh(tanh(B02 / B8A)) * 0.48905703)",
+        "complexity": 12,
+        "loss": 0.10005311
+      },
+      {
+        "equation": "tanh(B11 / B02) * ((tanh(B02 / B8A) * 0.48305684) - 0.058972523)",
+        "complexity": 13,
+        "loss": 0.09954344
+      },
+      {
+        "equation": "((tanh(tanh(B02 / B8A)) - 0.1541866) / 1.587612) * tanh(B11 / B02)",
+        "complexity": 14,
+        "loss": 0.09915429
+      },
+      {
+        "equation": "(tanh(B11 / B02) * (tanh(tanh(tanh(B02 / B8A))) - 0.16584492)) / 1.3292454",
+        "complexity": 15,
+        "loss": 0.099028945
+      }
+    ]
+  },
+  "Propylitic": {
+    "class_id": 4,
+    "n_train": 1337,
+    "best_equation": "tanh(B02 / B8A) * tanh((B12 / B11) - 0.6331987)",
+    "complexity": 11,
+    "loss": 0.07011752,
+    "auc": 0.9604905582731269,
+    "f1": 0.7144006436041834,
+    "threshold": 0.30000000000000004,
+    "time_s": 51.29983162879944,
+    "top_equations": [
+      {
+        "equation": "tanh(B02 / B8A) * tanh((B12 / B11) - 0.6331987)",
+        "complexity": 11,
+        "loss": 0.07011752
+      },
+      {
+        "equation": "tanh(tanh(B02) / B8A) * tanh((B12 / B11) - 0.6331987)",
+        "complexity": 12,
+        "loss": 0.070117496
+      },
+      {
+        "equation": "tanh(B02 / B8A) * (tanh((B12 / B11) - 0.81405216) - -0.15651682)",
+        "complexity": 13,
+        "loss": 0.069549225
+      },
+      {
+        "equation": "(tanh((B02 * 1.4392471) / B8A) * square(tanh(B12 / B11))) - 0.17605008",
+        "complexity": 14,
+        "loss": 0.0688368
+      },
+      {
+        "equation": "(square(tanh(tanh(B12) / B11)) * tanh(B02 * (1.4390095 / B8A))) - 0.17597292",
+        "complexity": 15,
+        "loss": 0.06883602
+      }
+    ]
+  },
+  "Iron_Oxide": {
+    "class_id": 5,
+    "n_train": 1749,
+    "best_equation": "tanh(B04 / B8A) * tanh(square(log(B04 / B02)))",
+    "complexity": 11,
+    "loss": 0.10288417,
+    "auc": 0.8859566222222223,
+    "f1": 0.5905861456483126,
+    "threshold": 0.25000000000000006,
+    "time_s": 48.27543592453003,
+    "top_equations": [
+      {
+        "equation": "log(B04 / B02) * square(tanh(B04 / B8A))",
+        "complexity": 10,
+        "loss": 0.109967075
+      },
+      {
+        "equation": "tanh(B04 / B8A) * tanh(square(log(B04 / B02)))",
+        "complexity": 11,
+        "loss": 0.10288417
+      },
+      {
+        "equation": "tanh(square(log(B02 / B04))) * tanh(square(B04 / B8A))",
+        "complexity": 12,
+        "loss": 0.09724216
+      },
+      {
+        "equation": "tanh(square(B04 / B8A)) * (B12 + tanh(square(log(B02 / B04))))",
+        "complexity": 14,
+        "loss": 0.09656055
+      },
+      {
+        "equation": "tanh(square(B04 / B8A)) * (tanh(square(log(B04 / B02))) + tanh(B12))",
+        "complexity": 15,
+        "loss": 0.096559495
+      }
+    ]
+  },
+  "Unaltered": {
+    "class_id": 6,
+    "n_train": 685,
+    "best_equation": "sqrt(B02) - B8A",
+    "complexity": 4,
+    "loss": 0.05946953,
+    "auc": 0.6855714706234373,
+    "f1": 0.14267515923566879,
+    "threshold": 0.1,
+    "time_s": 43.45702648162842,
+    "top_equations": [
+      {
+        "equation": "0.6922236 / ((0.42250878 / sqrt(B12)) + square(B8A / B02))",
+        "complexity": 11,
+        "loss": 0.058090188
+      },
+      {
+        "equation": "0.6931972 / ((0.42135018 / tanh(sqrt(B12))) + square(B8A / B02))",
+        "complexity": 12,
+        "loss": 0.058090135
+      },
+      {
+        "equation": "0.23908623 / (square((B02 - B8A) / B02) + (0.17207833 / sqrt(B12)))",
+        "complexity": 13,
+        "loss": 0.05755169
+      },
+      {
+        "equation": "0.23945327 / ((0.17137487 / tanh(sqrt(B12))) + square((B8A - B02) / B02))",
+        "complexity": 14,
+        "loss": 0.05754973
+      },
+      {
+        "equation": "(0.356826 / (square((B02 - B8A) / B02) + (0.22527346 / sqrt(B12)))) - 0.022407196",
+        "complexity": 15,
+        "loss": 0.05743356
+      }
+    ]
+  },
+  "Vegetation": {
+    "class_id": 7,
+    "n_train": 3804,
+    "best_equation": "tanh((B8A / B04) + -1.7551571) + 0.57227683",
+    "complexity": 8,
+    "loss": 0.07282937,
+    "auc": 0.9999996793570038,
+    "f1": 0.989773783700031,
+    "threshold": 0.5000000000000001,
+    "time_s": 42.70293188095093,
+    "top_equations": [
+      {
+        "equation": "(tanh((B8A / B04) + -1.7054462) + 0.6435963) / 1.2896878",
+        "complexity": 10,
+        "loss": 0.05850893
+      },
+      {
+        "equation": "(B04 / (B04 + B8A)) + tanh((B8A / B04) + -1.5666977)",
+        "complexity": 12,
+        "loss": 0.051745355
+      },
+      {
+        "equation": "(B04 / tanh(B8A + B04)) + tanh((B8A / B04) + -1.5671507)",
+        "complexity": 13,
+        "loss": 0.05171876
+      },
+      {
+        "equation": "((B04 * 1.0789298) / (B04 + B8A)) + tanh((B8A / B04) + -1.6061074)",
+        "complexity": 14,
+        "loss": 0.05136906
+      },
+      {
+        "equation": "((B04 * 1.0788422) / tanh(B8A + B04)) + tanh((B8A / B04) + -1.6065443)",
+        "complexity": 15,
+        "loss": 0.051342912
+      }
+    ]
+  }
+}

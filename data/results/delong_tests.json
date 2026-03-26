@@ -1,0 +1,57 @@
+[
+  {
+    "comparison": "Propylitic: SR vs Clay Ratio",
+    "description": "SR B03-0.48*B11 vs Clay Ratio B11/B12 for propylitic class",
+    "target_class": 4,
+    "auc_sr": 0.9065397016522845,
+    "auc_classical": 0.7148914308649409,
+    "delta_auc": 0.1916482707873436,
+    "z_statistic": 33.972865202789805,
+    "p_value": 5.607053967697692e-253,
+    "significance": "***"
+  },
+  {
+    "comparison": "Propylitic: SR vs OH Minerals",
+    "description": "SR B03-0.48*B11 vs OH Minerals B02/B11 for propylitic class",
+    "target_class": 4,
+    "auc_sr": 0.9065397016522845,
+    "auc_classical": 0.8598640042812228,
+    "delta_auc": 0.0466756973710617,
+    "z_statistic": 8.712709218038992,
+    "p_value": 2.966970272779425e-18,
+    "significance": "***"
+  },
+  {
+    "comparison": "Silicic: SR vs Clay Ratio",
+    "description": "SR B04-0.135 vs Clay Ratio B11/B12 for silicic class",
+    "target_class": 1,
+    "auc_sr": 0.6669956225185789,
+    "auc_classical": 0.6477194509484544,
+    "delta_auc": 0.019276171570124512,
+    "z_statistic": 2.3359096129196817,
+    "p_value": 0.01949595285256483,
+    "significance": "*"
+  },
+  {
+    "comparison": "Adv Argillic: SR vs Iron Oxide",
+    "description": "SR 0.83-B02/B05 vs Iron Oxide B04/B02 for adv argillic class",
+    "target_class": 2,
+    "auc_sr": 0.718661170363379,
+    "auc_classical": 0.7226922605002359,
+    "delta_auc": -0.004031090136856985,
+    "z_statistic": -0.650356949651768,
+    "p_value": 0.5154616786200095,
+    "significance": "ns"
+  },
+  {
+    "comparison": "Iron Oxide: SR vs Clay Ratio",
+    "description": "SR (sqrt(B12)-B11)^2 vs Clay Ratio for iron oxide class",
+    "target_class": 5,
+    "auc_sr": 0.7534637959589268,
+    "auc_classical": 0.7366046372971182,
+    "delta_auc": 0.016859158661808538,
+    "z_statistic": 1.1768708548464006,
+    "p_value": 0.2392470565069753,
+    "significance": "ns"
+  }
+]

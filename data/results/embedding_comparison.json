@@ -1,0 +1,402 @@
+{
+  "embedding_rf_balanced_accuracy": 0.8364687314319668,
+  "embedding_rf_std": 0.008744126003657093,
+  "embedding_dimensions": 64,
+  "n_samples": 15610,
+  "n_classes": 6,
+  "classes": {
+    "2": 5000,
+    "3": 5000,
+    "6": 2400,
+    "1": 2200,
+    "4": 510,
+    "5": 500
+  },
+  "pysr_comparison": {
+    "Silicic": {
+      "class_id": 1,
+      "n_train": 875,
+      "best_equation": "sqrt(B05 * 0.22519779)",
+      "complexity": 4,
+      "loss": 0.05819558,
+      "auc": 0.6389686518518519,
+      "f1": 0.14914361001317522,
+      "threshold": 0.05,
+      "time_s": 135.349027633667,
+      "ground_truth_source": "Atlas Metal\u00edfero III Regi\u00f3n, SERNAGEOMIN (field-mapped)",
+      "pareto_front": [
+        {
+          "equation": "0.062483057",
+          "complexity": 1,
+          "loss": 0.058593716
+        },
+        {
+          "equation": "B05 + 0.04338435",
+          "complexity": 3,
+          "loss": 0.05845785
+        },
+        {
+          "equation": "sqrt(B05 * 0.22519779)",
+          "complexity": 4,
+          "loss": 0.05819558
+        },
+        {
+          "equation": "tanh(sqrt(B05)) * 0.48358384",
+          "complexity": 5,
+          "loss": 0.058158055
+        },
+        {
+          "equation": "(sqrt(B05) * 0.66727287) - B05",
+          "complexity": 6,
+          "loss": 0.05797576
+        },
+        {
+          "equation": "(tanh(sqrt(B05)) * 0.6776011) - B05",
+          "complexity": 7,
+          "loss": 0.05797249
+        },
+        {
+          "equation": "sqrt((B8A + B05) * 0.22183871) - B8A",
+          "complexity": 8,
+          "loss": 0.05792021
+        },
+        {
+          "equation": "(0.39527416 - B8A) * tanh(sqrt(B05 + B8A))",
+          "complexity": 9,
+          "loss": 0.057912484
+        },
+        {
+          "equation": "sqrt(B05 + B8A) * ((B8A * -1.3205284) + 0.40141764)",
+          "complexity": 10,
+          "loss": 0.057905816
+        },
+        {
+          "equation": "square((B8A + -0.36365214) * 1.7985731) * sqrt(B05 + B8A)",
+          "complexity": 11,
+          "loss": 0.057887487
+        },
+        {
+          "equation": "square((B8A + -0.36365214) * 1.7985731) * sqrt(tanh(B05 + B8A))",
+          "complexity": 12,
+          "loss": 0.057887144
+        },
+        {
+          "equation": "square((B8A + -0.25651422) * 3.0111268) * (sqrt(B8A + B05) + -0.04303952)",
+          "complexity": 13,
+          "loss": 0.057832137
+        },
+        {
+          "equation": "(-0.04529273 + tanh(sqrt(B8A + B05))) * square((B8A + -0.25665084) * 3.0663917)",
+          "complexity": 14,
+          "loss": 0.057830635
+        },
+        {
+          "equation": "square((B8A + -0.25331122) * 3.1177092) * (tanh(sqrt(tanh(B05 + B8A))) + -0.045754235)",
+          "complexity": 15,
+          "loss": 0.057830177
+        }
+      ]
+    },
+    "Adv_Argillic": {
+      "class_id": 2,
+      "n_train": 8643,
+      "best_equation": "0.7222398 - sqrt(B12)",
+      "complexity": 4,
+      "loss": 0.2341752,
+      "auc": 0.5809376669727049,
+      "f1": 0.763396537510305,
+      "threshold": 0.05,
+      "time_s": 164.8292076587677,
+      "ground_truth_source": "Atlas Metal\u00edfero III Regi\u00f3n, SERNAGEOMIN (field-mapped)",
+      "pareto_front": [
+        {
+          "equation": "0.61728",
+          "complexity": 1,
+          "loss": 0.23622715
+        },
+        {
+          "equation": "0.63134015 - B12",
+          "complexity": 3,
+          "loss": 0.23561734
+        },
+        {
+          "equation": "0.7222398 - sqrt(B12)",
+          "complexity": 4,
+          "loss": 0.2341752
+        },
+        {
+          "equation": "0.7214503 - tanh(sqrt(B12))",
+          "complexity": 5,
+          "loss": 0.23402898
+        },
+        {
+          "equation": "B05 + (0.70311844 - sqrt(B12))",
+          "complexity": 6,
+          "loss": 0.23263843
+        },
+        {
+          "equation": "(B05 - tanh(sqrt(B12))) + 0.702334",
+          "complexity": 7,
+          "loss": 0.23259363
+        },
+        {
+          "equation": "sqrt(B05) + tanh(log(B12) * -0.11505526)",
+          "complexity": 8,
+          "loss": 0.23185317
+        },
+        {
+          "equation": "tanh(log(B12) * -0.13810706) + (B05 / 0.3953539)",
+          "complexity": 9,
+          "loss": 0.23143774
+        },
+        {
+          "equation": "((B05 * 3.4847019) + 0.7532884) - (sqrt(B12) * 1.9312507)",
+          "complexity": 10,
+          "loss": 0.23097749
+        },
+        {
+          "equation": "B06 + ((B05 * 2.53824) - (sqrt(B12 * 3.8270311) - 0.75454736))",
+          "complexity": 12,
+          "loss": 0.23092519
+        },
+        {
+          "equation": "B05 + (0.7301931 - (B12 / (B12 + ((B06 * 1.9983677) + 0.038729224))))",
+          "complexity": 13,
+          "loss": 0.23067205
+        },
+        {
+          "equation": "B05 + (0.7301931 - (B12 / (tanh(B12) + ((B06 * 1.9983677) + 0.038729224))))",
+          "complexity": 14,
+          "loss": 0.23067035
+        },
+        {
+          "equation": "(B05 + 0.73169583) - (B12 / ((B12 / 0.7664619) + ((B06 * 1.8491095) + 0.03477459)))",
+          "complexity": 15,
+          "loss": 0.23059632
+        }
+      ]
+    },
+    "Argillic_Phyllic": {
+      "class_id": 3,
+      "n_train": 3805,
+      "best_equation": "sqrt(B12) + (0.18602774 - B05)",
+      "complexity": 6,
+      "loss": 0.19530095,
+      "auc": 0.5862154118291193,
+      "f1": 0.43137943137943136,
+      "threshold": 0.25,
+      "time_s": 138.8241629600525,
+      "ground_truth_source": "Atlas Metal\u00edfero III Regi\u00f3n, SERNAGEOMIN (field-mapped)",
+      "pareto_front": [
+        {
+          "equation": "0.2717988",
+          "complexity": 1,
+          "loss": 0.1979181
+        },
+        {
+          "equation": "B12 + 0.2578014",
+          "complexity": 3,
+          "loss": 0.19762634
+        },
+        {
+          "equation": "sqrt(B12) + 0.1669094",
+          "complexity": 4,
+          "loss": 0.19729586
+        },
+        {
+          "equation": "(B12 + 0.27690572) - B05",
+          "complexity": 5,
+          "loss": 0.19672218
+        },
+        {
+          "equation": "sqrt(B12) + (0.18602774 - B05)",
+          "complexity": 6,
+          "loss": 0.19530095
+        },
+        {
+          "equation": "sqrt(B12) - (-0.28573826 + sqrt(B05))",
+          "complexity": 7,
+          "loss": 0.19491605
+        },
+        {
+          "equation": "(sqrt(B12) - (B05 * 2.3185813)) - -0.21122973",
+          "complexity": 8,
+          "loss": 0.19434762
+        },
+        {
+          "equation": "sqrt(B12) - (tanh(B05 * 2.5353754) - 0.21482612)",
+          "complexity": 9,
+          "loss": 0.19432087
+        },
+        {
+          "equation": "((sqrt(B12) - (B05 * 2.0620718)) * 1.7024515) - -0.1603452",
+          "complexity": 10,
+          "loss": 0.1936621
+        },
+        {
+          "equation": "(sqrt(B12) - (tanh(B05 * 2.222509) - 0.09479916)) * 1.7250336",
+          "complexity": 11,
+          "loss": 0.19359396
+        },
+        {
+          "equation": "(((sqrt(B12) + B12) + 0.13086607) - (B05 * 2.8479726)) * 1.3916656",
+          "complexity": 12,
+          "loss": 0.19357322
+        },
+        {
+          "equation": "((sqrt(B12) - ((tanh(B05) * 2.6366842) - 0.119010895)) * 1.4850535) + B12",
+          "complexity": 13,
+          "loss": 0.19356965
+        },
+        {
+          "equation": "(((sqrt(B12) + B12) - ((B05 * 2.153963) - 0.12571892)) * 1.4307951) - B07",
+          "complexity": 14,
+          "loss": 0.19354533
+        },
+        {
+          "equation": "B12 + ((sqrt(B12) - tanh((B05 * 2.7923143) - 0.12700483)) * (B11 + 1.4257255))",
+          "complexity": 15,
+          "loss": 0.19353461
+        }
+      ]
+    },
+    "Iron_Oxide": {
+      "class_id": 5,
+      "n_train": 295,
+      "best_equation": "-4.995803 * (-0.0040843477 - ((square(B12 - B8A) * B12) / B07))",
+      "complexity": 12,
+      "loss": 0.020567883,
+      "auc": 0.5104669574229324,
+      "f1": 0.0,
+      "threshold": 0.5,
+      "time_s": 156.69731211662292,
+      "ground_truth_source": "Atlas Metal\u00edfero III Regi\u00f3n, SERNAGEOMIN (field-mapped)",
+      "pareto_front": [
+        {
+          "equation": "0.02105621",
+          "complexity": 1,
+          "loss": 0.020627411
+        },
+        {
+          "equation": "log(B06) * -0.004789754",
+          "complexity": 4,
+          "loss": 0.020608362
+        },
+        {
+          "equation": "tanh(log(B06) * -0.0047904686)",
+          "complexity": 5,
+          "loss": 0.02060836
+        },
+        {
+          "equation": "log(B07 * B06) * -0.0024011733",
+          "complexity": 6,
+          "loss": 0.020607414
+        },
+        {
+          "equation": "-0.0016008513 * log(square(B06) * B07)",
+          "complexity": 7,
+          "loss": 0.020607335
+        },
+        {
+          "equation": "log(B06) * ((B12 * -0.03234564) + -0.0044577057)",
+          "complexity": 8,
+          "loss": 0.020605918
+        },
+        {
+          "equation": "(-0.0038505613 - (sqrt(B12) * 0.010293166)) * log(B06)",
+          "complexity": 9,
+          "loss": 0.020604214
+        },
+        {
+          "equation": "(log(B06 + B07) * (B12 + 0.07839414)) * -0.0647905",
+          "complexity": 10,
+          "loss": 0.020602373
+        },
+        {
+          "equation": "(-0.0038266745 - ((B12 / sqrt(B07)) * 0.009917367)) * log(B06)",
+          "complexity": 11,
+          "loss": 0.020593762
+        },
+        {
+          "equation": "-4.995803 * (-0.0040843477 - ((square(B12 - B8A) * B12) / B07))",
+          "complexity": 12,
+          "loss": 0.020567883
+        },
+        {
+          "equation": "(-0.004658892 - (B12 * (square(B8A - B12) / B07))) * log(B06)",
+          "complexity": 13,
+          "loss": 0.020547625
+        },
+        {
+          "equation": "(-0.0038767958 - (square(B12 - B8A) * (B12 / B07))) * (log(B06) - 0.89318705)",
+          "complexity": 15,
+          "loss": 0.020545818
+        }
+      ]
+    },
+    "Potassic_Skarn": {
+      "class_id": 6,
+      "n_train": 382,
+      "best_equation": "((-0.05520992 - B12) + B06) / ((B12 * 4.510694) + -1.9066641)",
+      "complexity": 11,
+      "loss": 0.0263682,
+      "auc": 0.5964644385563115,
+      "f1": 0.020100502512562814,
+      "threshold": 0.05,
+      "time_s": 153.9329936504364,
+      "ground_truth_source": "Atlas Metal\u00edfero III Regi\u00f3n, SERNAGEOMIN (field-mapped)",
+      "pareto_front": [
+        {
+          "equation": "0.027289722",
+          "complexity": 1,
+          "loss": 0.026541186
+        },
+        {
+          "equation": "square(B12) - -0.026695473",
+          "complexity": 4,
+          "loss": 0.026512567
+        },
+        {
+          "equation": "(B12 - B06) + 0.03267321",
+          "complexity": 5,
+          "loss": 0.026461085
+        },
+        {
+          "equation": "(B12 - tanh(B06)) + 0.032639217",
+          "complexity": 6,
+          "loss": 0.026456758
+        },
+        {
+          "equation": "(B12 - (B06 * 0.758844)) + 0.02799636",
+          "complexity": 7,
+          "loss": 0.026428243
+        },
+        {
+          "equation": "(((B06 - B12) / -1.3270657) + 0.03072056) + square(B12)",
+          "complexity": 10,
+          "loss": 0.026420392
+        },
+        {
+          "equation": "((-0.05520992 - B12) + B06) / ((B12 * 4.510694) + -1.9066641)",
+          "complexity": 11,
+          "loss": 0.0263682
+        },
+        {
+          "equation": "((B06 + -0.054975607) - tanh(B12)) / ((B12 * 4.5189548) + -1.8892664)",
+          "complexity": 12,
+          "loss": 0.026367474
+        },
+        {
+          "equation": "(tanh(B06) + tanh(-0.054964505 - B12)) / ((B12 * 4.517979) + -1.8889195)",
+          "complexity": 13,
+          "loss": 0.026366102
+        },
+        {
+          "equation": "(tanh(B06) + (-0.04226542 - B12)) / (square(B12 + (B12 + B05)) + -1.3594643)",
+          "complexity": 15,
+          "loss": 0.026363201
+        }
+      ]
+    }
+  }
+}

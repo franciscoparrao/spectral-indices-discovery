@@ -1,0 +1,75 @@
+{
+  "best_equation": "B04 / 0.4518033",
+  "complexity": 3,
+  "auc": 0.8599124444444445,
+  "f1": 0.7858040201005025,
+  "threshold": 0.4700000000000001,
+  "time_s": 488.5704550743103,
+  "pareto_front": [
+    {
+      "equation": "0.49998316",
+      "complexity": 1,
+      "loss": 0.24999999
+    },
+    {
+      "equation": "sqrt(B06)",
+      "complexity": 2,
+      "loss": 0.20931403
+    },
+    {
+      "equation": "B04 / 0.4518033",
+      "complexity": 3,
+      "loss": 0.18051147
+    },
+    {
+      "equation": "log(B04) + 1.9620953",
+      "complexity": 4,
+      "loss": 0.1602963
+    },
+    {
+      "equation": "log(tanh(B04)) + 1.9832942",
+      "complexity": 5,
+      "loss": 0.1601476
+    },
+    {
+      "equation": "tanh(square(log(B04) + 2.2034175))",
+      "complexity": 6,
+      "loss": 0.15620588
+    },
+    {
+      "equation": "(B04 + -0.14247194) / (B02 + 0.04481138)",
+      "complexity": 7,
+      "loss": 0.15208796
+    },
+    {
+      "equation": "(B04 + -0.14215305) / tanh(B02 + 0.048000824)",
+      "complexity": 8,
+      "loss": 0.15193579
+    },
+    {
+      "equation": "(B04 * (2.17184 / (B02 + 0.18773633))) - 1.103455",
+      "complexity": 9,
+      "loss": 0.14801821
+    },
+    {
+      "equation": "((B04 / (B05 + sqrt(B02))) * 7.9152727) - 2.5217276",
+      "complexity": 10,
+      "loss": 0.14285204
+    },
+    {
+      "equation": "((B04 * (2.7877064 / sqrt(B02))) - B12) - (B05 / B04)",
+      "complexity": 12,
+      "loss": 0.1412613
+    },
+    {
+      "equation": "((B04 / ((B02 + 0.19485193) * 0.3954565)) - B12) - (B05 / B04)",
+      "complexity": 13,
+      "loss": 0.14096135
+    },
+    {
+      "equation": "(((B12 * -0.93926877) + (B04 * 8.059938)) / (B05 + sqrt(B02))) - 2.1984677",
+      "complexity": 14,
+      "loss": 0.13807957
+    }
+  ]
+}

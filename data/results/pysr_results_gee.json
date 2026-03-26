@@ -1,0 +1,493 @@
+{
+  "rf_baseline_balanced_accuracy": 0.6348067815109708,
+  "Silicic": {
+    "class_id": 1,
+    "n_train": 1481,
+    "best_equation": "B04 - 0.13495661",
+    "complexity": 3,
+    "loss": 0.11609036,
+    "auc": 0.6617838261808477,
+    "f1": 0.3203252032520325,
+    "threshold": 0.15000000000000002,
+    "time_s": 312.5295398235321,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "B03",
+        "complexity": 1,
+        "loss": 0.120656736
+      },
+      {
+        "equation": "square(B06)",
+        "complexity": 2,
+        "loss": 0.11879827
+      },
+      {
+        "equation": "B04 - 0.13495661",
+        "complexity": 3,
+        "loss": 0.11609036
+      },
+      {
+        "equation": "square(B03) / B12",
+        "complexity": 4,
+        "loss": 0.11518975
+      },
+      {
+        "equation": "square(tanh(B03)) / B12",
+        "complexity": 5,
+        "loss": 0.115072474
+      },
+      {
+        "equation": "square(B03 / B12) * B03",
+        "complexity": 6,
+        "loss": 0.11468074
+      },
+      {
+        "equation": "((B04 / B12) - 0.34094703) * B03",
+        "complexity": 7,
+        "loss": 0.11443278
+      },
+      {
+        "equation": "(square(B03 / B12) * B04) * 0.78399867",
+        "complexity": 8,
+        "loss": 0.114314266
+      },
+      {
+        "equation": "B04 / (((B12 * 2.386304) / B03) + -1.0437119)",
+        "complexity": 9,
+        "loss": 0.1140057
+      },
+      {
+        "equation": "(square(B03 / B12) * (1.1716291 - B06)) * B04",
+        "complexity": 10,
+        "loss": 0.113853246
+      },
+      {
+        "equation": "B04 / (B06 + (((B12 / B03) * 2.5550911) - 1.6240476))",
+        "complexity": 11,
+        "loss": 0.11347847
+      },
+      {
+        "equation": "log(B06) * (((B03 / square(B12)) * (0.12121358 - B04)) * B04)",
+        "complexity": 13,
+        "loss": 0.11339874
+      },
+      {
+        "equation": "B04 / (((square(B06 * B06) + B12) * (2.2746007 / B03)) + -1.1886605)",
+        "complexity": 14,
+        "loss": 0.11313744
+      },
+      {
+        "equation": "(((B04 - 0.10460437) * B03) * 0.57872856) / (B12 - (B03 * (0.86979294 - B06)))",
+        "complexity": 15,
+        "loss": 0.11292139
+      }
+    ]
+  },
+  "Adv_Argillic": {
+    "class_id": 2,
+    "n_train": 3366,
+    "best_equation": "0.8317603 - (B02 / B05)",
+    "complexity": 5,
+    "loss": 0.19847646,
+    "auc": 0.7160613848543191,
+    "f1": 0.554694762937713,
+    "threshold": 0.35000000000000003,
+    "time_s": 253.17960929870605,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "B06",
+        "complexity": 1,
+        "loss": 0.21705014
+      },
+      {
+        "equation": "tanh(B06)",
+        "complexity": 2,
+        "loss": 0.21699391
+      },
+      {
+        "equation": "0.47134992 - B02",
+        "complexity": 3,
+        "loss": 0.21569282
+      },
+      {
+        "equation": "sqrt(B05 - B02)",
+        "complexity": 4,
+        "loss": 0.20987856
+      },
+      {
+        "equation": "0.8317603 - (B02 / B05)",
+        "complexity": 5,
+        "loss": 0.19847646
+      },
+      {
+        "equation": "square((B02 - B05) / B12)",
+        "complexity": 6,
+        "loss": 0.18791305
+      },
+      {
+        "equation": "-0.24028812 - ((B02 - B06) / B12)",
+        "complexity": 7,
+        "loss": 0.1857142
+      },
+      {
+        "equation": "-0.33152407 - (((B02 - B05) / B12) * 1.2359986)",
+        "complexity": 9,
+        "loss": 0.18496343
+      },
+      {
+        "equation": "-0.34078613 - (((B02 - tanh(B05)) / B12) * 1.3387201)",
+        "complexity": 10,
+        "loss": 0.18405847
+      },
+      {
+        "equation": "-0.32369146 - (((1.3709663 - B02) * (B02 - B05)) / B12)",
+        "complexity": 11,
+        "loss": 0.18366745
+      },
+      {
+        "equation": "2.1282573 - (((tanh(B02 + 0.057205047) / B05) + B12) * 1.8341731)",
+        "complexity": 12,
+        "loss": 0.18328625
+      },
+      {
+        "equation": "((B12 + ((B02 + 0.039947137) / B05)) * (B02 - 2.1597676)) + 2.1937327",
+        "complexity": 13,
+        "loss": 0.1823919
+      },
+      {
+        "equation": "((B02 - 2.2280796) * (B12 + (tanh(B02 + 0.03743204) / B05))) + 2.2217858",
+        "complexity": 14,
+        "loss": 0.18219483
+      },
+      {
+        "equation": "(((B02 - 1.2991582) * (B12 + ((B02 + 0.025854215) / B05))) + 1.1764903) * 1.9301659",
+        "complexity": 15,
+        "loss": 0.18195656
+      }
+    ]
+  },
+  "Argillic_Phyllic": {
+    "class_id": 3,
+    "n_train": 3367,
+    "best_equation": "0.09013638 / B05",
+    "complexity": 3,
+    "loss": 0.205384,
+    "auc": 0.6280711151668754,
+    "f1": 0.48598130841121495,
+    "threshold": 0.2,
+    "time_s": 196.43337297439575,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "0.32068086",
+        "complexity": 1,
+        "loss": 0.21783938
+      },
+      {
+        "equation": "0.09013638 / B05",
+        "complexity": 3,
+        "loss": 0.205384
+      },
+      {
+        "equation": "0.06444146 / (B05 + -0.06516806)",
+        "complexity": 5,
+        "loss": 0.20360175
+      },
+      {
+        "equation": "(0.0142227495 / square(B05)) + 0.118855156",
+        "complexity": 6,
+        "loss": 0.20314795
+      },
+      {
+        "equation": "((B03 + 0.10482652) / B04) - 0.8275143",
+        "complexity": 7,
+        "loss": 0.2000632
+      },
+      {
+        "equation": "((0.019029211 / square(B05)) + B12) - 0.22675024",
+        "complexity": 8,
+        "loss": 0.19848736
+      },
+      {
+        "equation": "(0.20555156 / B05) + ((B12 + B03) - 0.9076767)",
+        "complexity": 9,
+        "loss": 0.19774325
+      },
+      {
+        "equation": "((B12 + (0.024311112 / square(B05))) - 0.5064471) + B03",
+        "complexity": 10,
+        "loss": 0.19752416
+      },
+      {
+        "equation": "(B12 + ((0.19783467 / B04) * (B03 / B04))) - 0.5264837",
+        "complexity": 11,
+        "loss": 0.1953835
+      },
+      {
+        "equation": "((B12 + (B03 * ((0.27777824 / B04) / B04))) - 1.0612267) + B06",
+        "complexity": 13,
+        "loss": 0.1934122
+      },
+      {
+        "equation": "(B03 + (B12 + ((B03 / B04) * (0.25781575 / B04)))) - (B04 / B06)",
+        "complexity": 15,
+        "loss": 0.19293341
+      }
+    ]
+  },
+  "Propylitic": {
+    "class_id": 4,
+    "n_train": 333,
+    "best_equation": "B03 - (B11 * 0.48310623)",
+    "complexity": 5,
+    "loss": 0.02897405,
+    "auc": 0.9101951525637548,
+    "f1": 0.20326936744847193,
+    "threshold": 0.05,
+    "time_s": 228.55328106880188,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "0.03171614",
+        "complexity": 1,
+        "loss": 0.030708468
+      },
+      {
+        "equation": "square(B02)",
+        "complexity": 2,
+        "loss": 0.030570833
+      },
+      {
+        "equation": "B02 * 0.22701631",
+        "complexity": 3,
+        "loss": 0.03042058
+      },
+      {
+        "equation": "B03 - square(B11)",
+        "complexity": 4,
+        "loss": 0.029922014
+      },
+      {
+        "equation": "B03 - (B11 * 0.48310623)",
+        "complexity": 5,
+        "loss": 0.02897405
+      },
+      {
+        "equation": "-0.16944784 - (log(B11) * B03)",
+        "complexity": 6,
+        "loss": 0.028327463
+      },
+      {
+        "equation": "((B03 * log(B11)) * -1.1732304) - 0.20800565",
+        "complexity": 8,
+        "loss": 0.028264128
+      },
+      {
+        "equation": "((B03 * (0.74561125 - B11)) + -0.06467512) / 0.30318213",
+        "complexity": 9,
+        "loss": 0.02802374
+      },
+      {
+        "equation": "((sqrt(B03) - B11) * (B03 + -0.1227277)) / B02",
+        "complexity": 10,
+        "loss": 0.028013242
+      },
+      {
+        "equation": "((sqrt(tanh(B03)) - B11) * (B03 + -0.121352896)) / B02",
+        "complexity": 11,
+        "loss": 0.027993158
+      },
+      {
+        "equation": "(square((B11 * B11) - B03) / 0.1346286) * (B12 / B8A)",
+        "complexity": 12,
+        "loss": 0.027854614
+      },
+      {
+        "equation": "(sqrt(B03) - B11) * (log(B03) + ((B12 * 2.4970183) / B11))",
+        "complexity": 13,
+        "loss": 0.027460763
+      },
+      {
+        "equation": "((B12 * (square(B03 - (B11 * B11)) / 0.099607944)) + -0.008390997) / B8A",
+        "complexity": 14,
+        "loss": 0.027382819
+      },
+      {
+        "equation": "(log(B03 - B02) + ((B12 * 4.2364583) / B11)) * (sqrt(B03) - B11)",
+        "complexity": 15,
+        "loss": 0.02658354
+      }
+    ]
+  },
+  "Iron_Oxide": {
+    "class_id": 5,
+    "n_train": 337,
+    "best_equation": "square(sqrt(B12) - B11)",
+    "complexity": 5,
+    "loss": 0.030466942,
+    "auc": 0.7436693322109988,
+    "f1": 0.13486370157819225,
+    "threshold": 0.05,
+    "time_s": 142.55076718330383,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "0.03210658",
+        "complexity": 1,
+        "loss": 0.031065112
+      },
+      {
+        "equation": "0.0064099273 / B03",
+        "complexity": 3,
+        "loss": 0.030850643
+      },
+      {
+        "equation": "square(B03 + -0.37244985)",
+        "complexity": 4,
+        "loss": 0.030800845
+      },
+      {
+        "equation": "square(sqrt(B12) - B11)",
+        "complexity": 5,
+        "loss": 0.030466942
+      },
+      {
+        "equation": "square(B11 - sqrt(B12)) / 0.82973564",
+        "complexity": 7,
+        "loss": 0.030418301
+      },
+      {
+        "equation": "square(B12) * ((0.47129026 - B11) / B03)",
+        "complexity": 8,
+        "loss": 0.030147048
+      },
+      {
+        "equation": "(B11 + -0.4730884) * ((B03 - B12) / 0.23067988)",
+        "complexity": 9,
+        "loss": 0.030011859
+      },
+      {
+        "equation": "(B03 - B12) * tanh((B11 + -0.45230454) / B03)",
+        "complexity": 10,
+        "loss": 0.029911086
+      },
+      {
+        "equation": "square(B03 - B12) * ((6.624248 / tanh(B11)) + -15.35836)",
+        "complexity": 11,
+        "loss": 0.029796207
+      },
+      {
+        "equation": "(B11 - (square(B12 / B03) * B8A)) * (B11 - 0.49320656)",
+        "complexity": 12,
+        "loss": 0.029508948
+      },
+      {
+        "equation": "((B11 - 0.4941444) * (B11 - (B12 * (B8A / B03)))) / 0.2627329",
+        "complexity": 13,
+        "loss": 0.029368214
+      },
+      {
+        "equation": "((B11 - (B12 * (B8A / tanh(B03)))) * (B11 - 0.49217585)) / 0.26654184",
+        "complexity": 14,
+        "loss": 0.029347984
+      },
+      {
+        "equation": "(tanh(B11 - 0.49109048) * (B11 - ((B12 * B8A) / tanh(B03)))) / 0.2606327",
+        "complexity": 15,
+        "loss": 0.02933903
+      }
+    ]
+  },
+  "Potassic_Skarn": {
+    "class_id": 6,
+    "n_train": 1616,
+    "best_equation": "(B03 * (B12 / square(B07))) + -0.45114133",
+    "complexity": 8,
+    "loss": 0.11471587,
+    "auc": 0.7704213890187097,
+    "f1": 0.4652061855670103,
+    "threshold": 0.25,
+    "time_s": 126.37351727485657,
+    "ground_truth": "Atlas Metal\u00edfero III Regi\u00f3n (field-mapped)",
+    "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jan-Mar 2024",
+    "pareto_front": [
+      {
+        "equation": "B02",
+        "complexity": 1,
+        "loss": 0.12964235
+      },
+      {
+        "equation": "tanh(B02)",
+        "complexity": 2,
+        "loss": 0.12952286
+      },
+      {
+        "equation": "B12 + -0.12349184",
+        "complexity": 3,
+        "loss": 0.1275556
+      },
+      {
+        "equation": "B12 - square(B07)",
+        "complexity": 4,
+        "loss": 0.12446622
+      },
+      {
+        "equation": "(B03 / B06) + -0.5188428",
+        "complexity": 5,
+        "loss": 0.12195336
+      },
+      {
+        "equation": "B03 / square(B07 / B12)",
+        "complexity": 6,
+        "loss": 0.12019357
+      },
+      {
+        "equation": "((B12 - B07) / 0.5194232) + B03",
+        "complexity": 7,
+        "loss": 0.118889436
+      },
+      {
+        "equation": "(B03 * (B12 / square(B07))) + -0.45114133",
+        "complexity": 8,
+        "loss": 0.11471587
+      },
+      {
+        "equation": "(B03 * (B12 / square(tanh(B07)))) + -0.49105898",
+        "complexity": 9,
+        "loss": 0.11408842
+      },
+      {
+        "equation": "(B12 * (B03 / (square(B07) + 0.00982708))) + -0.38354537",
+        "complexity": 10,
+        "loss": 0.11265918
+      },
+      {
+        "equation": "((((B03 / B07) - B07) / 0.19770807) * B12) + -0.3238265",
+        "complexity": 11,
+        "loss": 0.1108544
+      },
+      {
+        "equation": "(B12 * (((B03 / B07) - sqrt(B02)) / 0.12751958)) + -0.4333851",
+        "complexity": 12,
+        "loss": 0.11045125
+      },
+      {
+        "equation": "((((tanh(B03) / B07) - sqrt(B02)) * B12) / 0.12289324) + -0.43141812",
+        "complexity": 13,
+        "loss": 0.10993575
+      },
+      {
+        "equation": "(B03 * -2.0624747) + (((B03 - 0.09378109) * (1.905809 / B07)) * (B12 / B07))",
+        "complexity": 15,
+        "loss": 0.10991915
+      }
+    ]
+  }
+}

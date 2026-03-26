@@ -1,0 +1,32 @@
+{
+  "phase1_binary": {
+    "sr_auc": 0.8754690546875,
+    "sr_f1": 0.8070064499810294,
+    "clay_ratio_auc": 0.8680694062500001,
+    "iron_oxide_auc": 0.6965715234375,
+    "rf_auc": 0.9340325546875,
+    "rf_ba": 0.860375,
+    "n_altered": 8000,
+    "n_unaltered": 8000
+  },
+  "phase3_subclassification": {
+    "n_undifferentiated_pixels": 10000,
+    "sr_distribution": {
+      "Adv_Argillic": "7450",
+      "Iron_Oxide": "1815",
+      "Potassic_Skarn": "322",
+      "Propylitic": "245",
+      "Silicic": "164",
+      "Argillic_Phyllic": "4"
+    },
+    "rf_distribution": {
+      "Silicic": 1276,
+      "Adv_Argillic": 5324,
+      "Argillic_Phyllic": 1985,
+      "Propylitic": 239,
+      "Iron_Oxide": 269,
+      "Potassic_Skarn": 907
+    },
+    "sr_rf_agreement": 0.5175
+  }
+}

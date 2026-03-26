@@ -1,0 +1,224 @@
+{
+  "Adv_Argillic": {
+    "class_id": 2,
+    "n_train_positive": 2869,
+    "best_equation": "(tanh((B11 / B12) - 1.5441291) / 1.5552782) + 0.38552704",
+    "best_complexity": 10,
+    "best_loss": 0.065331414,
+    "test_auc": 0.9794692437490413,
+    "test_f1": 0.7606915377616015,
+    "training_time_s": 118.7353184223175,
+    "top_5_equations": [
+      {
+        "equation": "tanh(B11 / B12) * tanh((B11 / B12) - 0.9758487)",
+        "complexity": 11,
+        "loss": 0.064710625
+      },
+      {
+        "equation": "square(tanh(B11 / B12)) * tanh((B11 / B12) - 0.97827613)",
+        "complexity": 12,
+        "loss": 0.059288904
+      },
+      {
+        "equation": "tanh((B11 / B12) - 0.39843047) * tanh((B11 / B12) - 0.9766346)",
+        "complexity": 13,
+        "loss": 0.059238315
+      },
+      {
+        "equation": "(tanh(square(B11 / B12)) * tanh((B11 / B12) - 1.1427388)) + 0.08837163",
+        "complexity": 14,
+        "loss": 0.058563255
+      },
+      {
+        "equation": "(tanh(square(tanh(B11) / B12)) * tanh((B11 / B12) - 1.1426673)) + 0.0883448",
+        "complexity": 15,
+        "loss": 0.058561414
+      }
+    ]
+  },
+  "Argillic": {
+    "class_id": 3,
+    "n_train_positive": 2812,
+    "best_equation": "(tanh(square(B11 / B12)) / (0.5874845 + (B11 / B12))) - 0.20043024",
+    "best_complexity": 13,
+    "best_loss": 0.13700168,
+    "test_auc": 0.9485705632163518,
+    "test_f1": 0.0,
+    "training_time_s": 60.14893341064453,
+    "top_5_equations": [
+      {
+        "equation": "tanh(square(B11 / B12)) / ((B11 / B12) + 1.8873056)",
+        "complexity": 11,
+        "loss": 0.14310582
+      },
+      {
+        "equation": "tanh(square(B11 / B12)) / ((tanh(B11) / B12) + 1.8873056)",
+        "complexity": 12,
+        "loss": 0.1431048
+      },
+      {
+        "equation": "(tanh(square(B11 / B12)) / (0.5874845 + (B11 / B12))) - 0.20043024",
+        "complexity": 13,
+        "loss": 0.13700168
+      },
+      {
+        "equation": "(tanh(square(B11 / B12)) / sqrt((B11 / B12) + 0.87789005)) - 0.26575884",
+        "complexity": 14,
+        "loss": 0.13682641
+      },
+      {
+        "equation": "((tanh(square(B11 / B12)) / ((B11 / B12) + 0.99976414)) - 0.21386606) * 1.8483342",
+        "complexity": 15,
+        "loss": 0.13404515
+      }
+    ]
+  },
+  "Propylitic": {
+    "class_id": 4,
+    "n_train_positive": 3529,
+    "best_equation": "tanh((B12 / B11) - 0.6933294)",
+    "best_complexity": 6,
+    "best_loss": 0.1036787,
+    "test_auc": 0.9698860525471911,
+    "test_f1": 0.7903055848261328,
+    "training_time_s": 50.342649936676025,
+    "top_5_equations": [
+      {
+        "equation": "(tanh((B12 / B11) - 1.1129327) * 0.7431484) - -0.32937828",
+        "complexity": 10,
+        "loss": 0.09266549
+      },
+      {
+        "equation": "tanh(B12 / B11) * tanh((B12 / B11) - 0.68697846)",
+        "complexity": 11,
+        "loss": 0.08692375
+      },
+      {
+        "equation": "tanh(square(B12 / B11)) * tanh((B12 / B11) - 0.70121837)",
+        "complexity": 12,
+        "loss": 0.08147523
+      },
+      {
+        "equation": "(tanh((B12 / B11) - 0.6773733) * tanh(square(B12 / B11))) - B8A",
+        "complexity": 14,
+        "loss": 0.080690466
+      },
+      {
+        "equation": "(tanh((B12 / B11) - 0.67741686) * tanh(square(B12 / B11))) - tanh(B8A)",
+        "complexity": 15,
+        "loss": 0.08068437
+      }
+    ]
+  },
+  "Iron_Oxide": {
+    "class_id": 5,
+    "n_train_positive": 568,
+    "best_equation": "(sqrt(B12) * 0.5645525) - B11",
+    "best_complexity": 6,
+    "best_loss": 0.038403634,
+    "test_auc": 0.674892115592326,
+    "test_f1": 0.0,
+    "training_time_s": 66.35825967788696,
+    "top_5_equations": [
+      {
+        "equation": "(sqrt(B05) * tanh(tanh(square(B12 / B11)))) - B05",
+        "complexity": 11,
+        "loss": 0.037860516
+      },
+      {
+        "equation": "(sqrt(B05 / 1.4957352) * tanh(square(B12 / B11))) - B05",
+        "complexity": 12,
+        "loss": 0.037795287
+      },
+      {
+        "equation": "(tanh(sqrt(B05)) * (tanh(square(B12 / B11)) * 0.83117896)) - B05",
+        "complexity": 13,
+        "loss": 0.037781745
+      },
+      {
+        "equation": "((tanh(square(B12 / B11)) * tanh(tanh(sqrt(B05)))) * 0.84307235) - B05",
+        "complexity": 14,
+        "loss": 0.03777436
+      },
+      {
+        "equation": "((tanh(sqrt(B05 / 0.23723081)) * tanh(square(B12 / B11))) * 0.42180523) - B05",
+        "complexity": 15,
+        "loss": 0.03776902
+      }
+    ]
+  },
+  "Unaltered": {
+    "class_id": 6,
+    "n_train_positive": 1792,
+    "best_equation": "(tanh(square(B11 / B12)) * square(tanh(B12 / B11))) - 0.2061163",
+    "best_complexity": 13,
+    "best_loss": 0.100154094,
+    "test_auc": 0.9603206778398956,
+    "test_f1": 0.0,
+    "training_time_s": 70.38577842712402,
+    "top_5_equations": [
+      {
+        "equation": "tanh(square(B12 / B11)) * ((B11 * 0.23243734) / B12)",
+        "complexity": 11,
+        "loss": 0.10537217
+      },
+      {
+        "equation": "(tanh(square(B12 / B11)) * tanh(B11 / B12)) * 0.32375365",
+        "complexity": 12,
+        "loss": 0.10378451
+      },
+      {
+        "equation": "(tanh(square(B11 / B12)) * square(tanh(B12 / B11))) - 0.2061163",
+        "complexity": 13,
+        "loss": 0.100154094
+      },
+      {
+        "equation": "(tanh(tanh(square(B11 / B12))) * tanh(square(B12 / B11))) - 0.22552693",
+        "complexity": 14,
+        "loss": 0.098300606
+      },
+      {
+        "equation": "(tanh(square(B11 / B12)) * (tanh(square(B12 / B11)) * 0.67914987)) - 0.1575589",
+        "complexity": 15,
+        "loss": 0.09806717
+      }
+    ]
+  },
+  "Vegetation": {
+    "class_id": 7,
+    "n_train_positive": 2423,
+    "best_equation": "sqrt(B8A)",
+    "best_complexity": 2,
+    "best_loss": 0.13932875,
+    "test_auc": 0.7197543333185776,
+    "test_f1": 0.0076481835564053535,
+    "training_time_s": 64.86169624328613,
+    "top_5_equations": [
+      {
+        "equation": "(sqrt(B8A) - (B06 + 0.036075354)) / tanh(B8A + 0.30383834)",
+        "complexity": 11,
+        "loss": 0.13042966
+      },
+      {
+        "equation": "(sqrt(B8A) - tanh(B06 + 0.03606329)) / tanh(B8A + 0.30437064)",
+        "complexity": 12,
+        "loss": 0.13041857
+      },
+      {
+        "equation": "square(B06) + ((sqrt(B8A) - (B06 + 0.03615571)) / (B8A + 0.29346266))",
+        "complexity": 13,
+        "loss": 0.13040243
+      },
+      {
+        "equation": "((sqrt(B8A) + -0.036931284) - B06) / (B8A + (0.28760734 - (B06 - B8A)))",
+        "complexity": 14,
+        "loss": 0.1303958
+      },
+      {
+        "equation": "((sqrt(B8A) - B06) + -0.0366071) / (tanh(B8A + 0.30018038) - (B06 - B8A))",
+        "complexity": 15,
+        "loss": 0.13037387
+      }
+    ]
+  }
+}

@@ -4,8 +4,8 @@
 
 **"Automated Discovery of Spectral Indices for Hydrothermal Alteration Mapping using Symbolic Regression on Sentinel-2: A Case Study in the Chilean Andes"**
 
-Target principal: Remote Sensing of Environment (IF 13.5) o ISPRS Journal (IF 12.7).
-Alternativas: Ore Geology Reviews (IF 6.3), Remote Sensing MDPI (IF 5.0, rápido).
+Target: **Remote Sensing of Environment** (Elsevier hybrid, IF ~13.5, sin APC vía suscripción).
+JAG descartado (full OA, APC ~$3000). Alternativas: ISPRS Journal (IF 12.7), Ore Geology Reviews (IF 6.3).
 
 ## Investigador
 

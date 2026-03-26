@@ -1,0 +1,52 @@
+{
+  "Silicic": {
+    "formula": "B04 - 0.135",
+    "auc": 0.8639627160493827,
+    "f1": 0.37261146496815284,
+    "n_positive": 300
+  },
+  "Adv_Argillic": {
+    "formula": "0.83 - B02/B05",
+    "auc": 0.694993776106934,
+    "f1": 0.6375696471212523,
+    "n_positive": 2850
+  },
+  "Argillic_Phyllic": {
+    "formula": "0.09 / B05",
+    "auc": 0.5743924001924002,
+    "f1": 0.46916752312435767,
+    "n_positive": 2100
+  },
+  "Propylitic": {
+    "formula": "B03 - B11*0.48",
+    "auc": 0.8167875661375661,
+    "f1": 0.6007770762506071,
+    "n_positive": 1800
+  },
+  "emb_Silicic": {
+    "auc": 0.3869572839506173
+  },
+  "emb_Adv_Argillic": {
+    "auc": 0.5582386800334169
+  },
+  "emb_Argillic_Phyllic": {
+    "auc": 0.3555330447330447
+  },
+  "emb_Propylitic": {
+    "auc": 0.5453315343915344
+  },
+  "emb_balanced_accuracy": 0.24761278195488723,
+  "rf_s2_Silicic": {
+    "auc": 0.5010071604938271
+  },
+  "rf_s2_Adv_Argillic": {
+    "auc": 0.6683248538011696
+  },
+  "rf_s2_Argillic_Phyllic": {
+    "auc": 0.4888373737373737
+  },
+  "rf_s2_Propylitic": {
+    "auc": 0.5437666666666666
+  },
+  "rf_s2_balanced_accuracy": 0.2646741854636592
+}
