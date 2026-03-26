@@ -1,0 +1,107 @@
+{
+  "site": "Cuprite, Nevada, USA",
+  "bbox": {
+    "west": -117.28,
+    "south": 37.47,
+    "east": -117.1,
+    "north": 37.6
+  },
+  "n_s2_pixels": 20000,
+  "class_distribution": {
+    "Unaltered": 16534,
+    "Silicic": 1831,
+    "Adv_Argillic": 581,
+    "Argillic_Phyllic": 514,
+    "Propylitic": 540
+  },
+  "ground_truth_source": "USGS WMS \u2014 Hydrothermal alteration in Basin and Range (ASTER-derived)",
+  "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jun-Sep 2024",
+  "standalone_indices": {
+    "SR_Silicic": {
+      "auc": 0.7430651184180423,
+      "target_class": 1
+    },
+    "SR_Adv_Argillic": {
+      "auc": 0.6991481629105196,
+      "target_class": 2
+    },
+    "SR_Argillic": {
+      "auc": 0.5728460241434437,
+      "target_class": 3
+    },
+    "SR_Propylitic": {
+      "auc": 0.5407503045182901,
+      "target_class": 4
+    },
+    "Clay_Ratio_class1": {
+      "auc": 0.9477407022524338,
+      "target_class": 1
+    },
+    "Clay_Ratio_class2": {
+      "auc": 0.9408304800052543,
+      "target_class": 2
+    },
+    "Clay_Ratio_class3": {
+      "auc": 0.8721370745673537,
+      "target_class": 3
+    },
+    "Clay_Ratio_class4": {
+      "auc": 0.6461934262114117,
+      "target_class": 4
+    },
+    "Iron_Oxide_class1": {
+      "auc": 0.7003095880028517,
+      "target_class": 1
+    },
+    "Iron_Oxide_class2": {
+      "auc": 0.7473534312926488,
+      "target_class": 2
+    },
+    "Iron_Oxide_class3": {
+      "auc": 0.7024141546699596,
+      "target_class": 3
+    },
+    "Iron_Oxide_class4": {
+      "auc": 0.674711183434205,
+      "target_class": 4
+    }
+  },
+  "ensemble_rf": {
+    "RF(10 raw)": {
+      "ba": 0.49470440087931333,
+      "mean_auc": 0.9397073637697134,
+      "per_class": {
+        "Silicic": 0.9678787986444982,
+        "Adv_Argillic": 0.9431729305969322,
+        "Argillic_Phyllic": 0.9446833052756444,
+        "Propylitic": 0.9030944205617789
+      }
+    },
+    "RF(6 SR)": {
+      "ba": 0.5173047060132195,
+      "mean_auc": 0.94187580925748,
+      "per_class": {
+        "Silicic": 0.9696482927851626,
+        "Adv_Argillic": 0.9413113268987646,
+        "Argillic_Phyllic": 0.9525095180420368,
+        "Propylitic": 0.9040340993039561
+      }
+    },
+    "RF(6SR+7class)": {
+      "ba": 0.5527422582682123,
+      "mean_auc": 0.9515286513022095,
+      "per_class": {
+        "Silicic": 0.9719707847368692,
+        "Adv_Argillic": 0.9495294637667947,
+        "Argillic_Phyllic": 0.9601775102099266,
+        "Propylitic": 0.9244368464952478
+      }
+    }
+  },
+  "cross_site_transfer_chile_to_cuprite": {
+    "Silicic": 0.5974249174996609,
+    "Adv_Argillic": 0.671075908320887,
+    "Argillic_Phyllic": 0.7201005031647983,
+    "Propylitic": 0.46012699364318066
+  }
+}
