@@ -1,0 +1,90 @@
+{
+  "Salar de Atacama (salt flat)": {
+    "n_pixels": 500,
+    "n_scenes": 28,
+    "expected": "bright, non-silicic",
+    "B04_mean": 0.3328923,
+    "B04_std": 0.11945754783901266,
+    "silicic_score_mean": 0.1978923,
+    "silicic_positive_rate": 1.0,
+    "propylitic_score_mean": 0.121846992,
+    "adv_argillic_score_mean": 0.1707325409555483
+  },
+  "Salar de Uyuni (salt flat, Bolivia)": {
+    "n_pixels": 500,
+    "n_scenes": 10,
+    "expected": "very bright, non-silicic",
+    "B04_mean": 0.6458783000000001,
+    "B04_std": 0.031246284164841105,
+    "silicic_score_mean": 0.5108783,
+    "silicic_positive_rate": 1.0,
+    "propylitic_score_mean": 0.545918532,
+    "adv_argillic_score_mean": -0.05483841254198064
+  },
+  "Urban Santiago (Chile)": {
+    "n_pixels": 500,
+    "n_scenes": 33,
+    "expected": "mixed bright, non-silicic",
+    "B04_mean": 0.1486812,
+    "B04_std": 0.06628494102403652,
+    "silicic_score_mean": 0.01368119999999999,
+    "silicic_positive_rate": 0.516,
+    "propylitic_score_mean": 0.025925088000000002,
+    "adv_argillic_score_mean": 0.17163334306574365
+  },
+  "Sandy desert (Atacama)": {
+    "n_pixels": 500,
+    "n_scenes": 33,
+    "expected": "bright soil, non-silicic",
+    "B04_mean": 0.2773279,
+    "B04_std": 0.045458469250404816,
+    "silicic_score_mean": 0.1423279,
+    "silicic_positive_rate": 1.0,
+    "propylitic_score_mean": 0.047528352,
+    "adv_argillic_score_mean": 0.2226602883568756
+  },
+  "Maricunga silicic alteration (GT)": {
+    "n_pixels": 500,
+    "n_scenes": 17,
+    "expected": "true silicic alteration",
+    "B04_mean": 0.20233420000000002,
+    "B04_std": 0.06078439347694439,
+    "silicic_score_mean": 0.06733419999999998,
+    "silicic_positive_rate": 0.916,
+    "propylitic_score_mean": 0.027049344000000006,
+    "adv_argillic_score_mean": 0.28889992324447944
+  },
+  "Maricunga unaltered rock (GT)": {
+    "n_pixels": 500,
+    "n_scenes": 35,
+    "expected": "unaltered rock, dark",
+    "B04_mean": 0.22754219999999997,
+    "B04_std": 0.04413808830432057,
+    "silicic_score_mean": 0.09254219999999998,
+    "silicic_positive_rate": 0.99,
+    "propylitic_score_mean": 0.041795624,
+    "adv_argillic_score_mean": 0.284404702699598
+  },
+  "Snow/ice (high Andes)": {
+    "n_pixels": 500,
+    "n_scenes": 17,
+    "expected": "very bright, non-silicic",
+    "B04_mean": 0.19864839999999997,
+    "B04_std": 0.028930439634405836,
+    "silicic_score_mean": 0.0636484,
+    "silicic_positive_rate": 1.0,
+    "propylitic_score_mean": 0.033165176000000005,
+    "adv_argillic_score_mean": 0.24424925393644464
+  },
+  "Lake/water (Laguna Verde)": {
+    "n_pixels": 500,
+    "n_scenes": 12,
+    "expected": "dark, non-silicic",
+    "B04_mean": 0.22986849999999998,
+    "B04_std": 0.01880938523051724,
+    "silicic_score_mean": 0.09486849999999998,
+    "silicic_positive_rate": 1.0,
+    "propylitic_score_mean": 0.045740064000000004,
+    "adv_argillic_score_mean": 0.28110714218737703
+  }
+}
