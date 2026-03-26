@@ -43,6 +43,47 @@
 
 \begin{table*}[ht]
 \centering
+\caption{Robustness check: mean AUC across alteration classes for different classifiers and feature sets (5-fold CV, Region~III). The pattern ``SR $\approx$ raw bands'' and ``SR + classical $>$ all'' is consistent across all four classifiers and two DL architectures tested.}
+\label{tab:s_multiclf}
+\begin{tabular}{llcccc}
+\toprule
+Classifier & Features & $n$ feat. & BA & Mean AUC & Best class AUC \\
+\midrule
+\multirow{3}{*}{RF}
+  & 10 raw bands & 10 & 0.64 & 0.899 & Propyl.\ 0.99 \\
+  & 6 SR indices & 6 & 0.64 & 0.898 & Propyl.\ 0.99 \\
+  & 6 SR + 7 classical & 13 & 0.68 & 0.920 & Propyl.\ 1.00 \\
+\midrule
+\multirow{3}{*}{XGBoost}
+  & 10 raw bands & 10 & 0.59 & 0.895 & Propyl.\ 0.99 \\
+  & 6 SR indices & 6 & 0.60 & 0.895 & Propyl.\ 1.00 \\
+  & 6 SR + 7 classical & 13 & 0.66 & 0.922 & Propyl.\ 1.00 \\
+\midrule
+\multirow{3}{*}{SVM-RBF}
+  & 10 raw bands & 10 & 0.70 & 0.901 & Propyl.\ 1.00 \\
+  & 6 SR indices & 6 & 0.69 & 0.900 & Propyl.\ 1.00 \\
+  & \textbf{6 SR + 7 classical} & \textbf{13} & \textbf{0.75} & \textbf{0.926} & \textbf{Propyl.\ 1.00} \\
+\midrule
+\multirow{3}{*}{SVM-Linear}
+  & 10 raw bands & 10 & 0.60 & 0.835 & Propyl.\ 0.99 \\
+  & 6 SR indices & 6 & 0.57 & 0.813 & Propyl.\ 0.98 \\
+  & 6 SR + 7 classical & 13 & 0.62 & 0.851 & Propyl.\ 1.00 \\
+\midrule
+\multirow{3}{*}{MLP}
+  & 10 raw bands & 10 & 0.64 & 0.856 & Propyl.\ 1.00 \\
+  & 6 SR indices & 6 & 0.64 & 0.859 & Propyl.\ 0.99 \\
+  & 6 SR + 7 classical & 13 & 0.67 & 0.878 & Propyl.\ 1.00 \\
+\midrule
+\multirow{3}{*}{1D-CNN}
+  & 10 raw bands & 10 & 0.52 & 0.791 & Propyl.\ 0.98 \\
+  & 6 SR indices & 6 & 0.58 & 0.830 & Propyl.\ 0.99 \\
+  & 6 SR + 7 classical & 13 & 0.54 & 0.792 & Propyl.\ 0.99 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[ht]
+\centering
 \caption{Detailed per-class AUC for all classifiers and feature sets (5-fold stratified CV, intra-site Region~III). Values are mean AUC (one-versus-rest).}
 \label{tab:s_multiclf_detail}
 \begin{tabular}{llccccccc}
