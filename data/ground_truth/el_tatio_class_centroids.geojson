@@ -1,0 +1,144 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::32719"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          599844.0287769784,
+          7531331.510791367
+        ]
+      },
+      "properties": {
+        "class_id": 1,
+        "class_name": "Silicic",
+        "pixel_count": 139,
+        "bbox_west": 592740.0,
+        "bbox_east": 600020.0,
+        "bbox_north": 7537700.0,
+        "bbox_south": 7526260.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          602613.2291709781,
+          7528884.369024461
+        ]
+      },
+      "properties": {
+        "class_id": 2,
+        "class_name": "Adv. Argillic",
+        "pixel_count": 96644,
+        "bbox_west": 592620.0,
+        "bbox_east": 611300.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520280.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          602303.3222223686,
+          7530122.683495606
+        ]
+      },
+      "properties": {
+        "class_id": 3,
+        "class_name": "Argillic",
+        "pixel_count": 75901,
+        "bbox_west": 592620.0,
+        "bbox_east": 611300.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520280.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          600850.0049854495,
+          7530454.253052139
+        ]
+      },
+      "properties": {
+        "class_id": 4,
+        "class_name": "Propylitic",
+        "pixel_count": 86251,
+        "bbox_west": 592620.0,
+        "bbox_east": 611300.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520280.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          600893.2746222833,
+          7530050.660095338
+        ]
+      },
+      "properties": {
+        "class_id": 5,
+        "class_name": "Iron Oxide",
+        "pixel_count": 12377,
+        "bbox_west": 592620.0,
+        "bbox_east": 611280.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          601810.4040682451,
+          7530376.067363082
+        ]
+      },
+      "properties": {
+        "class_id": 6,
+        "class_name": "Unaltered",
+        "pixel_count": 72562,
+        "bbox_west": 592620.0,
+        "bbox_east": 611300.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520280.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          602843.7578004325,
+          7529305.761301617
+        ]
+      },
+      "properties": {
+        "class_id": 7,
+        "class_name": "Vegetation",
+        "pixel_count": 48555,
+        "bbox_west": 592620.0,
+        "bbox_east": 611280.0,
+        "bbox_north": 7539240.0,
+        "bbox_south": 7520300.0
+      }
+    }
+  ]
+}

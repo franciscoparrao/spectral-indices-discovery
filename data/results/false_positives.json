@@ -1,0 +1,296 @@
+{
+  "Andesite (Tertiary volcanics, fresh)": {
+    "n_pixels": 500,
+    "description": "Fresh andesitic volcanics, no mapped alteration",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.08036099999999999,
+        "std": 0.053042053683845986,
+        "positive_rate": 0.944,
+        "median": 0.07822499999999999
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.22275735597129245,
+        "std": 0.07041209598505345,
+        "positive_rate": 0.998,
+        "median": 0.22879234455730219
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4150987880268189,
+        "std": 0.10772780025093624,
+        "positive_rate": 1.0,
+        "median": 0.392370800598941
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.053817515999999996,
+        "std": 0.01994865768150188,
+        "positive_rate": 0.994,
+        "median": 0.054640999999999995
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.04917625547103388,
+        "std": 0.005091486547564386,
+        "positive_rate": 1.0,
+        "median": 0.04967835861989908
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.2061413252484088,
+        "std": 0.10461486678127893,
+        "positive_rate": 0.982,
+        "median": 0.19084429150949478
+      }
+    }
+  },
+  "Granite/Granodiorite (intrusive)": {
+    "n_pixels": 500,
+    "description": "Cretaceous-Tertiary granitoids",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.07824779999999998,
+        "std": 0.040159072887206944,
+        "positive_rate": 0.998,
+        "median": 0.06919999999999998
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.24332191127576927,
+        "std": 0.05086472272725844,
+        "positive_rate": 1.0,
+        "median": 0.24766170770565482
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4032158117267874,
+        "std": 0.06872667448804498,
+        "positive_rate": 1.0,
+        "median": 0.4093700250170571
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.053138564,
+        "std": 0.018913205498643112,
+        "positive_rate": 1.0,
+        "median": 0.05139500000000002
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.050490598958587346,
+        "std": 0.0053521839498269505,
+        "positive_rate": 1.0,
+        "median": 0.05135803047362809
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.23648401286602422,
+        "std": 0.0762373129477383,
+        "positive_rate": 1.0,
+        "median": 0.23411583647406992
+      }
+    }
+  },
+  "Sedimentary (marine/continental)": {
+    "n_pixels": 500,
+    "description": "Mesozoic sedimentary sequence",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.09034819999999999,
+        "std": 0.03106198781082756,
+        "positive_rate": 1.0,
+        "median": 0.09047499999999999
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.29579040907331206,
+        "std": 0.05098546638019771,
+        "positive_rate": 1.0,
+        "median": 0.29292128303596837
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.3737171243515526,
+        "std": 0.05082261786703358,
+        "positive_rate": 1.0,
+        "median": 0.3665614537546329
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.034725124,
+        "std": 0.014279039782023998,
+        "positive_rate": 0.976,
+        "median": 0.03506800000000001
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.05401480080921249,
+        "std": 0.0038611313303822986,
+        "positive_rate": 1.0,
+        "median": 0.05414048215781455
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.263937900587199,
+        "std": 0.07005516139900318,
+        "positive_rate": 1.0,
+        "median": 0.2543274606072527
+      }
+    }
+  },
+  "Basalt (mafic volcanics)": {
+    "n_pixels": 500,
+    "description": "Mafic volcanic flows",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.04023769999999999,
+        "std": 0.03548401011314815,
+        "positive_rate": 0.89,
+        "median": 0.03699999999999998
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.3217140549499964,
+        "std": 0.08445227034057749,
+        "positive_rate": 1.0,
+        "median": 0.3220128955962845
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4920341335292894,
+        "std": 0.09806931239463115,
+        "positive_rate": 1.0,
+        "median": 0.4792332608070793
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.021323652000000002,
+        "std": 0.024911084134394794,
+        "positive_rate": 0.782,
+        "median": 0.024096
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.048134735090905136,
+        "std": 0.00567009755004209,
+        "positive_rate": 1.0,
+        "median": 0.0485882138141106
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.09949031462119191,
+        "std": 0.09427366712202578,
+        "positive_rate": 0.872,
+        "median": 0.09432404475639972
+      }
+    }
+  },
+  "Alluvium/Colluvium (Quaternary)": {
+    "n_pixels": 500,
+    "description": "Recent sediments, fans",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.076934,
+        "std": 0.050568264000260085,
+        "positive_rate": 0.98,
+        "median": 0.06774999999999999
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.30453855198698443,
+        "std": 0.05901792437398387,
+        "positive_rate": 1.0,
+        "median": 0.31126052817109856
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4186430483910461,
+        "std": 0.0896504699307796,
+        "positive_rate": 1.0,
+        "median": 0.4189958663929423
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.029973544000000008,
+        "std": 0.02421108691653607,
+        "positive_rate": 0.914,
+        "median": 0.029218
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.04705598108033024,
+        "std": 0.009678138227880913,
+        "positive_rate": 1.0,
+        "median": 0.04940736728264191
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.2011086898312512,
+        "std": 0.1235879369264079,
+        "positive_rate": 0.984,
+        "median": 0.16647493018954007
+      }
+    }
+  },
+  "Greenschist (metamorphic)": {
+    "n_pixels": 500,
+    "description": "Low-grade metamorphic \u2014 chlorite-bearing but non-hydrothermal",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.06706770000000001,
+        "std": 0.02856576310393265,
+        "positive_rate": 0.998,
+        "median": 0.06439999999999999
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.2417421144023239,
+        "std": 0.044581495790754405,
+        "positive_rate": 1.0,
+        "median": 0.24525946737669985
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4168731305959212,
+        "std": 0.05702230616343577,
+        "positive_rate": 1.0,
+        "median": 0.41369835010328193
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.03132208400000001,
+        "std": 0.016897826324144296,
+        "positive_rate": 0.948,
+        "median": 0.03177499999999999
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.05081393252947386,
+        "std": 0.003976200550147713,
+        "positive_rate": 1.0,
+        "median": 0.05137187491499896
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.31093240698470953,
+        "std": 0.07706481197235714,
+        "positive_rate": 1.0,
+        "median": 0.3087521226706565
+      }
+    }
+  },
+  "Altered rock (ground truth positive)": {
+    "n_pixels": 500,
+    "description": "Known alteration zone (Maricunga)",
+    "indices": {
+      "Silicic (B04-0.135)": {
+        "mean": 0.06733419999999998,
+        "std": 0.06078439347694439,
+        "positive_rate": 0.916,
+        "median": 0.05614999999999998
+      },
+      "Adv.Argillic (0.83-B02/B05)": {
+        "mean": 0.28889992324447944,
+        "std": 0.056734712713613626,
+        "positive_rate": 1.0,
+        "median": 0.2913923256624061
+      },
+      "Argillic (0.09/B05)": {
+        "mean": 0.4512849577638774,
+        "std": 0.11960110423299959,
+        "positive_rate": 1.0,
+        "median": 0.44302263877547554
+      },
+      "Propylitic (B03-0.48*B11)": {
+        "mean": 0.027049344000000006,
+        "std": 0.024115350861757413,
+        "positive_rate": 0.858,
+        "median": 0.030286
+      },
+      "Iron Oxide ((\u221aB12-B11)\u00b2)": {
+        "mean": 0.04367491803699987,
+        "std": 0.011819495948128873,
+        "positive_rate": 1.0,
+        "median": 0.04737812678686226
+      },
+      "Potassic (B03*B12/B07\u00b2-0.45)": {
+        "mean": 0.20049823684432702,
+        "std": 0.14337991469367142,
+        "positive_rate": 0.968,
+        "median": 0.16458473415755837
+      }
+    }
+  }
+}

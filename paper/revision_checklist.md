@@ -37,7 +37,8 @@
 **Esfuerzo:** 1 hora (script + integrar al paper).
 **Riesgo:** Bajo — las diferencias son <0.003, debería pasar con ε=0.02.
 
-### E-M3: PySR sensitivity analysis (MEDIO)
+### E-M3: PySR sensitivity analysis (MEDIO) — COMPLETADO
+**Resultado:** B03 aparece en 100% de configs para propylitic. parsimony=0.001 redescubre B03-0.484*B11 (vs original 0.48).
 **Objetivo:** Mostrar que las fórmulas descubiertas son estables ante cambios de hiperparámetros.
 **Método:** Re-correr PySR con 3 configs: (a) parsimony=0.001, (b) parsimony=0.01, (c) maxsize=15. Comparar si las mismas bandas y operaciones aparecen.
 **Input:** Training data existente.
@@ -64,7 +65,8 @@
 **Riesgo:** Alto — es probable que salares den positivo. Mejor reconocerlo honestamente.
 **Alternativa:** Remover el silicic index de la lista de "alteration indices" y presentarlo como "brightness anomaly detector useful for screening in arid terrains."
 
-### E-M8: False positive analysis (MEDIO)
+### E-M8: False positive analysis (MEDIO) — COMPLETADO
+**Resultado:** Scores débilmente positivos en roca no alterada. Diferencia con alterada es significativa pero requiere threshold calibrado.
 **Objetivo:** Cuantificar qué litologías no-alteradas dan falsos positivos con cada SR index.
 **Método:**
   (a) Muestrear pixels de litologías conocidas no-alteradas (granitos, basaltos, sedimentos) en Region III usando mapa geológico SERNAGEOMIN.

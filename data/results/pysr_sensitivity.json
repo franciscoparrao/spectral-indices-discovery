@@ -1,0 +1,151 @@
+{
+  "Silicic": {
+    "selected_formula": "B04 - 0.135",
+    "n_pareto": 14,
+    "top_bands": [
+      "B03",
+      "B12",
+      "B04",
+      "B06"
+    ],
+    "stable_bands_50pct": [
+      "B03",
+      "B12",
+      "B04"
+    ],
+    "band_frequencies": {
+      "B03": 0.8571428571428571,
+      "B12": 0.7857142857142857,
+      "B04": 0.6428571428571429,
+      "B06": 0.42857142857142855
+    },
+    "eq_6band": "?",
+    "eq_10band": "?",
+    "bands_stable_across_configs": false
+  },
+  "Adv_Argillic": {
+    "selected_formula": "0.83 - B02/B05",
+    "n_pareto": 14,
+    "top_bands": [
+      "B02",
+      "B05",
+      "B12",
+      "B06"
+    ],
+    "stable_bands_50pct": [
+      "B02",
+      "B05",
+      "B12"
+    ],
+    "band_frequencies": {
+      "B02": 0.8571428571428571,
+      "B05": 0.7142857142857143,
+      "B12": 0.6428571428571429,
+      "B06": 0.21428571428571427
+    },
+    "eq_6band": "(tanh((B11 / B12) - 1.5441291) / 1.5552782) + 0.38552704",
+    "eq_10band": "0.8560658 - tanh(B12 / B11)",
+    "bands_stable_across_configs": true
+  },
+  "Argillic_Phyllic": {
+    "selected_formula": "0.09/B05",
+    "n_pareto": 11,
+    "top_bands": [
+      "B03",
+      "B05",
+      "B12",
+      "B04",
+      "B06"
+    ],
+    "stable_bands_50pct": [
+      "B03",
+      "B05",
+      "B12"
+    ],
+    "band_frequencies": {
+      "B03": 0.5454545454545454,
+      "B05": 0.5454545454545454,
+      "B12": 0.5454545454545454,
+      "B04": 0.36363636363636365,
+      "B06": 0.18181818181818182
+    },
+    "eq_6band": "?",
+    "eq_10band": "?",
+    "bands_stable_across_configs": false
+  },
+  "Propylitic": {
+    "selected_formula": "B03 - 0.48*B11",
+    "n_pareto": 14,
+    "top_bands": [
+      "B03",
+      "B11",
+      "B02",
+      "B12",
+      "B8A"
+    ],
+    "stable_bands_50pct": [
+      "B03",
+      "B11"
+    ],
+    "band_frequencies": {
+      "B03": 0.7857142857142857,
+      "B11": 0.7857142857142857,
+      "B02": 0.35714285714285715,
+      "B12": 0.2857142857142857,
+      "B8A": 0.14285714285714285
+    },
+    "eq_6band": "tanh((B12 / B11) - 0.6933294)",
+    "eq_10band": "tanh(B02 / B8A) * tanh((B12 / B11) - 0.6331987)",
+    "bands_stable_across_configs": true
+  },
+  "Iron_Oxide": {
+    "selected_formula": "(sqrt(B12)-B11)^2",
+    "n_pareto": 13,
+    "top_bands": [
+      "B03",
+      "B11",
+      "B12",
+      "B8A"
+    ],
+    "stable_bands_50pct": [
+      "B03",
+      "B11",
+      "B12"
+    ],
+    "band_frequencies": {
+      "B03": 0.7692307692307693,
+      "B11": 0.7692307692307693,
+      "B12": 0.7692307692307693,
+      "B8A": 0.3076923076923077
+    },
+    "eq_6band": "(sqrt(B12) * 0.5645525) - B11",
+    "eq_10band": "tanh(B04 / B8A) * tanh(square(log(B04 / B02)))",
+    "bands_stable_across_configs": false
+  },
+  "Potassic_Skarn": {
+    "selected_formula": "B03*B12/B07^2 - 0.45",
+    "n_pareto": 14,
+    "top_bands": [
+      "B12",
+      "B03",
+      "B07",
+      "B02",
+      "B06"
+    ],
+    "stable_bands_50pct": [
+      "B12",
+      "B03",
+      "B07"
+    ],
+    "band_frequencies": {
+      "B12": 0.7857142857142857,
+      "B03": 0.7142857142857143,
+      "B07": 0.7142857142857143,
+      "B02": 0.2857142857142857,
+      "B06": 0.07142857142857142
+    },
+    "eq_6band": "?",
+    "eq_10band": "?",
+    "bands_stable_across_configs": false
+  }
+}
