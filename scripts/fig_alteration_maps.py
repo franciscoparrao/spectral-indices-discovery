@@ -23,26 +23,33 @@ with rasterio.open(S2_DIR / "B11.tif") as ref:
     ref_transform = ref.transform
     ref_crs = ref.crs
     ref_shape = ref.shape
-    B11_full = ref.read(1).astype(np.float32) / 10000.0
+    B11_full = ref.read(1).astype(np.float32)
+    B11_full[B11_full > 20000] = 0
+    B11_full = B11_full / 10000.0
 
 # For 10m bands, we need to resample to 20m
 def load_band(name, ref_shape, ref_transform, ref_crs):
     with rasterio.open(S2_DIR / f"{name}.tif") as src:
         if src.shape == ref_shape:
-            return src.read(1).astype(np.float32) / 10000.0
+            arr = src.read(1).astype(np.float32)
         else:
             # Resample to reference grid
-            dst_array = np.zeros(ref_shape, dtype=np.float32)
+            arr = np.zeros(ref_shape, dtype=np.float32)
             reproject(
                 source=rasterio.band(src, 1),
-                destination=dst_array,
+                destination=arr,
                 src_transform=src.transform,
                 src_crs=src.crs,
                 dst_transform=ref_transform,
                 dst_crs=ref_crs,
                 resampling=Resampling.bilinear,
             )
-            return dst_array / 10000.0
+        # Some bands have bimodal distribution (real data + nodata at ~65000)
+        # Mask nodata: values > 20000 are cloud/saturation flags in S2 L2A
+        arr[arr > 20000] = 0
+        # Scale to reflectance (S2 L2A values are 0-10000)
+        arr = arr / 10000.0
+        return arr
 
 bands = {}
 for bname in ['B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B8A', 'B12']:
@@ -50,7 +57,7 @@ for bname in ['B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B8A', 'B12']:
     bands[bname] = load_band(bname, ref_shape, ref_transform, ref_crs)
 bands['B11'] = B11_full
 
-# Mask nodata
+# Mask nodata (zero values)
 valid = bands['B04'] > 0
 
 # ===== Compute SR indices =====
@@ -154,9 +161,17 @@ ax = axes2[0, 0]
 rgb = np.stack([bands['B04'][r0:r1, c0:c1],
                 bands['B03'][r0:r1, c0:c1],
                 bands['B02'][r0:r1, c0:c1]], axis=-1)
-# Stretch for visualization
-rgb_stretch = np.clip(rgb * 3.5, 0, 1)
-ax.imshow(rgb_stretch)
+# Robust percentile stretch per channel with gamma correction for true color
+mask_sub = valid[r0:r1, c0:c1]
+# Percentile stretch per channel for display, then gamma
+for ch in range(3):
+    vals = rgb[:,:,ch][mask_sub & (rgb[:,:,ch] > 0)]
+    if len(vals) > 100:
+        p2, p98 = np.percentile(vals, [2, 98])
+        rgb[:,:,ch] = np.clip((rgb[:,:,ch] - p2) / max(p98 - p2, 1e-6), 0, 1)
+rgb = np.power(np.clip(rgb, 0, 1), 0.6)
+rgb[~np.stack([mask_sub]*3, axis=-1)] = 0
+ax.imshow(rgb)
 ax.set_title('(a) Sentinel-2 True Color (B04-B03-B02)', fontsize=11, fontweight='bold')
 ax.set_xticks([]); ax.set_yticks([])
 
@@ -165,8 +180,14 @@ ax = axes2[0, 1]
 swir_rgb = np.stack([bands['B12'][r0:r1, c0:c1],
                      bands['B11'][r0:r1, c0:c1],
                      bands['B04'][r0:r1, c0:c1]], axis=-1)
-swir_stretch = np.clip(swir_rgb * 3.5, 0, 1)
-ax.imshow(swir_stretch)
+for ch in range(3):
+    vals = swir_rgb[:,:,ch][mask_sub & (swir_rgb[:,:,ch] > 0)]
+    if len(vals) > 100:
+        p2, p98 = np.percentile(vals, [2, 98])
+        swir_rgb[:,:,ch] = np.clip((swir_rgb[:,:,ch] - p2) / max(p98 - p2, 1e-6), 0, 1)
+swir_rgb = np.power(np.clip(swir_rgb, 0, 1), 0.6)
+swir_rgb[~np.stack([mask_sub]*3, axis=-1)] = 0
+ax.imshow(swir_rgb)
 ax.set_title('(b) SWIR False Color (B12-B11-B04)', fontsize=11, fontweight='bold')
 ax.set_xticks([]); ax.set_yticks([])
 

@@ -1,4 +1,7 @@
-\documentclass[review,authoryear]{elsarticle}
+\documentclass[preprint,authoryear,number]{elsarticle}
+\usepackage{setspace}
+\setlength{\parskip}{0.5em}
+\setlength{\footnotesep}{12pt}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
@@ -26,9 +29,7 @@
 \ead{francisco.parra@citiaps.cl}
 \cortext[cor1]{Corresponding author}
 
-\affiliation[citiaps]{organization={Centro de Investigaci\'on en Tecnolog\'ias de Informaci\'on para la Agricultura y la Sociedad (CITIAPS)},
-  city={Santiago},
-  country={Chile}}
+\address[citiaps]{CITIAPS, Santiago, Chile}
 
 \begin{abstract}
 Spectral indices for hydrothermal alteration mapping have historically been designed through expert knowledge for the ASTER sensor. We present symbolic regression (SR) as a data-driven feature engineering approach that discovers interpretable spectral formulas from Sentinel-2 data. Using field-mapped alteration polygons from Chile's Atacama Region as ground truth, PySR discovered six compact indices (1--3 bands, complexity 3--8) across alteration classes: silicic, advanced argillic, argillic-phyllic, propylitic, iron oxide, and potassic-skarn. A Random Forest trained on six SR-derived features (mean AUC = 0.898) matches its performance on all 10 raw Sentinel-2 bands (0.899), demonstrating near-lossless compression (TOST $p < 0.001$, $\varepsilon = 0.01$). Combining SR and classical indices yields the best performance (mean AUC = 0.920), confirmed across four classifiers and two deep learning architectures. External validation at Cuprite, Nevada (USA) replicates the equivalence (SR 0.942 vs.\ raw 0.940), confirming cross-continent generalization. As standalone indices, the propylitic formula ($B_{03} - 0.48 \cdot B_{11}$; AUC = 0.91, DeLong $p < 0.001$) significantly outperforms classical indices, though standalone transferability varies by class and geological context. Physical interpretation confirms that discovered formulas exploit mineral absorption mechanisms consistent with spectroscopic theory. The methodology is reproducible, sensor-specific, and applicable to other remote sensing classification problems.
