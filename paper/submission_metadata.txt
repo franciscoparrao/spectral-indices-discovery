@@ -1,0 +1,96 @@
+============================================================
+TITLE
+============================================================
+Symbolic Regression as Spectral Feature Engineering: Discovering Interpretable Indices for Hydrothermal Alteration Mapping from Sentinel-2
+
+============================================================
+ABSTRACT (plain text, ~425 words — current version from main.tex)
+============================================================
+The central contribution of this work is not a single spectral index, but a transferable methodology for automated spectral feature discovery. We present symbolic regression (SR) as a general-purpose framework for automated and interpretable spectral feature engineering in multispectral classification: the framework requires only labeled pixels and a sensor's band configuration as input, and can be re-applied at any new site to discover locally optimal formulas. The key empirical result supporting this claim is that a compact set of SR-derived features preserves nearly all the discriminative information contained in the original multispectral bands. We demonstrate the approach on hydrothermal alteration mapping with Sentinel-2 — a challenging test case with six spectrally similar classes — using field-mapped ground truth from Chile's Atacama Region for training and two geologically independent sites for validation: Chile's Coquimbo Region (200 km distant, same metallogenic belt) and Cuprite, Nevada, USA (different continent and geological province). PySR discovered six class-specific indices (1–3 bands, complexity 3–8 expression tree nodes) on a 70% training partition, evaluated on a locked 30% hold-out subset. A Random Forest trained on six SR-derived features (mean AUC = 0.898) matches its performance on all 10 raw Sentinel-2 bands (0.899), formally demonstrating near-lossless dimensionality reduction (TOST p < 0.001, ε = 0.01). Under polygon-disjoint spatial cross-validation, which removes autocorrelation between adjacent pixels, the equivalence is preserved (SR 0.815 vs. raw 0.822; Δ = -0.007), confirming that the result is not an artefact of spatial autocorrelation. SR beats mutual-information band selection by +0.02 to +0.06 AUC, while PCA(6) reaches higher absolute AUC (+0.04 on average); SR and PCA therefore occupy distinct points on the accuracy–interpretability trade-off, with SR providing closed-form, sensor-agnostic, physically interpretable features at near-equivalent accuracy to the raw bands. This feature engineering equivalence replicates at Cuprite (SR 0.942 vs. raw 0.940), confirming cross-continent generalization of the methodology rather than of any single formula. Combining SR and classical indices yields the best performance (mean AUC = 0.920), confirmed across four classifiers and two deep learning architectures. As standalone indices, the propylitic formula (B03 − 0.48·B11; AUC = 0.91, DeLong p < 0.001) significantly outperforms classical indices, though standalone transferability varies by class — a property expected of site-fitted formulas and distinct from the transferability of the discovery framework itself. Physical interpretation confirms that discovered formulas exploit mineral absorption mechanisms consistent with spectroscopic theory. A cross-domain proof-of-concept on land cover classification replicates the key pattern (SR + classical AUC 0.926 vs. raw 0.920), supporting that the framework generalizes beyond geological applications. The methodology is sensor-agnostic, reproducible, and applicable to a broad range of multispectral classification problems where labeled pixels are available and compact, interpretable features are preferred over black-box models.
+
+============================================================
+TARGET JOURNAL
+============================================================
+ISPRS Journal of Photogrammetry and Remote Sensing
+
+============================================================
+KEYWORDS (max 6, separar con ;)
+============================================================
+symbolic regression; automated feature engineering; multispectral classification; Sentinel-2; hydrothermal alteration; interpretable machine learning
+
+(Eliminado "spectral indices" para respetar el límite de 6 — el concepto queda implícito en "automated feature engineering" + "multispectral classification". Si prefieres mantener "spectral indices", elimina "interpretable machine learning" en su lugar.)
+
+============================================================
+WORD COUNT
+============================================================
+~11,904 words (abstract + body + tables + figure captions, sin referencias)
+
+============================================================
+AUTHORS (en este orden — drag & drop en EM)
+============================================================
+1. Dr. Francisco Parra O. [Corresponding Author] [First Author]
+   Email: francisco.parra.o@usach.cl
+   Affiliation: Universidad de Santiago de Chile (USACH), Santiago, Chile
+
+2. Dr. Gonzalo Ríos
+   Email: gonzalo.rios@dim.uchile.cl
+   Affiliation: Departamento de Ingeniería Matemática, Facultad de Ciencias Físicas y Matemáticas, Universidad de Chile, Santiago, Chile
+
+3. Dr. Mauricio Latorre
+   Email: mauricio.latorre@uoh.cl
+   Affiliations (multi):
+     - Laboratorio de Bioingeniería, Instituto de Ciencias de la Ingeniería, Universidad de O'Higgins, Rancagua, Chile
+     - Centro de Biología de Sistemas para el Estudio de Comunidades Extremófilas de Relaves Mineros (SYSTEMIX), Universidad de O'Higgins, Rancagua, Chile
+     - Millennium Institute Center for Genome Regulation, Santiago, Chile
+     - Center for Mathematical Modeling, University of Chile, Santiago, Chile
+     - Laboratorio de Bioinformática y Expresión Génica, INTA, Universidad de Chile, Santiago, Chile
+
+============================================================
+FUNDING SOURCES (cada línea = entrada separada en EM)
+============================================================
+Si el dropdown encuentra el funder por nombre, úsalo (autocompleta Crossref Funder ID). Si no, escribe el nombre completo manualmente.
+
+1. Funder: Agencia Nacional de Investigación y Desarrollo (ANID), Chile
+   Programme: Anillo Regular
+   Award number: ACT210004
+   Recipient: Mauricio Latorre
+
+2. Funder: Agencia Nacional de Investigación y Desarrollo (ANID), Chile
+   Programme: FONDECYT Regular
+   Award number: 1230194
+   Recipient: Mauricio Latorre
+
+3. Funder: Agencia Nacional de Investigación y Desarrollo (ANID), Chile
+   Programme: Millennium Science Initiative Program
+   Award number: ICN2021_044
+   Recipient: Mauricio Latorre
+
+4. Funder: Agencia Nacional de Investigación y Desarrollo (ANID), Chile
+   Programme: Fondo Basal
+   Award number: FB210005
+   Recipient: Mauricio Latorre
+
+5. Funder: Agencia Nacional de Investigación y Desarrollo (ANID), Chile
+   Programme: Apoyo a Centros de Excelencia (Center for Mathematical Modeling)
+   Award number: ACE210010
+   Recipient: Mauricio Latorre
+
+6. Funder: Universidad de Santiago de Chile (USACH) — Vicerrectoría de Investigación, Innovación y Creación
+   Programme: Postdoctorate 2026 Project
+   Award number: 062619MC_POSTDOC
+   Recipient: Francisco Parra O.
+
+7. Funder: Universidad de O'Higgins (UOH)
+   Programme: Fondo Interdisciplinario y Proyecto Núcleo
+   Award number: (no disponible)
+   Recipient: Mauricio Latorre
+
+============================================================
+DECLARATION OF INTEREST
+============================================================
+Archivo: declaration_of_interest.pdf — sin conflictos para los 3 autores.
+
+============================================================
+DECLARATION OF GENERATIVE AI
+============================================================
+Use of Claude (Anthropic) for language editing, declarado en el manuscrito.

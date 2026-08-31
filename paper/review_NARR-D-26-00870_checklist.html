@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checklist de revisión — NARR-D-26-00870</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --fg-soft: #4a4a4a;
+      --accent: #1e5aa8;
+      --accent-fg: #ffffff;
+      --border: #d9d9d9;
+      --code-bg: #f4f4f4;
+      --card-bg: #f7f7f7;
+      --warn-bg: #fff8e1;
+      --warn-border: #ffb300;
+      --focus: #005fcc;
+      --danger: #b3261e;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131519;
+        --fg: #eaeaea;
+        --fg-soft: #b5b5b5;
+        --accent: #7aa7dc;
+        --accent-fg: #0f1216;
+        --border: #2b2f36;
+        --code-bg: #1c1f24;
+        --card-bg: #1a1d22;
+        --warn-bg: #3a2f10;
+        --warn-border: #d4a017;
+        --focus: #9ecbff;
+        --danger: #e57373;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #131519;
+      --fg: #eaeaea;
+      --fg-soft: #b5b5b5;
+      --accent: #7aa7dc;
+      --accent-fg: #0f1216;
+      --border: #2b2f36;
+      --code-bg: #1c1f24;
+      --card-bg: #1a1d22;
+      --warn-bg: #3a2f10;
+      --warn-border: #d4a017;
+      --focus: #9ecbff;
+      --danger: #e57373;
+    }
+    :root[data-theme="light"] {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --fg-soft: #4a4a4a;
+      --accent: #1e5aa8;
+      --accent-fg: #ffffff;
+      --border: #d9d9d9;
+      --code-bg: #f4f4f4;
+      --card-bg: #f7f7f7;
+      --warn-bg: #fff8e1;
+      --warn-border: #ffb300;
+      --focus: #005fcc;
+      --danger: #b3261e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a.skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent);
+      color: var(--accent-fg);
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      text-decoration: none;
+      border-radius: 0 0 4px 0;
+    }
+    a.skip-link:focus { left: 0; outline: 3px solid var(--focus); }
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      max-width: 76rem;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    @media (min-width: 960px) {
+      .layout { grid-template-columns: 16rem minmax(0, 1fr); }
+      nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto; }
+    }
+    header.page {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header.page h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      line-height: 1.25;
+    }
+    header.page p.subtitle {
+      margin: 0.25rem 0;
+      color: var(--fg-soft);
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .meta-grid dt { font-weight: 600; color: var(--fg-soft); }
+    .meta-grid dd { margin: 0 0 0.5rem; }
+    nav.toc {
+      font-size: 0.9rem;
+    }
+    nav.toc h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-soft);
+      margin: 0 0 0.75rem;
+    }
+    nav.toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: toc;
+    }
+    nav.toc li {
+      counter-increment: toc;
+      margin: 0.35rem 0;
+    }
+    nav.toc a {
+      color: var(--fg);
+      text-decoration: none;
+      display: block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      border-left: 2px solid transparent;
+    }
+    nav.toc a::before {
+      content: counter(toc) ". ";
+      color: var(--fg-soft);
+      font-variant-numeric: tabular-nums;
+    }
+    nav.toc a:hover, nav.toc a:focus-visible {
+      background: var(--card-bg);
+      border-left-color: var(--accent);
+    }
+    main { min-width: 0; }
+    section.chapter {
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 1rem;
+    }
+    section.chapter > h2 {
+      font-size: 1.35rem;
+      margin: 0 0 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--accent);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    section.chapter > h2 .num {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 0.85em;
+      font-weight: 700;
+    }
+    section.chapter > h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--fg);
+    }
+    p { margin: 0.5rem 0 1rem; }
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0 1rem; }
+    li { margin: 0.4rem 0; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist > li {
+      position: relative;
+      padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+      margin: 0.25rem 0;
+      border-radius: 4px;
+    }
+    .checklist > li:hover { background: var(--card-bg); }
+    .checklist input[type="checkbox"] {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.85rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+    .checklist label {
+      cursor: pointer;
+      display: block;
+    }
+    .checklist input:checked + label {
+      text-decoration: line-through;
+      color: var(--fg-soft);
+    }
+    .callout {
+      padding: 0.85rem 1.15rem;
+      border-left: 4px solid var(--warn-border);
+      background: var(--warn-bg);
+      border-radius: 0 4px 4px 0;
+      margin: 1rem 0;
+    }
+    .callout p:first-child { margin-top: 0; }
+    .callout p:last-child { margin-bottom: 0; }
+    code {
+      font-family: var(--font-mono);
+      background: var(--code-bg);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    strong { color: var(--fg); }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .tag-major { background: rgba(179, 38, 30, 0.12); color: var(--danger); border: 1px solid var(--danger); }
+    .tag-minor { background: rgba(30, 90, 168, 0.12); color: var(--accent); border: 1px solid var(--accent); }
+    .theme-toggle {
+      position: fixed;
+      right: 1rem;
+      top: 1rem;
+      background: var(--card-bg);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+    .theme-toggle:focus-visible { outline: 3px solid var(--focus); }
+    .progress {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+      z-index: 10;
+      font-size: 0.9rem;
+    }
+    .progress-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-bar > span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.2s;
+      width: 0%;
+    }
+    @media print {
+      .theme-toggle, .skip-link, nav.toc, .progress { display: none; }
+      body { font-size: 11pt; }
+      .layout { display: block; padding: 0; }
+      section.chapter { page-break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      .checklist input[type="checkbox"] { accent-color: #000; }
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <button type="button" class="theme-toggle" aria-pressed="false" id="themeToggle" title="Alternar tema claro/oscuro">Cambiar tema</button>
+
+  <div class="layout">
+
+    <header class="page">
+      <p class="subtitle">Revisión por pares — Natural Resources Research (Springer)</p>
+      <h1>Checklist de revisión — NARR-D-26-00870</h1>
+      <p class="subtitle"><em>Sparse Spectral Unmixing with Nonlinear Mixing Model Applied to HISUI Imagery for Accurate Identification and Mapping of Hydrothermal Alteration Minerals</em></p>
+      <dl class="meta-grid" aria-label="Metadatos de la revisión">
+        <div><dt>Editor-in-Chief</dt><dd>John Carranza</dd></div>
+        <div><dt>Modalidad</dt><dd>Single-anonymised (autores ven tu informe; no tu identidad)</dd></div>
+        <div><dt>Plazo</dt><dd>30 días desde la aceptación</dd></div>
+        <div><dt>Ángulo del revisor</dt><dd>Validación en Cuprite + expertise en multispectral / SR. No experto en teoría de unmixing sparse.</dd></div>
+      </dl>
+    </header>
+
+    <nav class="toc" aria-label="Índice del checklist">
+      <h2>Contenidos</h2>
+      <ol>
+        <li><a href="#s0">Primera pasada (60 min)</a></li>
+        <li><a href="#s1">Novedad y estado del arte</a></li>
+        <li><a href="#s2">Rigor metodológico</a></li>
+        <li><a href="#s3">Validación y estadística</a></li>
+        <li><a href="#s4">Reproducibilidad</a></li>
+        <li><a href="#s5">Cuprite (tu expertise)</a></li>
+        <li><a href="#s6">Escritura y encuadre</a></li>
+        <li><a href="#s7">Ajuste al scope de NRR</a></li>
+        <li><a href="#s8">Lógica de recomendación</a></li>
+        <li><a href="#s9">Estructura del informe</a></li>
+        <li><a href="#s10">Presupuesto de tiempo</a></li>
+      </ol>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+
+      <div class="progress" aria-live="polite">
+        <div>
+          Progreso: <span id="progressCount">0</span> de <span id="progressTotal">0</span> ítems verificados
+        </div>
+        <div class="progress-bar" role="progressbar" aria-labelledby="progressCount" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="progressFill"></span>
+        </div>
+      </div>
+
+      <section class="chapter" id="s0" aria-labelledby="h-s0">
+        <h2 id="h-s0"><span class="num">§0</span> Primera pasada — resumen, figuras, tablas (60 min)</h2>
+        <p>Antes de tocar las ecuaciones, decide la historia de alto nivel y clava las afirmaciones:</p>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c0-1"><label for="c0-1"><strong>Afirmación central:</strong> "κ 1,4–1,5 veces mayor que LMM-SUnSAL, en HISUI + AVIRIS + Hyperion + WV3, en Cuprite".</label></li>
+          <li><input type="checkbox" id="c0-2"><label for="c0-2"><strong>Contribución novedosa:</strong> LCRM (log + continuum removal) + regularización dispersa (L1 SUnSAL / L2,1 CLSUnSAL). ¿La novedad es la <em>combinación</em>, un <em>solver nuevo</em>, o un <em>modelo físico nuevo</em>?</label></li>
+          <li><input type="checkbox" id="c0-3"><label for="c0-3"><strong>Modo de falla reconocido:</strong> amplificación de ruido, peor para calcita. ¿Es la única limitación, o síntoma de un problema más profundo?</label></li>
+        </ul>
+        <p>Clava lo que TIENE que ser cierto para que el paper se sostenga:</p>
+        <ol>
+          <li>El preprocesamiento LCRM realmente captura mixing no-lineal mejor que LMM.</li>
+          <li>La regularización dispersa sobre la señal preprocesada es la forma correcta de invertir.</li>
+          <li>La mejora de κ es real, no un artefacto de la implementación del baseline.</li>
+          <li>La consistencia cross-sensor (HISUI + AVIRIS + Hyperion) no está impulsada por un pipeline de preprocesamiento compartido.</li>
+        </ol>
+        <div class="callout">
+          <p>Si cualquiera de las cuatro cae, gran parte del paper cae con ella.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s1" aria-labelledby="h-s1">
+        <h2 id="h-s1"><span class="num">§1</span> Novedad y estado del arte (red flags de mayor apalancamiento)</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c1-1"><label for="c1-1"><span class="tag tag-major">Mayor</span> <strong>LCRM no es nuevo.</strong> Log + continuum removal es preprocesamiento hiperespectral estándar (Clark &amp; Roush 1984; Kruse et al. 1993). Pregunta: ¿qué es genuinamente nuevo en <em>esta</em> formulación LCRM respecto del CR clásico? Verifica en §Methods una declaración matemática clara de lo que LCRM añade.</label></li>
+          <li><input type="checkbox" id="c1-2"><label for="c1-2"><span class="tag tag-major">Mayor</span> <strong>SUnSAL/CLSUnSAL están bien establecidos</strong> (Iordache, Bioucas-Dias &amp; Plaza 2011, 2014). Aplicarlos a una señal preprocesada es una elección de preprocesamiento, no un algoritmo nuevo de unmixing. Si los autores lo presentan como algoritmo nuevo, contesta.</label></li>
+          <li><input type="checkbox" id="c1-3"><label for="c1-3"><span class="tag tag-major">Mayor</span> <strong>Literatura de nonlinear unmixing</strong> — verifica que dialoguen con:
+            <ul>
+              <li>Halimi et al. (modelos bilineales / MLM)</li>
+              <li>Heylen et al. (survey de nonlinear unmixing)</li>
+              <li>Dobigeon et al. (nonlinear unmixing bayesiano)</li>
+              <li>Zare &amp; Ho 2014 (review de endmember variability)</li>
+            </ul>
+            Si citan solo el panteón lineal, perdieron una década.</label></li>
+          <li><input type="checkbox" id="c1-4"><label for="c1-4"><span class="tag tag-major">Mayor</span> <strong>La paradoja del CR:</strong> continuum removal fue inventado precisamente para <em>linealizar</em> el mixing de features de absorción de modo que el unmixing lineal funcione. Afirmar que CR + LMM disperso = "modelo de mixing no-lineal" es conceptualmente resbaladizo. Exige que los autores justifiquen por qué aplicar LMM en el dominio-CR es <em>no-lineal</em>, y que distingan esto de los modelos bilineales / multi-lineales.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s2" aria-labelledby="h-s2">
+        <h2 id="h-s2"><span class="num">§2</span> Rigor metodológico</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c2-1"><label for="c2-1"><strong>Biblioteca espectral:</strong> ¿cuál? ¿tamaño? ¿USGS SPECPR? ¿ECOSTRESS? ¿subset curado? El tamaño de la biblioteca de endmembers afecta directamente el comportamiento del sparsity L1/L2,1.</label></li>
+          <li><input type="checkbox" id="c2-2"><label for="c2-2"><strong>Hiperparámetro de regularización</strong> (λ para L1, y para el grupo L2,1): ¿cómo se seleccionó? ¿validación cruzada sobre ground truth? ¿fijado empíricamente? Si se fijó a mano contra el mismo test set, es optimista.</label></li>
+          <li><input type="checkbox" id="c2-3"><label for="c2-3"><strong>Consistencia de preprocesamiento entre sensores:</strong> ¿todos los datasets se corrigieron atmosféricamente de la misma manera? ¿HISUI L2A? ¿AVIRIS vía ATREM/ACORN? ¿Hyperion FLAASH? ¿WV3 cómo? Correcciones atmosféricas distintas → features de absorción residuales distintas → comportamiento LCRM distinto. Si el paper no declara esto, pide el pipeline.</label></li>
+          <li><input type="checkbox" id="c2-4"><label for="c2-4"><strong>Resampleo espacial:</strong> HISUI 20–30 m, AVIRIS 15–20 m, Hyperion 30 m, WV3 ~1,24 m MS / 3,7 m SWIR. ¿Se resamplearon a una grilla común? ¿Con qué método? Nearest-neighbour destruiría la señal CR; bilinear/cúbico suavizaría los espectros.</label></li>
+          <li><input type="checkbox" id="c2-5"><label for="c2-5"><span class="tag tag-major">Mayor</span> <strong>WV3 multiespectral en el mismo framework:</strong> WV3 tiene 4 bandas SWIR vs ~100 bandas SWIR útiles en HISUI/AVIRIS/Hyperion. Continuum removal sobre 4 bandas SWIR no es la misma operación que sobre 100. ¿Está siquiera bien definido el paso LCRM sobre WV3? Si sí, ¿por qué incluyeron WV3?</label></li>
+          <li><input type="checkbox" id="c2-6"><label for="c2-6"><span class="tag tag-major">Mayor</span> <strong>Formalismo del modelo no-lineal:</strong> ¿hay un modelo forward explícito escrito (<code>r = f(a; E) + n</code>), o "no-lineal" solo significa "aplicamos un log"? Un log es un preprocesamiento no-lineal, no un modelo de mixing no-lineal. Exige la ecuación.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s3" aria-labelledby="h-s3">
+        <h2 id="h-s3"><span class="num">§3</span> Validación y estadística</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c3-1"><label for="c3-1"><strong>Ground truth para Cuprite:</strong> ¿qué producto de referencia? ¿Rockwell 2017 (USGS DataSeries)? ¿Swayze 2014 (USGS 2014-5100)? ¿Los mapas Tetracorder de Clark et al.? Cada uno tiene clases minerales y cobertura distintas. Si no lo nombran con precisión, pide aclaración.</label></li>
+          <li><input type="checkbox" id="c3-2"><label for="c3-2"><span class="tag tag-major">Mayor</span> <strong>Definición de κ en un contexto de unmixing:</strong> el unmixing produce mapas de abundancia (continuos), no clasificación (categórica). κ presupone una predicción categórica. Entonces deben estar haciendo hard-assignment (argmax sobre las abundancias de endmembers) o thresholding. Eso colapsa la señal de unmixing en un clasificador. Dos consecuencias:
+            <ol>
+              <li>La mejora del "1,4–1,5×" en κ es una mejora de <em>clasificación</em>, no de <em>unmixing</em>. Requiere reformulación.</li>
+              <li>Deberían reportar también métricas estándar de unmixing (RMSE sobre abundancia, spectral angle mapper, reconstruction error). Si no están, pídelas.</li>
+            </ol>
+          </label></li>
+          <li><input type="checkbox" id="c3-3"><label for="c3-3"><strong>Incertidumbre y significancia:</strong> ¿la mejora de κ se reporta con intervalo de confianza? ¿Bootstrap, test de McNemar, o κ pareado sobre folds de CV? Un ratio 1,4–1,5× sin CI es un point estimate; sobre cientos de píxeles puede o no ser significativo.</label></li>
+          <li><input type="checkbox" id="c3-4"><label for="c3-4"><span class="tag tag-major">Mayor</span> <strong>Elección de baseline:</strong> solo se compara LMM-SUnSAL. Adiciones razonables:
+            <ul>
+              <li><strong>VCA + FCLS</strong> (sin regularizar, no-disperso — el workhorse)</li>
+              <li><strong>N-FINDR + FCLS</strong></li>
+              <li><strong>MLM / bilineal no-lineal</strong> (testearía si <em>su</em> modelo no-lineal supera a los <em>establecidos</em> no-lineales)</li>
+              <li>Deep unmixing (basado en autoencoder) — opcional pero actual</li>
+            </ul>
+            Si solo comparan contra LMM-SUnSAL y ganan, la pregunta natural del revisor es: "¿ganaron porque preprocesaron, o porque regularizaron?" Pide la ablación <strong>LMM-SUnSAL + CR</strong> (LMM sobre la <em>misma</em> señal preprocesada con CR). Si esa ablación falta, es un hoyo mayor.</label></li>
+          <li><input type="checkbox" id="c3-5"><label for="c3-5"><strong>Matriz de confusión:</strong> ¿es por mineral? Las tasas de error diagonales vs off-diagonales por clase importan más que el κ agregado.</label></li>
+          <li><input type="checkbox" id="c3-6"><label for="c3-6"><strong>Consistencia cross-sensor:</strong> afirman que el método produce mapas consistentes en HISUI/AVIRIS/Hyperion. ¿Cómo se cuantifica <em>consistencia</em>? ¿Acuerdo píxel-a-píxel (κ de Cohen entre dos mapas de sensores)? ¿Solo visual? Exige un número.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s4" aria-labelledby="h-s4">
+        <h2 id="h-s4"><span class="num">§4</span> Reproducibilidad</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c4-1"><label for="c4-1"><strong>Código:</strong> ¿hay repositorio? Las implementaciones de SUnSAL/CLSUnSAL existen (código MATLAB de Iordache). Si el suyo es un wrapper + preprocesamiento, liberarlo es trivial.</label></li>
+          <li><input type="checkbox" id="c4-2"><label for="c4-2"><strong>Datos:</strong> HISUI es JAXA — revisa la política de datos. ¿Se reporta el scene ID exacto + nivel de procesamiento? AVIRIS + Hyperion son públicos (JPL / USGS). WV3 es comercial.</label></li>
+          <li><input type="checkbox" id="c4-3"><label for="c4-3"><strong>Biblioteca espectral:</strong> citar versión exacta y subset usado.</label></li>
+          <li><input type="checkbox" id="c4-4"><label for="c4-4"><strong>Valores de hiperparámetros:</strong> reportar λ explícitamente para L1 y L2,1.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s5" aria-labelledby="h-s5">
+        <h2 id="h-s5"><span class="num">§5</span> Cuprite (tu expertise)</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c5-1"><label for="c5-1"><strong>Nomenclatura de alteración:</strong> revisa que no confundan <em>identificación mineral</em> (su afirmación, a escala hiperespectral) con <em>mapeo de zonas de alteración</em> (clases más amplias, lo que hace tu paper con S2). Ambos son legítimos, pero deben ser honestos sobre cuál está midiendo κ.</label></li>
+          <li><input type="checkbox" id="c5-2"><label for="c5-2"><strong>Referencia USGS Rockwell 2017:</strong> ¿se usa como ground truth o solo como comparador visual? Rockwell se deriva de ASTER + Tetracorder; usarlo como ground truth para validar HISUI no es neutral. Si lo tratan como gold-standard, señala que Rockwell tiene su propia incertidumbre de clasificación.</label></li>
+          <li><input type="checkbox" id="c5-3"><label for="c5-3"><strong>Cuprite está saturado.</strong> Su rol en el paper es benchmark, no sitio de descubrimiento. Bien — pero el paper debe reconocerlo y citar los últimos 10 años de trabajo de unmixing en Cuprite (Ma et al., Kruse et al., Rockwell, Swayze, Halimi, Bioucas-Dias). Si la revisión de literatura es delgada, pide.</label></li>
+          <li><input type="checkbox" id="c5-4"><label for="c5-4"><strong>Amplificación de ruido en calcita</strong> — lo mencionan. La absorción de la calcita está centrada en ~2,34 μm y es relativamente ancha y superficial. La división CR por un continuo pequeño cerca de una feature superficial explota el ruido. Es una patología conocida del CR, no un descubrimiento nuevo. Pregunta si lo discuten en contexto o lo presentan como novedad.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s6" aria-labelledby="h-s6">
+        <h2 id="h-s6"><span class="num">§6</span> Escritura y encuadre</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c6-1"><label for="c6-1"><span class="tag tag-minor">Menor</span> <strong>Mismatch título ↔ contenido:</strong> el título dice "HISUI Imagery" pero el abstract dice "three hyperspectral datasets (HISUI, AVIRIS, and Hyperion) and one multispectral (WV3)". El título sobrevende la especificidad de HISUI. O el paper es una aplicación de HISUI (llevar AVIRIS/Hyperion/WV3 a la discusión), o es un benchmark cross-sensor (retitular). No puede ser ambas cosas.</label></li>
+          <li><input type="checkbox" id="c6-2"><label for="c6-2"><span class="tag tag-minor">Menor</span> <strong>"Accurate identification and mapping"</strong> en el título — afirmación fuerte. ¿"Accurate" contra qué? Si la referencia es Rockwell 2017 (a su vez un producto de remote sensing), la accuracy es acuerdo relativo, no accuracy contra ground truth. Pide suavizar.</label></li>
+          <li><input type="checkbox" id="c6-3"><label for="c6-3"><span class="tag tag-major">Mayor</span> <strong>Reporte de κ:</strong> ¿cuáles son los valores <em>absolutos</em> de κ (no solo los ratios)? Un ratio de 1,5 podría significar 0,20 → 0,30 (ambos pobres) o 0,55 → 0,83 (pobre → fuerte). Historias muy distintas.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s7" aria-labelledby="h-s7">
+        <h2 id="h-s7"><span class="num">§7</span> Ajuste al scope de NRR</h2>
+        <ul class="checklist" role="list">
+          <li><input type="checkbox" id="c7-1"><label for="c7-1"><strong>Posicionamiento en recursos naturales:</strong> NRR trata de exploración de recursos, no benchmarking de sensores. ¿Discute el paper explícitamente el valor para exploración (mineralogía target para porphyry Cu, epitermal Au, etc.)? Si se queda puramente en "sensor + método", encaja más en <em>Remote Sensing</em> o <em>IJRS</em> que en NRR. No es razón de rechazo, pero levanta el flag para el AE.</label></li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s8" aria-labelledby="h-s8">
+        <h2 id="h-s8"><span class="num">§8</span> Lógica de recomendación (Chile-honesta)</h2>
+        <p>Antes de redactar, mapea los issues a los cuatro cubos de recomendación:</p>
+        <ul>
+          <li><strong>Reject / Reject-and-resubmit</strong> si: (a) LCRM resulta ser una reetiquetado de CR + LMM estándar disfrazado, (b) la ablación LMM-SUnSAL + CR falta y borraría la ganancia 1,5×, (c) κ se usa pero el manuscrito es fundamentalmente unmixing (metric mismatch) y los autores no reportan métricas en el espacio de abundancia.</li>
+          <li><strong>Major revision</strong> si: (a) la historia de novedad sobrevive pero requiere encuadre más nítido, (b) faltan ablaciones e intervalos de confianza, (c) la metodología de validación necesita clarificación (qué referencia de Cuprite, cómo se calcula κ, consistencia cross-sensor cuantificada), (d) título/scope desalineados.</li>
+          <li><strong>Minor revision</strong> si: solo quedan elección de baseline, citas adicionales y clarificaciones.</li>
+          <li><strong>Accept</strong> tal cual: extremadamente improbable en un manuscrito sometido (no revisado) a NRR.</li>
+        </ul>
+        <div class="callout">
+          <p><strong>Default en tu primer ciclo:</strong> Major revision, salvo que algo en §1 o §3 lo mate (entonces Reject-and-resubmit).</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s9" aria-labelledby="h-s9">
+        <h2 id="h-s9"><span class="num">§9</span> Estructura del informe del revisor</h2>
+        <p>Redacta en este orden para mantener tono constructivo:</p>
+        <ol>
+          <li><strong>Resumen</strong> (3–4 oraciones): qué hace el paper, qué afirma, por qué importa. Demuestra que lo leíste.</li>
+          <li><strong>Comentarios generales</strong> (1 párrafo): dónde se para el paper respecto del campo. Encuadre positivo, luego la preocupación mayor.</li>
+          <li><strong>Issues mayores</strong> (numerados, 3–6 ítems): el encuadre de novedad, la ablación, la pregunta de κ-en-unmixing, la cuantificación de consistencia cross-sensor, elección de baselines. Un párrafo por ítem.</li>
+          <li><strong>Issues menores</strong> (bullets): mismatch título, citas faltantes, valores absolutos de κ, ruido en calcita como patología conocida.</li>
+          <li><strong>Recomendación</strong> y declaración de confianza.</li>
+        </ol>
+        <div class="callout">
+          <p><strong>Convención de firma:</strong> NRR es <em>single-anonymised</em> — los autores ven tu informe pero no tu identidad. Escribe con firmeza y respeto. Sin sarcasmo, sin preguntas retóricas.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s10" aria-labelledby="h-s10">
+        <h2 id="h-s10"><span class="num">§10</span> Presupuesto de tiempo (30 días)</h2>
+        <ol>
+          <li>Día 1–2: primera pasada (abstract + figuras + tablas + conclusión). Decide la historia de alto nivel.</li>
+          <li>Día 3–7: leer Methods con cuidado, este checklist abierto al lado.</li>
+          <li>Día 8–12: perseguir las 5–8 citas de estado del arte más importantes.</li>
+          <li>Día 13–20: buffer / relectura.</li>
+          <li>Día 21–28: redactar el informe.</li>
+          <li>Día 29–30: pulir y enviar.</li>
+        </ol>
+        <div class="callout">
+          <p>Haz la primera pasada esta semana, mientras tu propia submission está fresca en EM — vas a ser eficiente. No lo dejes para el día 28.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const stored = localStorage.getItem('theme-narr-review');
+      if (stored) root.setAttribute('data-theme', stored);
+      const setPressed = () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        toggle.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+      };
+      setPressed();
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme-narr-review', next);
+        setPressed();
+      });
+
+      const boxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+      const total = boxes.length;
+      const countEl = document.getElementById('progressCount');
+      const totalEl = document.getElementById('progressTotal');
+      const fillEl = document.getElementById('progressFill');
+      const bar = document.querySelector('.progress-bar');
+      totalEl.textContent = total;
+      const storageKey = 'narr-review-checks';
+      const state = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const update = () => {
+        const checked = Array.from(boxes).filter(b => b.checked).length;
+        countEl.textContent = checked;
+        const pct = total ? Math.round((checked / total) * 100) : 0;
+        fillEl.style.width = pct + '%';
+        bar.setAttribute('aria-valuenow', pct);
+      };
+      boxes.forEach(b => {
+        if (state[b.id]) b.checked = true;
+        b.addEventListener('change', () => {
+          state[b.id] = b.checked;
+          localStorage.setItem(storageKey, JSON.stringify(state));
+          update();
+        });
+      });
+      update();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marco teórico — Unmixing espectral sparse para alteración hidrotermal</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --fg-soft: #4a4a4a;
+      --accent: #1e5aa8;
+      --accent-fg: #ffffff;
+      --accent-soft: rgba(30, 90, 168, 0.08);
+      --border: #d9d9d9;
+      --code-bg: #f4f4f4;
+      --card-bg: #f7f7f7;
+      --key-bg: #e8f2fd;
+      --key-border: #1e5aa8;
+      --paper-bg: #fff8e1;
+      --paper-border: #ffb300;
+      --gloss-bg: #ecf7ee;
+      --gloss-border: #3d9d5f;
+      --focus: #005fcc;
+      --svg-line: #1a1a1a;
+      --svg-accent: #1e5aa8;
+      --svg-soft: #999999;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      --font-math: "Latin Modern Math", "STIX Two Math", Cambria, Georgia, serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131519;
+        --fg: #eaeaea;
+        --fg-soft: #b5b5b5;
+        --accent: #7aa7dc;
+        --accent-fg: #0f1216;
+        --accent-soft: rgba(122, 167, 220, 0.12);
+        --border: #2b2f36;
+        --code-bg: #1c1f24;
+        --card-bg: #1a1d22;
+        --key-bg: #17293e;
+        --key-border: #7aa7dc;
+        --paper-bg: #3a2f10;
+        --paper-border: #d4a017;
+        --gloss-bg: #1a2e21;
+        --gloss-border: #6bbf7f;
+        --focus: #9ecbff;
+        --svg-line: #eaeaea;
+        --svg-accent: #7aa7dc;
+        --svg-soft: #7a7a7a;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #131519; --fg: #eaeaea; --fg-soft: #b5b5b5;
+      --accent: #7aa7dc; --accent-fg: #0f1216; --accent-soft: rgba(122, 167, 220, 0.12);
+      --border: #2b2f36; --code-bg: #1c1f24; --card-bg: #1a1d22;
+      --key-bg: #17293e; --key-border: #7aa7dc;
+      --paper-bg: #3a2f10; --paper-border: #d4a017;
+      --gloss-bg: #1a2e21; --gloss-border: #6bbf7f;
+      --focus: #9ecbff; --svg-line: #eaeaea; --svg-accent: #7aa7dc; --svg-soft: #7a7a7a;
+    }
+    :root[data-theme="light"] {
+      --bg: #ffffff; --fg: #1a1a1a; --fg-soft: #4a4a4a;
+      --accent: #1e5aa8; --accent-fg: #ffffff; --accent-soft: rgba(30, 90, 168, 0.08);
+      --border: #d9d9d9; --code-bg: #f4f4f4; --card-bg: #f7f7f7;
+      --key-bg: #e8f2fd; --key-border: #1e5aa8;
+      --paper-bg: #fff8e1; --paper-border: #ffb300;
+      --gloss-bg: #ecf7ee; --gloss-border: #3d9d5f;
+      --focus: #005fcc; --svg-line: #1a1a1a; --svg-accent: #1e5aa8; --svg-soft: #999999;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); line-height: 1.65;
+      font-size: 17px; -webkit-font-smoothing: antialiased;
+    }
+    a.skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--accent); color: var(--accent-fg);
+      padding: 0.5rem 1rem; z-index: 1000; text-decoration: none;
+      border-radius: 0 0 4px 0;
+    }
+    a.skip-link:focus { left: 0; outline: 3px solid var(--focus); }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    .layout {
+      display: grid; grid-template-columns: minmax(0, 1fr);
+      gap: 2rem; max-width: 78rem; margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    @media (min-width: 1024px) {
+      .layout { grid-template-columns: 17rem minmax(0, 1fr); }
+      nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto; }
+    }
+    header.page {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem; margin-bottom: 0.5rem;
+    }
+    header.page p.eyebrow {
+      margin: 0; color: var(--fg-soft); font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    header.page h1 {
+      margin: 0.5rem 0 0.5rem;
+      font-size: clamp(1.6rem, 2.8vw, 2.15rem); line-height: 1.2;
+    }
+    header.page p.subtitle { margin: 0.5rem 0 0; color: var(--fg-soft); font-size: 1.05rem; }
+    nav.toc { font-size: 0.9rem; }
+    nav.toc h2 {
+      font-size: 0.8rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--fg-soft);
+      margin: 0 0 0.75rem;
+    }
+    nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    nav.toc li { counter-increment: toc; margin: 0.25rem 0; }
+    nav.toc a {
+      color: var(--fg); text-decoration: none; display: block;
+      padding: 0.35rem 0.5rem; border-radius: 4px;
+      border-left: 2px solid transparent; line-height: 1.35;
+    }
+    nav.toc a::before {
+      content: counter(toc) ". ";
+      color: var(--fg-soft); font-variant-numeric: tabular-nums;
+    }
+    nav.toc a:hover, nav.toc a:focus-visible {
+      background: var(--card-bg); border-left-color: var(--accent);
+    }
+    main { min-width: 0; }
+    section.chapter { margin-bottom: 3rem; scroll-margin-top: 1rem; }
+    section.chapter > h2 {
+      font-size: 1.4rem; margin: 0 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--accent);
+      display: flex; align-items: baseline; gap: 0.6rem;
+    }
+    section.chapter > h2 .num {
+      font-family: var(--font-mono); color: var(--accent);
+      font-size: 0.8em; font-weight: 700;
+    }
+    section.chapter > h3 {
+      font-size: 1.1rem; margin: 1.75rem 0 0.5rem;
+    }
+    section.chapter > h4 {
+      font-size: 1rem; margin: 1rem 0 0.3rem; color: var(--fg-soft);
+      text-transform: uppercase; letter-spacing: 0.03em;
+    }
+    p { margin: 0.5rem 0 1rem; }
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0 1rem; }
+    li { margin: 0.4rem 0; }
+    strong { color: var(--fg); }
+    em { color: var(--fg); }
+    code {
+      font-family: var(--font-mono); background: var(--code-bg);
+      padding: 0.1rem 0.35rem; border-radius: 3px;
+      font-size: 0.9em;
+    }
+    .math {
+      font-family: var(--font-math);
+      display: block; text-align: center;
+      background: var(--card-bg); padding: 0.7rem 1rem;
+      border-radius: 4px; margin: 1rem 0;
+      font-size: 1.05em; overflow-x: auto;
+    }
+    .math .lbl { font-family: var(--font-body); color: var(--fg-soft); font-size: 0.85em; margin-left: 1rem; }
+    .callout {
+      padding: 0.9rem 1.2rem;
+      border-left: 4px solid;
+      border-radius: 0 4px 4px 0;
+      margin: 1.2rem 0;
+    }
+    .callout p:first-child { margin-top: 0; }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout h4 {
+      margin: 0 0 0.5rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-soft);
+    }
+    .callout-key { background: var(--key-bg); border-color: var(--key-border); }
+    .callout-paper { background: var(--paper-bg); border-color: var(--paper-border); }
+    .callout-gloss { background: var(--gloss-bg); border-color: var(--gloss-border); }
+    figure {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    figure svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+    figcaption {
+      font-size: 0.9rem; color: var(--fg-soft);
+      text-align: center; margin-top: 0.6rem;
+      font-style: italic;
+    }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left; vertical-align: top;
+    }
+    th { background: var(--card-bg); font-weight: 600; }
+    tbody tr:hover { background: var(--accent-soft); }
+    dl.glossary dt {
+      font-weight: 600; margin-top: 0.75rem;
+      color: var(--fg);
+    }
+    dl.glossary dd {
+      margin: 0.15rem 0 0.6rem 0;
+      padding-left: 1rem;
+      color: var(--fg-soft);
+    }
+    .theme-toggle {
+      position: fixed; right: 1rem; top: 1rem;
+      background: var(--card-bg); color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem; border-radius: 4px;
+      cursor: pointer; font-family: inherit; font-size: 0.85rem;
+      z-index: 100;
+    }
+    .theme-toggle:focus-visible { outline: 3px solid var(--focus); }
+    .badges {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.75rem 0 0;
+    }
+    .badge {
+      background: var(--card-bg); border: 1px solid var(--border);
+      padding: 0.15rem 0.55rem; border-radius: 999px;
+      font-size: 0.8rem; color: var(--fg-soft);
+    }
+    @media print {
+      .theme-toggle, .skip-link, nav.toc { display: none; }
+      body { font-size: 11pt; background: white; color: black; }
+      .layout { display: block; padding: 0; }
+      section.chapter { page-break-inside: avoid; }
+      figure { page-break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <button type="button" class="theme-toggle" aria-pressed="false" id="themeToggle" title="Alternar tema claro/oscuro">Cambiar tema</button>
+
+  <div class="layout">
+    <header class="page">
+      <p class="eyebrow">Guía tutorial para la revisión</p>
+      <h1>Marco teórico para entender el manuscrito NARR-D-26-00870</h1>
+      <p class="subtitle">Unmixing espectral disperso con modelo de mezcla no-lineal, aplicado a imágenes HISUI para mapear minerales de alteración hidrotermal.</p>
+      <div class="badges" aria-label="Etiquetas del documento">
+        <span class="badge">Nivel: intermedio</span>
+        <span class="badge">Duración estimada: 45 min</span>
+        <span class="badge">Complementa el checklist</span>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Índice del tutorial">
+      <h2>Contenidos</h2>
+      <ol>
+        <li><a href="#s1">La pregunta del paper</a></li>
+        <li><a href="#s2">Cómo "hablan" los minerales</a></li>
+        <li><a href="#s3">Los sensores del paper</a></li>
+        <li><a href="#s4">El problema de la mezcla</a></li>
+        <li><a href="#s5">Modelo lineal (LMM) y sus límites</a></li>
+        <li><a href="#s6">Continuum removal + log = LCRM</a></li>
+        <li><a href="#s7">Unmixing como regresión dispersa</a></li>
+        <li><a href="#s8">SUnSAL (L1) y CLSUnSAL (L2,1)</a></li>
+        <li><a href="#s9">Bibliotecas espectrales</a></li>
+        <li><a href="#s10">Métricas: κ vs abundancia</a></li>
+        <li><a href="#s11">Cuprite como benchmark</a></li>
+        <li><a href="#s12">Alteración hidrotermal en 5 min</a></li>
+        <li><a href="#s13">Leer el paper con esta lente</a></li>
+        <li><a href="#s14">Glosario compacto</a></li>
+      </ol>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+
+      <section class="chapter" id="s1" aria-labelledby="h-s1">
+        <h2 id="h-s1"><span class="num">§1</span> La pregunta del paper</h2>
+        <p>El paper responde a una pregunta muy vieja de la exploración minera: <strong>¿podemos identificar qué minerales hay en el suelo, píxel por píxel, desde una imagen satelital?</strong></p>
+        <p>La motivación aplicada es directa: los depósitos minerales económicos (cobre, oro, litio) suelen estar rodeados por halos de alteración hidrotermal — zonas donde los fluidos calientes que subieron desde una intrusión magmática transformaron las rocas circundantes en asociaciones minerales distintivas (arcillas, sílice, óxidos de hierro). Si mapeas esos halos, tienes pistas de dónde buscar el depósito.</p>
+        <p>Hasta los años 90 esto se hacía con muestreo de terreno y espectrómetros portátiles. Después, con la llegada de sensores aerotransportados y satelitales que miden luz reflejada en cientos de longitudes de onda, se abrió la posibilidad de mapear alteración a gran escala desde el aire o desde órbita. El paper que estás revisando propone una técnica nueva de <strong>unmixing espectral</strong> — el proceso matemático que va de "un píxel observado" a "qué minerales lo componen y en qué proporciones" — aplicado a un sensor japonés reciente (HISUI) más tres benchmarks clásicos.</p>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>El paper NO propone un sensor nuevo ni un modelo físico nuevo. Propone un <em>pipeline</em>: preprocesamiento (log + continuum removal) más un solver de regresión dispersa (L1 o L2,1). La disputa se juega en <strong>qué tan novedoso es ese pipeline</strong> respecto de lo que ya existía.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s2" aria-labelledby="h-s2">
+        <h2 id="h-s2"><span class="num">§2</span> Cómo "hablan" los minerales en luz reflejada</h2>
+        <p>Cada mineral tiene una <strong>firma espectral</strong>: una curva que describe cuánta luz refleja en cada longitud de onda entre, digamos, 400 nm (violeta) y 2500 nm (infrarrojo de onda corta o SWIR). Esa curva no es arbitraria; refleja qué transiciones electrónicas (en el visible-NIR) y qué vibraciones moleculares (en el SWIR) absorben energía en ese mineral.</p>
+        <figure aria-labelledby="fig1-caption">
+          <svg viewBox="0 0 600 260" role="img" aria-labelledby="fig1-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="fig1-desc">Firma espectral esquemática de un mineral con un feature de absorción</title>
+            <line x1="60" y1="220" x2="580" y2="220" stroke="var(--svg-line)" stroke-width="1.5"/>
+            <line x1="60" y1="220" x2="60" y2="30" stroke="var(--svg-line)" stroke-width="1.5"/>
+            <text x="320" y="250" text-anchor="middle" fill="var(--svg-line)" font-size="13" font-family="sans-serif">Longitud de onda (nm)</text>
+            <text x="20" y="130" text-anchor="middle" fill="var(--svg-line)" font-size="13" font-family="sans-serif" transform="rotate(-90 20 130)">Reflectancia</text>
+            <text x="70" y="240" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">400</text>
+            <text x="580" y="240" text-anchor="end" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">2500</text>
+            <path d="M 60 180 Q 130 130 200 100 T 350 80 T 420 130 T 460 90 T 580 60"
+                  fill="none" stroke="var(--svg-accent)" stroke-width="2.5"/>
+            <circle cx="420" cy="130" r="4" fill="var(--svg-accent)"/>
+            <text x="440" y="150" fill="var(--svg-accent)" font-size="12" font-family="sans-serif">Feature de absorción diagnóstica</text>
+            <line x1="420" y1="130" x2="420" y2="100" stroke="var(--svg-soft)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="420" y="95" text-anchor="middle" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">λ ≈ 2200 nm</text>
+          </svg>
+          <figcaption id="fig1-caption">Firma espectral esquemática. La caída (feature de absorción) es lo que un espectroscopista busca para diagnosticar el mineral.</figcaption>
+        </figure>
+        <p>El detalle diagnóstico son las <strong>features de absorción</strong>: caídas locales en la curva a longitudes de onda muy específicas. Por ejemplo:</p>
+        <ul>
+          <li><strong>Kaolinita</strong> (arcilla de alteración argílica avanzada): doblete característico cerca de 2160 y 2200 nm.</li>
+          <li><strong>Alunita</strong>: absorción fuerte en 2170 nm.</li>
+          <li><strong>Muscovita / illita</strong> (alteración fílica): absorción en 2200 nm, ligeramente distinta a la kaolinita.</li>
+          <li><strong>Calcita</strong>: absorción en 2340 nm (más ancha y superficial que las de arcillas).</li>
+          <li><strong>Hematita / goethita</strong> (óxidos de hierro): absorciones anchas cerca de 900 nm y en el visible.</li>
+        </ul>
+        <p>El truco es que estas features están a longitudes de onda <em>específicas</em>. Para verlas, el sensor tiene que muestrear el espectro con resolución fina — de ahí el término <strong>hiperespectral</strong>: sensores con cientos de bandas estrechas.</p>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>La resolución espectral <em>importa</em>. Un sensor multispectral (5–10 bandas anchas, como Sentinel-2) puede detectar <strong>zonas de alteración</strong> por contraste general, pero no puede resolver individualmente kaolinita vs alunita vs muscovita. Un sensor hiperespectral (100+ bandas estrechas, como HISUI o AVIRIS) sí puede.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s3" aria-labelledby="h-s3">
+        <h2 id="h-s3"><span class="num">§3</span> Los cuatro sensores del paper</h2>
+        <p>El manuscrito compara resultados sobre datos de cuatro sensores distintos. Vale la pena tener claras las diferencias antes de leer las tablas de resultados.</p>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Comparación de sensores usados en el manuscrito</caption>
+            <thead>
+              <tr>
+                <th>Sensor</th>
+                <th>Tipo</th>
+                <th>Plataforma</th>
+                <th>Bandas</th>
+                <th>Rango espectral</th>
+                <th>Resolución espacial</th>
+                <th>Notas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>HISUI</strong></td>
+                <td>Hiperespectral</td>
+                <td>ISS (JAXA)</td>
+                <td>~185</td>
+                <td>400–2500 nm</td>
+                <td>~20–30 m</td>
+                <td>Sensor nuevo (lanzado 2019). Datos JAXA. Foco del paper.</td>
+              </tr>
+              <tr>
+                <td><strong>AVIRIS</strong></td>
+                <td>Hiperespectral</td>
+                <td>Avión (JPL/NASA)</td>
+                <td>~224</td>
+                <td>400–2500 nm</td>
+                <td>~15–20 m</td>
+                <td>Referencia clásica desde los 80. Datos públicos.</td>
+              </tr>
+              <tr>
+                <td><strong>Hyperion</strong></td>
+                <td>Hiperespectral</td>
+                <td>Satélite EO-1</td>
+                <td>~220 (~155 útiles)</td>
+                <td>400–2500 nm</td>
+                <td>30 m</td>
+                <td>Decomisionado 2017. Solo archivo histórico.</td>
+              </tr>
+              <tr>
+                <td><strong>WorldView-3</strong></td>
+                <td>Multispectral</td>
+                <td>Satélite (Maxar)</td>
+                <td>16 (8 VNIR + 8 SWIR)</td>
+                <td>400–2365 nm</td>
+                <td>~1,2 m MS / 3,7 m SWIR</td>
+                <td>Comercial. Solo 4 bandas SWIR útiles para alteración.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-paper">
+          <h4>Detalle a vigilar en el paper</h4>
+          <p>Incluir WV3 en el mismo pipeline hiperespectral es cuestionable. Con solo 4 bandas SWIR, el paso de "continuum removal" no puede resolver features de absorción angostas. Al leer los resultados de WV3, pregunta si el método sigue teniendo sentido físico o si es un ejercicio numérico forzado.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s4" aria-labelledby="h-s4">
+        <h2 id="h-s4"><span class="num">§4</span> El problema de la mezcla: cada píxel es un cóctel</h2>
+        <p>Un píxel de HISUI cubre aproximadamente 20 × 20 metros del suelo. En ese pedazo de terreno casi nunca hay un único mineral. Hay una mezcla: por ejemplo, 30% kaolinita, 40% cuarzo, 20% óxido de hierro, 10% sombra. La reflectancia que el sensor mide es una <em>combinación</em> de las firmas espectrales de esos componentes.</p>
+        <p>El objetivo del unmixing espectral es <strong>invertir esa mezcla</strong>: dada la reflectancia observada y una biblioteca de firmas puras (endmembers), estimar las proporciones de cada endmember en cada píxel.</p>
+        <figure aria-labelledby="fig-mix-caption">
+          <svg viewBox="0 0 620 190" role="img" aria-labelledby="fig-mix-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="fig-mix-desc">Diagrama esquemático del problema de unmixing: un espectro observado se descompone como combinación ponderada de espectros puros</title>
+            <text x="60" y="20" fill="var(--svg-line)" font-size="12" font-family="sans-serif">Observado</text>
+            <path d="M 20 60 Q 60 40 100 55 T 180 45" fill="none" stroke="var(--svg-accent)" stroke-width="2"/>
+            <text x="220" y="55" fill="var(--svg-line)" font-size="20" font-family="sans-serif">=</text>
+            <text x="250" y="20" fill="var(--svg-line)" font-size="12" font-family="sans-serif">30% × Kaolinita</text>
+            <path d="M 250 60 Q 280 50 310 55 T 360 40" fill="none" stroke="var(--svg-soft)" stroke-width="2"/>
+            <text x="380" y="55" fill="var(--svg-line)" font-size="20" font-family="sans-serif">+</text>
+            <text x="410" y="20" fill="var(--svg-line)" font-size="12" font-family="sans-serif">40% × Cuarzo</text>
+            <path d="M 410 55 Q 460 48 520 45" fill="none" stroke="var(--svg-soft)" stroke-width="2"/>
+            <text x="540" y="55" fill="var(--svg-line)" font-size="20" font-family="sans-serif">+</text>
+            <text x="560" y="20" fill="var(--svg-line)" font-size="12" font-family="sans-serif">...</text>
+            <path d="M 560 55 Q 580 50 600 55" fill="none" stroke="var(--svg-soft)" stroke-width="2"/>
+            <text x="10" y="130" fill="var(--svg-line)" font-size="12" font-family="sans-serif">r (Nx1)</text>
+            <text x="200" y="130" fill="var(--svg-line)" font-size="20" font-family="sans-serif">=</text>
+            <text x="240" y="130" fill="var(--svg-line)" font-size="12" font-family="sans-serif">M (Nxk)</text>
+            <text x="360" y="130" fill="var(--svg-line)" font-size="20" font-family="sans-serif">×</text>
+            <text x="390" y="130" fill="var(--svg-line)" font-size="12" font-family="sans-serif">a (kx1)</text>
+            <text x="440" y="130" fill="var(--svg-line)" font-size="20" font-family="sans-serif">+</text>
+            <text x="470" y="130" fill="var(--svg-line)" font-size="12" font-family="sans-serif">n (Nx1)</text>
+            <text x="20" y="170" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">píxel</text>
+            <text x="240" y="170" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">biblioteca</text>
+            <text x="380" y="170" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">abundancias</text>
+            <text x="470" y="170" fill="var(--svg-soft)" font-size="11" font-family="sans-serif">ruido</text>
+          </svg>
+          <figcaption id="fig-mix-caption">Arriba: la intuición. Abajo: la formulación matricial. <var>N</var> = número de bandas espectrales, <var>k</var> = número de endmembers en la biblioteca.</figcaption>
+        </figure>
+        <p>En notación compacta:</p>
+        <p class="math"><strong>r</strong> = <strong>M</strong> <strong>a</strong> + <strong>n</strong><span class="lbl">(modelo lineal de mezcla, LMM)</span></p>
+        <p>Donde <var>r</var> es el vector de reflectancias observadas (una entrada por banda), <var>M</var> es la matriz cuyas columnas son las firmas de los endmembers puros, <var>a</var> es el vector de abundancias que queremos estimar, y <var>n</var> es ruido.</p>
+        <p>Las abundancias deben cumplir dos <strong>restricciones físicas</strong>:</p>
+        <ul>
+          <li><strong>No-negatividad</strong>: <var>a<sub>i</sub></var> ≥ 0 (no puede haber cantidad "negativa" de un mineral).</li>
+          <li><strong>Suma-uno</strong> (opcional pero común): <var>Σ a<sub>i</sub></var> = 1 (las proporciones suman el 100% del píxel).</li>
+        </ul>
+      </section>
+
+      <section class="chapter" id="s5" aria-labelledby="h-s5">
+        <h2 id="h-s5"><span class="num">§5</span> Modelo lineal (LMM) y cuándo se rompe</h2>
+        <p>El LMM asume que la reflectancia observada es una <strong>suma ponderada</strong> de las reflectancias de los componentes puros, sin interacción entre ellos. Físicamente, esto corresponde al escenario donde cada fotón que llega al sensor rebotó en un único material antes de salir del terreno.</p>
+        <p>Este supuesto es razonable cuando los componentes están espacialmente separados dentro del píxel (por ejemplo, franjas de kaolinita al lado de franjas de cuarzo) y con superficies planas iluminadas uniformemente. Se llama <strong>mezcla macroscópica</strong>.</p>
+        <p>El LMM falla — sistemáticamente — cuando:</p>
+        <ul>
+          <li><strong>Mezcla íntima</strong>: los minerales están mezclados a escala del fotón (granos de kaolinita revueltos con granos de cuarzo en el suelo, como en una playa). Un mismo fotón puede rebotar en varios materiales antes de escapar. Las reflectancias ya no se suman linealmente — se multiplican, se atenúan mutuamente. Este es el régimen del modelo de Hapke y otros modelos <em>bilineales</em> o de scattering múltiple.</li>
+          <li><strong>Topografía y sombras</strong>: pendientes iluminan y sombrean partes del píxel; el modelo lineal absorbe eso como un endmember "sombra" pero es un parche.</li>
+          <li><strong>Vegetación fotosintética / no fotosintética / suelo</strong> mezclándose en el mismo píxel (el caso Ceres/Chile-agrícola).</li>
+        </ul>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>Cuando el paper dice "nonlinear mixing model", pregúntate: <em>¿de qué no-linealidad están hablando?</em> Bilineal (Hapke, Fan)? Multiplicativa (efecto de albedo)? Efecto no-lineal por saturación? Un simple log transform NO es un modelo de mezcla no-lineal — es un preprocesamiento no-lineal aplicado a un modelo lineal. Son cosas distintas y confundirlas es un red flag.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s6" aria-labelledby="h-s6">
+        <h2 id="h-s6"><span class="num">§6</span> Continuum removal + log = LCRM</h2>
+        <p>Los espectros de reflectancia crudos son <em>hostiles</em> para el unmixing directo por varias razones que se combinan:</p>
+        <ul>
+          <li><strong>Brillo global</strong>: la altura absoluta del espectro varía con la iluminación (ángulo solar), topografía, atmósfera residual.</li>
+          <li><strong>Continuo suave</strong>: cada espectro tiene una tendencia general (crece, decae, es plano) que oculta las features de absorción locales.</li>
+          <li><strong>Escala multiplicativa</strong>: cuando dos materiales interactúan por múltiple scattering, sus efectos son multiplicativos, no aditivos.</li>
+        </ul>
+        <p>Dos preprocesamientos clásicos abordan esto:</p>
+
+        <h3>Continuum removal (CR)</h3>
+        <p>Traza la envolvente convexa superior del espectro (los "hombros" entre features de absorción) y divide el espectro original por esa envolvente. El resultado es un espectro <em>continuum-removed</em> donde el continuo vale 1 en todas partes y las absorciones se manifiestan como caídas por debajo de 1.</p>
+        <figure aria-labelledby="fig-cr-caption">
+          <svg viewBox="0 0 620 240" role="img" aria-labelledby="fig-cr-desc" xmlns="http://www.w3.org/2000/svg">
+            <title id="fig-cr-desc">Continuum removal: el espectro original se divide por su envolvente convexa superior, quedando las features de absorción sobre una línea base horizontal</title>
+            <g>
+              <text x="80" y="15" text-anchor="middle" fill="var(--svg-line)" font-size="12" font-family="sans-serif">Antes</text>
+              <line x1="20" y1="200" x2="180" y2="200" stroke="var(--svg-line)" stroke-width="1"/>
+              <line x1="20" y1="200" x2="20" y2="30" stroke="var(--svg-line)" stroke-width="1"/>
+              <path d="M 20 120 Q 70 60 120 100 T 180 75" fill="none" stroke="var(--svg-accent)" stroke-width="2"/>
+              <path d="M 20 120 L 180 75" fill="none" stroke="var(--svg-soft)" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <text x="100" y="220" text-anchor="middle" fill="var(--svg-soft)" font-size="10" font-family="sans-serif">envolvente convexa (punteada)</text>
+            </g>
+            <g transform="translate(230,0)">
+              <text x="90" y="15" text-anchor="middle" fill="var(--svg-line)" font-size="24" font-family="sans-serif">÷</text>
+            </g>
+            <g transform="translate(300,0)">
+              <text x="90" y="15" text-anchor="middle" fill="var(--svg-line)" font-size="12" font-family="sans-serif">Después (CR)</text>
+              <line x1="20" y1="200" x2="180" y2="200" stroke="var(--svg-line)" stroke-width="1"/>
+              <line x1="20" y1="200" x2="20" y2="30" stroke="var(--svg-line)" stroke-width="1"/>
+              <line x1="20" y1="70" x2="180" y2="70" stroke="var(--svg-soft)" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="185" y="73" fill="var(--svg-soft)" font-size="10" font-family="sans-serif">1.0</text>
+              <path d="M 20 70 Q 70 140 90 130 T 180 70" fill="none" stroke="var(--svg-accent)" stroke-width="2"/>
+              <text x="100" y="220" text-anchor="middle" fill="var(--svg-soft)" font-size="10" font-family="sans-serif">absorciones aisladas</text>
+            </g>
+          </svg>
+          <figcaption id="fig-cr-caption">Continuum removal aísla las features de absorción del brillo y forma global del espectro.</figcaption>
+        </figure>
+        <p>Ganancia: dos espectros de la misma kaolinita, uno tomado bajo sol alto y otro bajo sol bajo, se ven muy distintos en reflectancia cruda pero casi idénticos después de CR.</p>
+
+        <h3>Log transform</h3>
+        <p>Tomar el logaritmo natural convierte factores multiplicativos en factores aditivos. Si dos efectos actúan multiplicativamente sobre la reflectancia (por ejemplo, albedo × topografía × transmisión atmosférica), tras <var>log</var> se separan como sumas — y una vez separables, se pueden intentar restar o modelar como offsets aditivos.</p>
+
+        <h3>LCRM = Log + CR</h3>
+        <p>El paper propone <strong>LCRM</strong> ("Log Continuum Removal Model"): aplicar <em>primero</em> log al espectro y <em>después</em> continuum removal, o alguna combinación. La idea es apilar los beneficios de ambos preprocesamientos.</p>
+        <div class="callout callout-paper">
+          <h4>Detalle a vigilar en el paper</h4>
+          <p>CR se inventó en los 80 (Clark &amp; Roush 1984); log ratio en varias formas es igual de viejo. Combinar log + CR no es una idea nueva por sí sola: hay que ver si LCRM añade algo más — una parametrización específica, una restricción, una manera de estimar el continuo — o si es la combinación simple con un nombre nuevo. Ese es el juicio central del §1 del checklist.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s7" aria-labelledby="h-s7">
+        <h2 id="h-s7"><span class="num">§7</span> Unmixing como regresión dispersa</h2>
+        <p>Volvamos al modelo <var>r</var> = <var>M</var> <var>a</var> + <var>n</var>. Si la biblioteca <var>M</var> tuviera exactamente los endmembers que hay en el píxel (5, 10 minerales), estimar <var>a</var> sería un problema estándar de mínimos cuadrados con restricciones (mínimos cuadrados no-negativos, FCLS si además exiges suma-uno). Es lo que hicieron los primeros unmixers en los años 90.</p>
+        <p>El problema en la vida real: <strong>no sabemos de antemano qué endmembers están presentes en cada píxel</strong>. Las bibliotecas modernas tienen cientos o miles de firmas (USGS SPECPR tiene ~500). La matriz <var>M</var> pasa a ser gorda: 200 bandas × 500 columnas. El sistema es sub-determinado (más incógnitas que ecuaciones) y hay infinitas soluciones matemáticamente válidas para <var>a</var>.</p>
+        <p>La observación clave: <strong>en un píxel real hay pocos minerales presentes</strong> — típicamente 3 a 10, no 500. La solución <em>correcta</em> tiene la mayoría de las entradas de <var>a</var> igual a cero. Se dice que <var>a</var> es <strong>sparse</strong> (dispersa).</p>
+        <p>Este es exactamente el problema que resuelve LASSO en estadística: regresión con muchos predictores donde solo unos pocos son relevantes. Se formula minimizando:</p>
+        <p class="math">min<sub>a</sub> ||<strong>r</strong> − <strong>M</strong> <strong>a</strong>||<sup>2</sup><sub>2</sub> + λ ||<strong>a</strong>||<sub>1</sub><span class="lbl">(regresión con regularización L1)</span></p>
+        <p>El término <var>||a||<sub>1</sub></var> = <var>Σ|a<sub>i</sub>|</var> (norma L1, suma de valores absolutos) tiene una propiedad geométrica peculiar: al minimizar, empuja a muchos <var>a<sub>i</sub></var> a ser <em>exactamente</em> cero, no solo pequeños. El escalar <var>λ</var> controla cuánto sparsity se impone: <var>λ</var> grande → más ceros; <var>λ</var> chico → más endmembers activos.</p>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>El unmixing sparse convierte un problema físicamente sub-determinado (200 ecuaciones, 500 incógnitas) en uno bien planteado, agregando el <em>prior</em> de que la solución debe ser dispersa. El precio: la solución depende de cómo elijas <var>λ</var>. Si <var>λ</var> se elige mirando la validación, estás doble-sumergiendo los datos.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s8" aria-labelledby="h-s8">
+        <h2 id="h-s8"><span class="num">§8</span> SUnSAL (L1) y CLSUnSAL (L2,1) en 5 minutos</h2>
+        <p>Ambos son solvers de unmixing sparse desarrollados principalmente por el grupo de Bioucas-Dias e Iordache alrededor de 2010–2014. Están ampliamente disponibles como código MATLAB público.</p>
+
+        <h3>SUnSAL (Sparse Unmixing via variable Splitting and Augmented Lagrangian)</h3>
+        <p>Es un solver para el problema de regresión L1 formulado arriba. Cada píxel se resuelve de forma <strong>independiente</strong>: para el píxel 1 se estima <var>a<sub>1</sub></var>, para el píxel 2 se estima <var>a<sub>2</sub></var>, sin usar la información de los píxeles vecinos.</p>
+
+        <h3>CLSUnSAL (Collaborative — versión colaborativa)</h3>
+        <p>La observación motivadora: en una imagen real, píxeles cercanos suelen tener endmembers comunes (misma litología, misma unidad de alteración). Si los píxeles se resuelven de forma independiente, pueden terminar activando endmembers distintos por ruido. CLSUnSAL fuerza que <strong>la mayoría de los píxeles de una zona compartan la misma sparsity pattern</strong>: si un mineral X activa en un píxel, es razonable que active en sus vecinos.</p>
+        <p>Matemáticamente, en vez de resolver cada píxel por separado, se resuelve la matriz completa <var>A</var> (abundancias apiladas por columnas) minimizando:</p>
+        <p class="math">min<sub>A</sub> ||<strong>R</strong> − <strong>M</strong> <strong>A</strong>||<sup>2</sup><sub>F</sub> + λ ||<strong>A</strong>||<sub>2,1</sub><span class="lbl">(regresión con regularización L2,1 grupal)</span></p>
+        <p>La norma <var>||A||<sub>2,1</sub></var> es la <strong>group lasso</strong>: suma las normas L2 de las <em>filas</em> de <var>A</var>. Esto penaliza que una fila entera (todas las abundancias de un endmember, a lo largo de todos los píxeles) sea no-cero. Resultado: si un endmember es útil, aparece en muchos píxeles; si no lo es, se anula en <em>toda</em> la imagen a la vez.</p>
+        <div class="callout callout-paper">
+          <h4>Detalle a vigilar en el paper</h4>
+          <p>La diferencia SUnSAL vs CLSUnSAL es una elección de <em>prior</em> geoespacial: ¿los píxeles son independientes o comparten mineralogía? Ambos tienen sentido en distintos contextos. El paper debería justificar por qué usa ambos y qué gana cada uno. Si solo los usa como "dos experimentos", es débil. Si los compara honestamente, es bueno.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s9" aria-labelledby="h-s9">
+        <h2 id="h-s9"><span class="num">§9</span> Las bibliotecas espectrales</h2>
+        <p>La matriz <var>M</var> viene de una <strong>biblioteca espectral</strong>: una colección de firmas puras medidas en laboratorio con un espectrómetro de reflectancia sobre muestras minerales certificadas. Las tres bibliotecas de referencia en el campo:</p>
+        <ul>
+          <li><strong>USGS Spectral Library</strong> (splib06, splib07): mantenida por Roger Clark et al. desde los años 90. Contiene ~400+ minerales, más algunos materiales artificiales, plantas, líquidos. Estándar de facto para unmixing mineral.</li>
+          <li><strong>ECOSTRESS Spectral Library</strong>: sucesora de la ASTER Spectral Library, expandida a más de 3000 firmas incluyendo minerales, rocas, suelos y vegetación.</li>
+          <li><strong>Bibliotecas <em>image-derived</em></strong>: en vez de laboratorio, se extraen endmembers directamente de la imagen usando algoritmos como VCA (Vertex Component Analysis) o N-FINDR. Ventaja: capturan variabilidad local. Desventaja: dependen de que en la imagen haya píxeles "puros".</li>
+        </ul>
+        <div class="callout callout-paper">
+          <h4>Detalle a vigilar en el paper</h4>
+          <p>El paper debe declarar exactamente qué biblioteca usa, qué subset (los 500 minerales completos son demasiados; usualmente se preselecciona) y cómo remuestreó las firmas al rango espectral y a las bandas de cada sensor. Cualquiera de esos tres pasos, mal hecho, invalida los resultados.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s10" aria-labelledby="h-s10">
+        <h2 id="h-s10"><span class="num">§10</span> Cómo se evalúa: κ, RMSE, SAM</h2>
+        <p>Aquí hay una sutileza importante. Un unmixer produce, por píxel, un <em>vector de abundancias continuas</em> — no una clasificación categórica. Hay dos familias de métricas para evaluarlo:</p>
+
+        <h3>Métricas en espacio de abundancia (nativas del unmixing)</h3>
+        <ul>
+          <li><strong>Abundance RMSE</strong>: raíz del error cuadrático medio entre abundancias estimadas y abundancias verdaderas (si tienes ground truth cuantitativo).</li>
+          <li><strong>Reconstruction error</strong>: distancia entre el espectro observado <var>r</var> y el reconstruido <var>M a</var>. Es un check interno del modelo.</li>
+          <li><strong>Spectral Angle Mapper (SAM)</strong>: ángulo entre dos vectores espectrales. Insensible a diferencias de brillo, sensible a forma.</li>
+        </ul>
+
+        <h3>Métricas de clasificación (después de colapsar)</h3>
+        <p>Si en vez de reportar abundancias continuas asignas cada píxel al endmember con <em>mayor abundancia estimada</em>, obtienes un mapa categórico. Sobre ese mapa aplicas:</p>
+        <ul>
+          <li><strong>Overall Accuracy (OA)</strong>: fracción de píxeles correctamente clasificados.</li>
+          <li><strong>Kappa de Cohen (κ)</strong>: acuerdo entre la clasificación y una referencia, corregido por acuerdo azaroso. <var>κ</var> = 1 → acuerdo perfecto; <var>κ</var> = 0 → acuerdo al nivel del azar.</li>
+        </ul>
+        <p>κ es una métrica de <em>clasificación</em>. Reportarla sobre resultados de unmixing implica el paso extra de argmax, y ese paso <strong>tira información</strong>: pierde la magnitud de la abundancia y solo conserva "quién ganó".</p>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>Si un paper de unmixing evalúa <em>solo</em> con κ, está evaluando la etapa de clasificación, no el unmixing per se. La 1,5× mejora reportada en el abstract es una mejora de clasificación relativa a un baseline específico. Si los autores no reportan también métricas en espacio de abundancia (RMSE, SAM, reconstruction error), no sabemos si el unmixing <em>como unmixing</em> es mejor.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s11" aria-labelledby="h-s11">
+        <h2 id="h-s11"><span class="num">§11</span> Cuprite, Nevada: el sitio de prueba universal</h2>
+        <p>Cuprite es un distrito hidrotermal fósil en Nevada, EE.UU., a ~250 km al noroeste de Las Vegas. Fue mineralizado en el Mioceno (~24 Ma) por sistemas epitermales. Hoy no tiene vegetación (desierto), no tiene nubes la mayor parte del año, tiene suelo altamente alterado y ha sido mapeado en detalle por el USGS con espectroscopia de terreno.</p>
+        <p>Es <em>el</em> benchmark de la comunidad hiperespectral por casi 30 años. Cada nuevo algoritmo de unmixing pasa por Cuprite. Las referencias que se citan como "ground truth":</p>
+        <ul>
+          <li><strong>Clark et al. (2003, 2007)</strong>: mapas Tetracorder (algoritmo determinístico de identificación mineral) sobre AVIRIS. Publicación clásica en JGR.</li>
+          <li><strong>Swayze et al. (2014)</strong>: USGS Scientific Investigations Report 2014-5100. Mapas revisados con datos de campo.</li>
+          <li><strong>Rockwell (2017)</strong>: USGS Data Series 1058. Mapa derivado de ASTER usando Tetracorder, actualizado.</li>
+        </ul>
+        <div class="callout callout-key">
+          <h4>Idea clave</h4>
+          <p>Ninguno de estos productos es <em>ground truth</em> en sentido estricto. Todos son <em>derived products</em>: mapas resultado de aplicar otro algoritmo (Tetracorder) sobre otro sensor (AVIRIS o ASTER). Usarlos como referencia para validar un unmixer nuevo introduce circularidad: si el nuevo unmixer difiere del "ground truth", puede ser porque el nuevo está mal o porque el "ground truth" está mal. La validación es acuerdo relativo, no exactitud absoluta.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="s12" aria-labelledby="h-s12">
+        <h2 id="h-s12"><span class="num">§12</span> Alteración hidrotermal en 5 minutos</h2>
+        <p>Los sistemas hidrotermales asociados a depósitos porphyry-Cu-Au y epitermales generan patrones concéntricos de alteración alrededor del cuerpo intrusivo, cada uno con una asociación mineral distintiva y una firma espectral asociada:</p>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Tipos de alteración hidrotermal y sus minerales diagnósticos</caption>
+            <thead>
+              <tr>
+                <th>Zona</th>
+                <th>Minerales típicos</th>
+                <th>Features SWIR diagnósticas</th>
+                <th>Posición relativa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Silícea</strong></td>
+                <td>Cuarzo, ópalo, calcedonia</td>
+                <td>Alta reflectancia general, sin absorciones fuertes</td>
+                <td>Núcleo, más caliente</td>
+              </tr>
+              <tr>
+                <td><strong>Argílica avanzada</strong></td>
+                <td>Alunita, kaolinita, pirofilita, diáspora</td>
+                <td>2170 nm (alunita); doblete 2160+2200 (kaolinita)</td>
+                <td>Adyacente al núcleo</td>
+              </tr>
+              <tr>
+                <td><strong>Fílica (sericítica)</strong></td>
+                <td>Muscovita, illita, sericita, cuarzo, pirita</td>
+                <td>2200 nm (Al-OH)</td>
+                <td>Zona intermedia</td>
+              </tr>
+              <tr>
+                <td><strong>Propilítica</strong></td>
+                <td>Clorita, epidota, calcita, albita</td>
+                <td>2250 nm (Fe/Mg-OH), 2340 nm (calcita)</td>
+                <td>Halo externo, más frío</td>
+              </tr>
+              <tr>
+                <td><strong>Óxidos de hierro</strong></td>
+                <td>Hematita, goethita, jarosita</td>
+                <td>Absorciones VNIR (900 nm) y visible</td>
+                <td>Superficial, meteorización</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>El paper que estás revisando trabaja mayoritariamente sobre alunita, kaolinita, calcita, muscovita/illita, buddingtonita y algunos silicatos. Todas son firmas ricas en features SWIR — motivo por el cual el rango 2100–2400 nm es donde se juega la partida.</p>
+      </section>
+
+      <section class="chapter" id="s13" aria-labelledby="h-s13">
+        <h2 id="h-s13"><span class="num">§13</span> Cómo leer el paper con esta lente</h2>
+        <p>Sugerencia de orden de lectura, con los conceptos anclados:</p>
+        <ol>
+          <li><strong>Introducción</strong>: verifica que dialogan con la literatura de unmixing sparse (Iordache 2011, 2014), modelos no-lineales (Halimi, Dobigeon, Heylen), y la historia de Cuprite (Clark, Swayze). Si citan solo referencias domesticas o solo trabajos previos de los mismos autores, red flag.</li>
+          <li><strong>Sección de método (LCRM)</strong>: identifica exactamente qué ecuación define LCRM. Si es "aplicamos log y después CR y después LMM sparse", el aporte es la <em>combinación</em>, no un modelo nuevo. Compara con la §6 de este tutorial.</li>
+          <li><strong>Sección de SUnSAL/CLSUnSAL</strong>: verifica que citen a los autores originales (Iordache, Bioucas-Dias, Plaza). Si presentan los solvers como propios, red flag.</li>
+          <li><strong>Datos</strong>: qué imágenes específicas (scene ID, fecha), qué corrección atmosférica, qué remuestreo espacial. La §2 del checklist tiene los ítems.</li>
+          <li><strong>Resultados</strong>: qué κ absolutos reportan (no solo ratios). Si el LMM-SUnSAL baseline reporta κ ~ 0,2 en Cuprite, ese baseline está roto — Cuprite se clasifica bien incluso con métodos simples. La §3 del checklist es la clave.</li>
+          <li><strong>Discusión</strong>: ¿reconocen que aplicar CR sobre WV3 (4 bandas SWIR) es cuestionable? ¿Reconocen que el ruido en calcita es un artefacto conocido de CR y no un descubrimiento? La §5 del checklist mide honestidad.</li>
+          <li><strong>Conclusiones</strong>: ¿el mensaje final es "propusimos un algoritmo nuevo" o "aplicamos una combinación conocida al sensor nuevo HISUI"? El segundo es honesto y publicable; el primero es un overclaim.</li>
+        </ol>
+      </section>
+
+      <section class="chapter" id="s14" aria-labelledby="h-s14">
+        <h2 id="h-s14"><span class="num">§14</span> Glosario compacto</h2>
+        <div class="callout callout-gloss">
+          <h4>Términos clave (en orden de aparición en el paper)</h4>
+          <dl class="glossary">
+            <dt>Endmember</dt>
+            <dd>Firma espectral de un componente puro (un mineral individual, agua, sombra). Las columnas de la matriz <var>M</var> son endmembers.</dd>
+
+            <dt>Abundancia</dt>
+            <dd>Proporción de un endmember en un píxel. Vector <var>a</var>, restringido a ser no-negativo y (opcionalmente) sumar 1.</dd>
+
+            <dt>LMM (Linear Mixing Model)</dt>
+            <dd>Modelo <var>r = Ma + n</var>. Válido para mezcla macroscópica; falla para mezcla íntima y multiple scattering.</dd>
+
+            <dt>MLM / Bilinear model</dt>
+            <dd>Familia de modelos que capturan interacciones de segundo orden entre endmembers. Verdaderos modelos no-lineales.</dd>
+
+            <dt>Continuum removal (CR)</dt>
+            <dd>Preprocesamiento que divide un espectro por su envolvente convexa superior, aislando las features de absorción del brillo global.</dd>
+
+            <dt>LCRM (Log Continuum Removal Model)</dt>
+            <dd>La propuesta del paper: log del espectro seguido de continuum removal. Es una combinación de preprocesamientos, no un nuevo modelo físico de mezcla.</dd>
+
+            <dt>Sparse regression / regularización L1</dt>
+            <dd>Enfoque de regresión que fuerza que muchos coeficientes sean exactamente cero. Aplicado al unmixing: pocas firmas activas por píxel.</dd>
+
+            <dt>SUnSAL</dt>
+            <dd>Sparse Unmixing via variable Splitting and Augmented Lagrangian. Solver píxel-a-píxel con regularización L1.</dd>
+
+            <dt>CLSUnSAL</dt>
+            <dd>Collaborative SUnSAL. Versión que impone sparsity compartida entre píxeles usando regularización L2,1 (group lasso).</dd>
+
+            <dt>SAM (Spectral Angle Mapper)</dt>
+            <dd>Ángulo entre dos vectores espectrales. Métrica de similitud invariante a escala (brillo).</dd>
+
+            <dt>κ (Kappa de Cohen)</dt>
+            <dd>Métrica de acuerdo entre dos clasificaciones categóricas, corregida por acuerdo esperado por azar.</dd>
+
+            <dt>Alteración argílica avanzada</dt>
+            <dd>Zona de alteración de alta acidez donde predominan kaolinita, alunita y pirofilita. Cerca del núcleo del sistema hidrotermal.</dd>
+
+            <dt>Alteración propilítica</dt>
+            <dd>Halo externo, con clorita, epidota, calcita. Menor temperatura, más distal.</dd>
+
+            <dt>Tetracorder</dt>
+            <dd>Algoritmo determinístico de identificación mineral basado en analizar features de absorción individuales. Base de los mapas Clark/Rockwell de Cuprite.</dd>
+
+            <dt>USGS Spectral Library (splib06, splib07)</dt>
+            <dd>Biblioteca de referencia mundial de firmas espectrales minerales medidas en laboratorio.</dd>
+          </dl>
+        </div>
+
+        <p style="margin-top: 2rem; color: var(--fg-soft); font-size: 0.9rem;">
+          Con esto tienes el marco completo para leer el manuscrito con criterio. La ruta natural: leer este tutorial → hacer la primera pasada del PDF (60 min) → volver al <a href="review_NARR-D-26-00870_checklist.html">checklist</a> con los ítems como preguntas concretas al texto.
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const key = 'theme-narr-tutorial';
+      const stored = localStorage.getItem(key);
+      if (stored) root.setAttribute('data-theme', stored);
+      const setPressed = () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        toggle.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+      };
+      setPressed();
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(key, next);
+        setPressed();
+      });
+    })();
+  </script>
+</body>
+</html>

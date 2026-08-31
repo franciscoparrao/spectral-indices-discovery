@@ -1,5 +1,5 @@
-SR compresses 10 Sentinel-2 bands into 6 interpretable features without AUC loss
-Combined SR and classical indices achieve best alteration mapping (AUC 0.926)
-Feature engineering equivalence replicates across continents (Chile and Nevada)
-Six classifiers and two DL architectures confirm robustness of the approach
-Propylitic SR index significantly outperforms classical indices (DeLong p<0.001)
+Symbolic regression provides a transferable framework for automated spectral index discovery
+Leakage-free nested CV: symbolic regression re-run inside every training fold
+SR plus classical features significantly beat all raw bands (AUC 0.918 vs 0.899, p=0.001)
+Six SR features alone retain 98-99% of the raw-band discriminative performance
+Complementarity replicates across continents with locally discovered formulas

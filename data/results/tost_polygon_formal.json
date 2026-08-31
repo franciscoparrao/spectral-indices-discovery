@@ -1,0 +1,31 @@
+{
+  "description": "Formal polygon-level TOST equivalence test (\u03b5=0.01)",
+  "n_polygons": 3828,
+  "B_bootstrap": 2000,
+  "epsilon": 0.01,
+  "mean_delta": -0.002201869011661769,
+  "se_delta": 0.004639409264719747,
+  "ci_95": [
+    -0.011561728398452802,
+    0.005066008233960627
+  ],
+  "ci_90_one_sided_95": [
+    -0.010506673525006309,
+    0.0041501245631427415
+  ],
+  "p_within_epsilon": 0.929,
+  "empirical_tost": {
+    "p_upper": 0.0,
+    "p_lower": 0.071,
+    "p_tost": 0.071,
+    "equivalent_at_alpha_0.05": false
+  },
+  "normal_approx_tost": {
+    "z_upper": 2.630047990042726,
+    "z_lower": 1.6808456730987051,
+    "p_upper": 0.004268640782840394,
+    "p_lower": 0.04639644728874448,
+    "p_tost": 0.04639644728874448,
+    "equivalent_at_alpha_0.05": true
+  }
+}

@@ -1,6 +1,7 @@
 \documentclass[review,authoryear]{elsarticle}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -8,14 +9,22 @@
 \usepackage{siunitx}
 \usepackage{natbib}
 
-\journal{Remote Sensing of Environment}
+\journal{Earth Science Informatics}
 
 \begin{document}
 
 \begin{frontmatter}
-\title{Supplementary Material for:\\Symbolic Regression as Spectral Feature Engineering: Discovering Interpretable Indices for Hydrothermal Alteration Mapping from Sentinel-2}
-\author[citiaps]{Francisco Parra~O.}
-\affiliation[citiaps]{organization={CITIAPS}, city={Santiago}, country={Chile}}
+\title{Supplementary Material for:\\Symbolic Regression for Automated Spectral Feature Engineering: A Leakage-Free Framework Evaluated on Sentinel-2 Alteration Mapping}
+\author[usach]{Francisco Parra~O.}
+\author[dim]{Gonzalo R\'ios}
+\author[uoh,systemix,cgr,cmm,inta]{Mauricio Latorre}
+\affiliation[usach]{organization={Universidad de Santiago de Chile (USACH)}, city={Santiago}, country={Chile}}
+\affiliation[dim]{organization={Departamento de Ingenier\'ia Matem\'atica, FCFM, Universidad de Chile}, city={Santiago}, country={Chile}}
+\affiliation[uoh]{organization={Laboratorio de Bioingenier\'ia, Instituto de Ciencias de la Ingenier\'ia, Universidad de O'Higgins}, addressline={Libertador Bernardo O'Higgins 611}, city={Rancagua}, country={Chile}}
+\affiliation[systemix]{organization={Centro de Biolog\'ia de Sistemas para el Estudio de Comunidades Extrem\'ofilas de Relaves Mineros (SYSTEMIX), Universidad de O'Higgins}, addressline={Libertador Bernardo O'Higgins 611}, city={Rancagua}, country={Chile}}
+\affiliation[cgr]{organization={Millennium Institute Center for Genome Regulation}, postcode={8320165}, city={Santiago}, country={Chile}}
+\affiliation[cmm]{organization={Center for Mathematical Modeling, University of Chile}, addressline={Beauchef 851}, city={Santiago}, country={Chile}}
+\affiliation[inta]{organization={Laboratorio de Bioinform\'atica y Expresi\'on G\'enica, INTA, Universidad de Chile}, addressline={El L\'ibano 5524, Macul}, city={Santiago}, country={Chile}}
 \end{frontmatter}
 
 \setcounter{figure}{0}
@@ -43,7 +52,7 @@
 
 \begin{table*}[ht]
 \centering
-\caption{Robustness check: mean AUC across alteration classes for different classifiers and feature sets (5-fold CV, Region~III). The pattern ``SR $\approx$ raw bands'' and ``SR + classical $>$ all'' is consistent across all four classifiers and two DL architectures tested.}
+\caption{Robustness check: mean AUC across alteration classes for different classifiers and feature sets (5-fold CV, Region~III; fixed 70/30-split formulas, not nested re-discovery; see main text Table~6 for the leakage-free nested estimates, which show a discovery cost of $\approx 0.01$ for the SR-only set). The pattern relevant to this check (``SR $+$ classical $>$ all other feature sets'') is consistent across all four classifiers and two DL architectures tested.}
 \label{tab:s_multiclf}
 \begin{tabular}{llcccc}
 \toprule
@@ -121,14 +130,14 @@ Classifier & Features & Silicic & Adv.\ Arg. & Arg.-Ph. & Propyl. & Iron Ox. & P
 \toprule
 SR Index & B02 & B03 & B04 & B05 & B06 & B07 & B08 & B8A & B11 & B12 \\
 \midrule
-Silicic       & \textbf{0.87} & \textbf{0.94} & \textbf{1.00} & \textbf{1.00} & \textbf{0.99} & \textbf{0.99} & \textbf{0.98} & \textbf{0.82} & 0.66 & \textbf{0.97} \\
-Adv.\ Argillic & 0.50 & 0.33 & 0.03 & 0.03 & 0.07 & 0.05 & 0.03 & 0.19 & 0.01 & 0.02 \\
-Argillic      & \textbf{0.74} & \textbf{0.84} & \textbf{0.93} & \textbf{0.94} & \textbf{0.94} & \textbf{0.94} & \textbf{0.93} & \textbf{0.83} & 0.69 & \textbf{0.92} \\
-Propylitic    & 0.68 & 0.61 & 0.40 & 0.35 & 0.31 & 0.30 & 0.31 & 0.13 & 0.05 & 0.30 \\
-Iron Oxide    & 0.43 & 0.56 & \textbf{0.71} & \textbf{0.74} & \textbf{0.76} & \textbf{0.75} & \textbf{0.72} & \textbf{0.84} & 0.44 & \textbf{0.71} \\
-Potassic      & 0.01 & 0.09 & 0.32 & 0.35 & 0.37 & 0.35 & 0.32 & 0.15 & 0.25 & 0.30 \\
+Silicic       & \textbf{0.91} & \textbf{0.92} & \textbf{0.83} & \textbf{0.80} & \textbf{0.78} & \textbf{0.76} & \textbf{0.76} & \textbf{0.74} & 0.47 & 0.31 \\
+Adv.\ Argillic& 0.50 & 0.33 & 0.03 & 0.03 & 0.07 & 0.05 & 0.03 & 0.02 & 0.19 & 0.01 \\
+Argillic-Phyl.& 0.39 & 0.53 & \textbf{0.76} & \textbf{0.79} & \textbf{0.81} & \textbf{0.80} & \textbf{0.78} & \textbf{0.77} & \textbf{0.75} & 0.54 \\
+Propylitic    & 0.68 & 0.61 & 0.40 & 0.35 & 0.31 & 0.30 & 0.31 & 0.30 & 0.13 & 0.05 \\
+Iron Oxide    & 0.43 & 0.56 & \textbf{0.71} & \textbf{0.74} & \textbf{0.76} & \textbf{0.75} & \textbf{0.72} & \textbf{0.71} & \textbf{0.84} & 0.44 \\
+Potassic      & 0.01 & 0.09 & 0.32 & 0.35 & 0.37 & 0.35 & 0.32 & 0.30 & 0.15 & 0.25 \\
 \midrule
-Max $|r|$     & \textbf{0.87} & \textbf{0.94} & \textbf{1.00} & \textbf{1.00} & \textbf{0.99} & \textbf{0.99} & \textbf{0.98} & \textbf{0.84} & 0.69 & \textbf{0.97} \\
+Max $|r|$     & \textbf{0.91} & \textbf{0.92} & \textbf{0.83} & \textbf{0.80} & \textbf{0.81} & \textbf{0.80} & \textbf{0.78} & \textbf{0.77} & \textbf{0.84} & 0.54 \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -143,11 +152,65 @@ Target class & SR index & Classical index & AUC$_{\text{SR}}$ & AUC$_{\text{clas
 \midrule
 Propylitic & $B_{03} - 0.48 B_{11}$ & Clay Ratio & 0.907 & 0.715 & +0.192 & 34.0 & $<$0.001$^{***}$ \\
 Propylitic & $B_{03} - 0.48 B_{11}$ & OH Minerals & 0.907 & 0.860 & +0.047 & 8.7 & $<$0.001$^{***}$ \\
-Silicic & $B_{04} - 0.135$ & Clay Ratio & 0.667 & 0.648 & +0.019 & 2.3 & 0.020$^{*}$ \\
+Silicic & $B_{03}^2/B_{12}$ & Clay Ratio & 0.652 & 0.648 & +0.005 & 0.5 & 0.596 n.s. \\
+Argillic-Phyllic & $(B_{03}+0.105)/B_{04}-0.83$ & Iron Oxide & 0.651 & 0.590 & +0.061 & 9.1 & $<$0.001$^{***}$ \\
 Adv.\ Argillic & $0.83 - B_{02}/B_{05}$ & Iron Oxide & 0.719 & 0.723 & $-$0.004 & $-$0.7 & 0.516 n.s. \\
 Iron Oxide & $(\sqrt{B_{12}}-B_{11})^2$ & Clay Ratio & 0.754 & 0.737 & +0.017 & 1.2 & 0.239 n.s. \\
 \bottomrule
 \end{tabular}
 \end{table*}
+
+%% ============================================================
+\section*{Cross-Domain Validation: Land Cover Classification}
+\label{sec:s_landcover}
+
+To test whether the SR feature engineering framework generalizes beyond hydrothermal alteration, we applied the same methodology to land cover classification, a fundamentally different remote sensing problem. Using ESA WorldCover 2021 labels \citep{Zanaga2022} and Sentinel-2 imagery from central Germany (Thuringia/Bavaria border, \ang{50.35} N, \ang{11.15} E), we sampled 6{,}612 pixels across five land cover classes: Forest, Grassland, Cropland, Built-up, and Water. PySR discovered five class-specific indices (complexity $\leq 8$) using a lighter search configuration than the alteration experiments (\texttt{niterations} = 80, \texttt{populations} = 15, \texttt{select\_k\_features} = 4), commensurate with the smaller dataset.
+
+Table~\ref{tab:s_landcover} shows the feature engineering results, which replicate the key pattern observed in alteration mapping.
+
+\begin{table*}[ht]
+\centering
+\caption{Land cover classification: feature engineering comparison (5-fold CV, central Germany). The pattern ``SR + classical $>$ raw bands'' replicates across application domains. Sentinel-2 data acquired via SurtGIS \citep{Parra2026surtgis} from Planetary Computer; WorldCover labels from ESA.}
+\label{tab:s_landcover}
+\begin{tabular}{llcccccccc}
+\toprule
+Classifier & Features & $n$ feat. & BA & mAUC & Forest & Grass & Crop & Built & Water \\
+\midrule
+\multirow{3}{*}{RF}
+  & 10 raw bands        & 10 & 0.72 & 0.920 & 0.88 & 0.88 & 0.92 & 0.95 & 0.97 \\
+  & 5 SR indices         & 5  & 0.68 & 0.902 & 0.86 & 0.87 & 0.89 & 0.93 & 0.96 \\
+  & \textbf{5 SR + 7 classical} & \textbf{12} & \textbf{0.72} & \textbf{0.926} & \textbf{0.89} & \textbf{0.88} & \textbf{0.93} & \textbf{0.95} & \textbf{0.97} \\
+\midrule
+\multirow{3}{*}{SVM-RBF}
+  & 10 raw bands        & 10 & 0.67 & 0.895 & 0.85 & 0.86 & 0.91 & 0.92 & 0.94 \\
+  & 5 SR indices         & 5  & 0.65 & 0.884 & 0.83 & 0.86 & 0.88 & 0.91 & 0.93 \\
+  & 5 SR + 7 classical  & 12 & 0.66 & 0.889 & 0.84 & 0.86 & 0.90 & 0.92 & 0.93 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The combined SR + classical feature set achieves the highest mean AUC (0.926) for RF, exceeding both raw bands (0.920) and SR indices alone (0.902). The AUC gap between SR-only and raw bands ($\Delta = -0.018$) is comparable to the leakage-free discovery cost measured for the alteration domain under nested cross-validation ($-0.011$ stratified, $-0.018$ polygon-disjoint; main text Table~6), despite the lighter search configuration used here (five features, \texttt{select\_k\_features} = 4 vs.\ 5 for alteration). The central finding, that combining SR-discovered features with classical indices improves over raw bands, replicates in a completely different application domain, supporting the generality of the framework.
+
+The SR-discovered formulas for land cover are listed in Table~\ref{tab:s_lc_formulas}. The NIR band (B08) appears in four of five formulas, reflecting the dominance of vegetation-sensitive spectral regions in land cover discrimination. However, unlike the alteration indices where visible and SWIR bands dominate, the land cover formulas also incorporate SWIR bands (B11 in Grassland and Cropland, B12 in Built-up) to distinguish spectrally similar vegetated classes and impervious surfaces.
+
+\begin{table}[ht]
+\centering
+\caption{SR-discovered indices for land cover classes. Variables $x_0$--$x_9$ in PySR correspond to bands in alphabetical order: B02, B03, B04, B05, B06, B07, B08, B11, B12, B8A. Formulas shown with band names.}
+\label{tab:s_lc_formulas}
+\begin{tabular}{llcc}
+\toprule
+Class & Formula & Compl. & AUC \\
+\midrule
+Forest   & $0.021 / [(\text{B08} - 0.30)^2 + \text{B03}]$ & 8 & 0.73 \\
+Grassland & $\text{B08} \cdot (\text{B11}/(\text{B04} + 0.14))^2$ & 8 & 0.77 \\
+Cropland  & $\text{B8A} \cdot \text{B08} \cdot (0.21/\text{B11})^2$ & 8 & 0.73 \\
+Built-up  & $12.8 \cdot \text{B12} \cdot (\text{B8A} - 0.71)^2$ & 8 & 0.81 \\
+Water     & $[(\log(\text{B08} + 0.33))^2 + \text{B05}]^2$ & 8 & 0.82 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
 
 \end{document}

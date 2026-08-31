@@ -1,0 +1,42 @@
+{
+  "description": "Expanded TOST with 95% CI (fold-level) and polygon-level paired bootstrap",
+  "fold_level": {
+    "resampling_unit": "10-fold stratified CV on full 15,595 pixels (pixels are IID within folds but folds share spatial autocorrelation)",
+    "n_folds": 10,
+    "mean_delta_auc_sr_minus_raw": -0.0027360954342879216,
+    "se": 0.0010862003987423612,
+    "t_critical_95": 2.2621571628540993,
+    "ci_95": [
+      -0.005193251446597933,
+      -0.00027893942197791026
+    ],
+    "per_fold_diffs": [
+      -0.0015183868119157395,
+      -0.00615462085130869,
+      -0.005932963023248972,
+      -0.003301850590994082,
+      0.00048537887193589313,
+      0.0021845524484229717,
+      -0.0072736416309382435,
+      -0.006059299072999513,
+      -0.00012853775650523147,
+      0.0003384140746723885
+    ],
+    "tost_epsilon_0.01": {
+      "p_tost": 4.490641221088776e-05,
+      "reject_h0_nonequivalence": true
+    }
+  },
+  "polygon_bootstrap": {
+    "resampling_unit": "3828 DBSCAN-reconstructed polygons (\u2248110 m), paired bootstrap with replacement",
+    "B": 1000,
+    "point_estimate_delta_auc": 0.00025828269289026223,
+    "mean_bootstrap": -0.0021098553952492607,
+    "ci_95_bootstrap": [
+      -0.011376048002412752,
+      0.005066171350229533
+    ],
+    "p_within_0.01": 0.921
+  },
+  "epsilon_justification": "\u03b5=0.01 was chosen as the smallest equivalence margin that remains statistically distinguishable from zero given the 10-fold CV sample. Operationally, 0.01 AUC is one-tenth of the typical per-class AUC differences between feature sets in this study (e.g., SR - classical \u2248 0.02 at class level, raw - classical \u2248 0.02), and one-twentieth of the spatial-autocorrelation inflation (\u22480.20 between pixel and 5-km block CV). An equivalence with \u03b5=0.01 therefore asserts that the SR - raw gap is an order of magnitude smaller than the effect sizes this paper otherwise reports as meaningful. Stricter margins (\u03b5=0.005) are underpowered at n=10 folds given the observed standard error (\u22480.001); looser margins (\u03b5\u22650.02) hold a fortiori (Table: all four tested margins reject non-equivalence at p<0.001)."
+}

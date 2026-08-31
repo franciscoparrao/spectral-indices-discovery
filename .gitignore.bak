@@ -1,0 +1,41 @@
+# Virtual environment
+.venv/
+venv/
+
+# Large data (rasters, shapefiles, embeddings)
+data/sentinel2/
+data/external/
+data/embeddings/
+data/ground_truth/*.npz
+data/ground_truth/*.tif
+data/ground_truth/*.csv
+
+# Keep results JSONs (small, reproducibility)
+# data/results/ is tracked
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.pdf
+paper/*.synctex*
+paper/*.fls
+paper/*.fdb_latexmk
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# PySR temp files
+hall_of_fame*
+*.pkl
+
+# OS
+.DS_Store
+Thumbs.db

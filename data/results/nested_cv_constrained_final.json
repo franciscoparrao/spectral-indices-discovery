@@ -1,0 +1,107 @@
+{
+  "stratified": {
+    "means": {
+      "raw": 0.8991,
+      "sr": 0.8885,
+      "classical": 0.8783,
+      "sr_classical": 0.9173,
+      "raw_classical": 0.9136
+    },
+    "per_class": {
+      "raw": {
+        "Silicic": 0.862,
+        "Adv_Argillic": 0.873,
+        "Argillic_Phyllic": 0.841,
+        "Propylitic": 0.992,
+        "Iron_Oxide": 0.937,
+        "Potassic_Skarn": 0.889
+      },
+      "sr": {
+        "Silicic": 0.849,
+        "Adv_Argillic": 0.856,
+        "Argillic_Phyllic": 0.825,
+        "Propylitic": 0.992,
+        "Iron_Oxide": 0.941,
+        "Potassic_Skarn": 0.868
+      },
+      "classical": {
+        "Silicic": 0.843,
+        "Adv_Argillic": 0.848,
+        "Argillic_Phyllic": 0.809,
+        "Propylitic": 0.985,
+        "Iron_Oxide": 0.925,
+        "Potassic_Skarn": 0.859
+      },
+      "sr_classical": {
+        "Silicic": 0.889,
+        "Adv_Argillic": 0.888,
+        "Argillic_Phyllic": 0.869,
+        "Propylitic": 0.993,
+        "Iron_Oxide": 0.959,
+        "Potassic_Skarn": 0.907
+      },
+      "raw_classical": {
+        "Silicic": 0.882,
+        "Adv_Argillic": 0.884,
+        "Argillic_Phyllic": 0.866,
+        "Propylitic": 0.99,
+        "Iron_Oxide": 0.956,
+        "Potassic_Skarn": 0.904
+      }
+    },
+    "delta_srcl_raw": 0.0182,
+    "p_srcl": 0.0014696565102135795,
+    "delta_sr_raw": -0.0106,
+    "se_sr": 0.0043
+  },
+  "polygon": {
+    "means": {
+      "raw": 0.822,
+      "sr": 0.8016,
+      "classical": 0.7886,
+      "sr_classical": 0.8382,
+      "raw_classical": 0.8315
+    },
+    "per_class": {
+      "raw": {
+        "Silicic": 0.725,
+        "Adv_Argillic": 0.838,
+        "Argillic_Phyllic": 0.786,
+        "Iron_Oxide": 0.913,
+        "Potassic_Skarn": 0.848
+      },
+      "sr": {
+        "Silicic": 0.698,
+        "Adv_Argillic": 0.814,
+        "Argillic_Phyllic": 0.773,
+        "Iron_Oxide": 0.906,
+        "Potassic_Skarn": 0.817
+      },
+      "classical": {
+        "Silicic": 0.69,
+        "Adv_Argillic": 0.813,
+        "Argillic_Phyllic": 0.757,
+        "Iron_Oxide": 0.879,
+        "Potassic_Skarn": 0.804
+      },
+      "sr_classical": {
+        "Silicic": 0.743,
+        "Adv_Argillic": 0.851,
+        "Argillic_Phyllic": 0.815,
+        "Iron_Oxide": 0.927,
+        "Potassic_Skarn": 0.856
+      },
+      "raw_classical": {
+        "Silicic": 0.73,
+        "Adv_Argillic": 0.842,
+        "Argillic_Phyllic": 0.807,
+        "Iron_Oxide": 0.923,
+        "Potassic_Skarn": 0.856
+      }
+    },
+    "delta_srcl_raw": 0.0162,
+    "p_srcl": 0.007603335264822708,
+    "delta_sr_raw": -0.0204,
+    "se_sr": 0.0054
+  }
+}

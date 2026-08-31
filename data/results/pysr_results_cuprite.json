@@ -1,0 +1,320 @@
+{
+  "site": "Cuprite, Nevada, USA",
+  "ground_truth": "USGS hydrothermal alteration map (Rockwell 2017)",
+  "s2_source": "GEE COPERNICUS/S2_SR_HARMONIZED median Jun-Sep 2024",
+  "rf_baseline_balanced_accuracy": 0.48762729281216366,
+  "n_train": 10500,
+  "n_test": 4500,
+  "Silicic": {
+    "class_id": 1,
+    "n_train": 961,
+    "best_equation": "log(B11 / B12)",
+    "complexity": 4,
+    "loss": 0.06677621,
+    "auc": 0.9443389247240326,
+    "f1": 0.6036697247706422,
+    "threshold": 0.2,
+    "time_s": 144.06038427352905,
+    "pareto_front": [
+      {
+        "equation": "B02",
+        "complexity": 1,
+        "loss": 0.08307403
+      },
+      {
+        "equation": "square(B11)",
+        "complexity": 2,
+        "loss": 0.07576041
+      },
+      {
+        "equation": "B11 + -0.24600023",
+        "complexity": 3,
+        "loss": 0.073515266
+      },
+      {
+        "equation": "log(B11 / B12)",
+        "complexity": 4,
+        "loss": 0.06677621
+      },
+      {
+        "equation": "(B11 / B12) + -1.0582384",
+        "complexity": 5,
+        "loss": 0.061862655
+      },
+      {
+        "equation": "square((B11 - B12) / 0.17044988)",
+        "complexity": 6,
+        "loss": 0.05674393
+      },
+      {
+        "equation": "(B11 * 5.890604) - (B12 * 6.4675717)",
+        "complexity": 7,
+        "loss": 0.054870505
+      },
+      {
+        "equation": "(B12 * -6.189674) - ((B11 * -6.482696) + B8A)",
+        "complexity": 9,
+        "loss": 0.053994738
+      },
+      {
+        "equation": "(0.14405684 - (B11 * ((B12 - B11) * 13.92215))) - B8A",
+        "complexity": 11,
+        "loss": 0.053249106
+      },
+      {
+        "equation": "(0.13846341 - (tanh(B11) * ((B12 - B11) * 14.980371))) - B8A",
+        "complexity": 12,
+        "loss": 0.05317484
+      },
+      {
+        "equation": "(0.90886587 - (B12 / B11)) / ((B8A / (B11 + -0.2458959)) * 0.17785631)",
+        "complexity": 13,
+        "loss": 0.05234646
+      },
+      {
+        "equation": "(0.90806466 - (B12 / B11)) / ((B8A / (tanh(B11) + -0.24379738)) * 0.15434669)",
+        "complexity": 14,
+        "loss": 0.05226551
+      },
+      {
+        "equation": "(0.9078801 - (B12 / B11)) / (((B8A + -0.096316285) * 0.23971178) / (B11 + -0.25209934))",
+        "complexity": 15,
+        "loss": 0.05213922
+      }
+    ]
+  },
+  "Adv_Argillic": {
+    "class_id": 2,
+    "n_train": 305,
+    "best_equation": "B11 - B12",
+    "complexity": 3,
+    "loss": 0.025499271,
+    "auc": 0.9376313688216249,
+    "f1": 0.4199475065616798,
+    "threshold": 0.1,
+    "time_s": 98.2955253124237,
+    "pareto_front": [
+      {
+        "equation": "0.029050153",
+        "complexity": 1,
+        "loss": 0.028203834
+      },
+      {
+        "equation": "square(B03)",
+        "complexity": 2,
+        "loss": 0.027671382
+      },
+      {
+        "equation": "B11 - B12",
+        "complexity": 3,
+        "loss": 0.025499271
+      },
+      {
+        "equation": "B11 - (B12 - -0.0155479945)",
+        "complexity": 5,
+        "loss": 0.025257528
+      },
+      {
+        "equation": "square((B11 - B12) / 0.2753146)",
+        "complexity": 6,
+        "loss": 0.023939569
+      },
+      {
+        "equation": "13.400415 * square(tanh(B11 - B12))",
+        "complexity": 7,
+        "loss": 0.023922363
+      },
+      {
+        "equation": "square(B12 * (B12 - B11)) * 127.15302",
+        "complexity": 8,
+        "loss": 0.02373665
+      },
+      {
+        "equation": "((B11 - (B12 - -0.033483658)) * 5.273149) * B11",
+        "complexity": 9,
+        "loss": 0.02370409
+      },
+      {
+        "equation": "((B11 - B12) - 0.03416993) * (square(B11) * 11.804882)",
+        "complexity": 10,
+        "loss": 0.023635326
+      },
+      {
+        "equation": "((B11 - B03) * ((B11 - B12) - 0.03476321)) * 11.342551",
+        "complexity": 11,
+        "loss": 0.023528134
+      },
+      {
+        "equation": "square((B11 - B02) * 5.92946) * ((B11 - B12) - 0.036496703)",
+        "complexity": 12,
+        "loss": 0.023427086
+      },
+      {
+        "equation": "(((B11 - B12) - 0.038090643) * 19.003696) * (B11 - (B02 - -0.12845412))",
+        "complexity": 13,
+        "loss": 0.023337834
+      },
+      {
+        "equation": "((B11 - (B12 - -0.039222818)) * (((B11 - B02) - 0.12818252) * 59.30611)) * B12",
+        "complexity": 15,
+        "loss": 0.023257941
+      }
+    ]
+  },
+  "Argillic_Phyllic": {
+    "class_id": 3,
+    "n_train": 270,
+    "best_equation": "tanh(B11) - B8A",
+    "complexity": 4,
+    "loss": 0.024149332,
+    "auc": 0.8978574125346086,
+    "f1": 0.13658536585365855,
+    "threshold": 0.1,
+    "time_s": 74.23602199554443,
+    "pareto_front": [
+      {
+        "equation": "0.025706142",
+        "complexity": 1,
+        "loss": 0.025053045
+      },
+      {
+        "equation": "B11 - B8A",
+        "complexity": 3,
+        "loss": 0.024913609
+      },
+      {
+        "equation": "tanh(B11) - B8A",
+        "complexity": 4,
+        "loss": 0.024149332
+      },
+      {
+        "equation": "square(log(B8A / B11))",
+        "complexity": 5,
+        "loss": 0.02364327
+      },
+      {
+        "equation": "square(log(B8A / tanh(B11)))",
+        "complexity": 6,
+        "loss": 0.023468142
+      },
+      {
+        "equation": "square((B11 - B8A) / B12) - 0.017748116",
+        "complexity": 8,
+        "loss": 0.023154132
+      },
+      {
+        "equation": "(B12 * -0.06639417) + square((B11 - B8A) / B12)",
+        "complexity": 10,
+        "loss": 0.023076858
+      },
+      {
+        "equation": "square(B8A - B11) * ((3.0150332 / square(B12)) - 23.267817)",
+        "complexity": 11,
+        "loss": 0.022692412
+      },
+      {
+        "equation": "square(B8A - tanh(B11)) * (square(2.0359104 / B12) - 31.78843)",
+        "complexity": 12,
+        "loss": 0.022615148
+      },
+      {
+        "equation": "(((3.198298 / square(B12)) - 23.265478) * square(B11 - B8A)) - 0.015359361",
+        "complexity": 13,
+        "loss": 0.022579005
+      },
+      {
+        "equation": "(square(B8A - tanh(B11)) * (square(2.0556924 / B12) - 30.442884)) - 0.012546929",
+        "complexity": 14,
+        "loss": 0.02253027
+      },
+      {
+        "equation": "(square(tanh(tanh(B11) - B8A)) * ((4.235695 / square(B12)) - 30.41757)) - 0.0127571365",
+        "complexity": 15,
+        "loss": 0.022526529
+      }
+    ]
+  },
+  "Propylitic": {
+    "class_id": 4,
+    "n_train": 284,
+    "best_equation": "square((B12 - B08) / B07)",
+    "complexity": 6,
+    "loss": 0.025441833,
+    "auc": 0.6639577698972746,
+    "f1": 0.15447154471544716,
+    "threshold": 0.05,
+    "time_s": 80.73356676101685,
+    "pareto_front": [
+      {
+        "equation": "0.027042845",
+        "complexity": 1,
+        "loss": 0.026316028
+      },
+      {
+        "equation": "B12 - B07",
+        "complexity": 3,
+        "loss": 0.025971247
+      },
+      {
+        "equation": "B12 - tanh(B07)",
+        "complexity": 4,
+        "loss": 0.025827045
+      },
+      {
+        "equation": "sqrt(square(B12 - B08))",
+        "complexity": 5,
+        "loss": 0.025715625
+      },
+      {
+        "equation": "square((B12 - B08) / B07)",
+        "complexity": 6,
+        "loss": 0.025441833
+      },
+      {
+        "equation": "square(B12 - tanh(B07)) / 0.055559695",
+        "complexity": 7,
+        "loss": 0.025425296
+      },
+      {
+        "equation": "square(B12 - tanh(B07)) / square(B08)",
+        "complexity": 8,
+        "loss": 0.025263758
+      },
+      {
+        "equation": "square(tanh(tanh(B07)) - B12) / square(B08)",
+        "complexity": 9,
+        "loss": 0.025165422
+      },
+      {
+        "equation": "square(tanh(tanh(B07)) - B12) / square(tanh(B08))",
+        "complexity": 10,
+        "loss": 0.025153035
+      },
+      {
+        "equation": "(square(B12 - B07) / square(B08 - B02)) * B12",
+        "complexity": 11,
+        "loss": 0.02489616
+      },
+      {
+        "equation": "B12 * (square(B12 - tanh(B07)) / square(B08 - B02))",
+        "complexity": 12,
+        "loss": 0.024698129
+      },
+      {
+        "equation": "(tanh(square(B12 - tanh(B07))) * B12) / square(B08 - B02)",
+        "complexity": 13,
+        "loss": 0.02469812
+      },
+      {
+        "equation": "(B12 / square(B08 - (B02 + 0.004680327))) * square(B12 - tanh(B07))",
+        "complexity": 14,
+        "loss": 0.024680983
+      },
+      {
+        "equation": "square(B12 - tanh(tanh(B07))) * ((B12 / square(B02 - B08)) + -3.9916892)",
+        "complexity": 15,
+        "loss": 0.02462446
+      }
+    ]
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "pixel_stratified_5fold": {
+    "description": "Pixel-level StratifiedKFold(5) \u2014 paper baseline, pixels shuffled across folds",
+    "n_groups": 15595,
+    "feature_sets": {
+      "raw_10": {
+        "mauc_mean": 0.8990765157997229,
+        "mauc_std": 0.005361115699578225,
+        "ba_mean": 0.6414840909090909,
+        "ba_std": 0.011854416987508463,
+        "per_class_auc": {
+          "Silicic": 0.861926770504598,
+          "Adv_Argillic": 0.8733045776309579,
+          "Argillic_Phyllic": 0.8412467201510146,
+          "Propylitic": 0.9923285838517627,
+          "Iron_Oxide": 0.9367601854918848,
+          "Potassic_Skarn": 0.8888922571681193
+        },
+        "n_folds": 5
+      },
+      "sr_6": {
+        "mauc_mean": 0.8977290884471302,
+        "mauc_std": 0.004447374582406265,
+        "ba_mean": 0.6409261784511784,
+        "ba_std": 0.008988896567178054,
+        "per_class_auc": {
+          "Silicic": 0.8575525128100716,
+          "Adv_Argillic": 0.867731524303917,
+          "Argillic_Phyllic": 0.8321761680037753,
+          "Propylitic": 0.9936935580975316,
+          "Iron_Oxide": 0.9549281218946671,
+          "Potassic_Skarn": 0.8802926455728179
+        },
+        "n_folds": 5
+      },
+      "classical_7": {
+        "mauc_mean": 0.8783082324239816,
+        "mauc_std": 0.003887780766582609,
+        "ba_mean": 0.5839399831649832,
+        "ba_std": 0.013238919112097177,
+        "per_class_auc": {
+          "Silicic": 0.8434112117818724,
+          "Adv_Argillic": 0.8480188768286927,
+          "Argillic_Phyllic": 0.8088386031146767,
+          "Propylitic": 0.9849892969429395,
+          "Iron_Oxide": 0.9254875786684333,
+          "Potassic_Skarn": 0.8591038272072755
+        },
+        "n_folds": 5
+      },
+      "sr_plus_classical_13": {
+        "mauc_mean": 0.9195959910708151,
+        "mauc_std": 0.0033769757419801457,
+        "ba_mean": 0.6874736531986532,
+        "ba_std": 0.004913221728984474,
+        "per_class_auc": {
+          "Silicic": 0.8899060029183211,
+          "Adv_Argillic": 0.8914460594620104,
+          "Argillic_Phyllic": 0.8706906087777254,
+          "Propylitic": 0.9942966084687939,
+          "Iron_Oxide": 0.9629281218946671,
+          "Potassic_Skarn": 0.9083085449033724
+        },
+        "n_folds": 5
+      }
+    }
+  },
+  "spatial_block_1km_groupkfold": {
+    "description": "Spatial GroupKFold(5) with 1 km blocks; train/test blocks are disjoint",
+    "n_groups": 630,
+    "feature_sets": {
+      "raw_10": {
+        "mauc_mean": 0.8420221606676804,
+        "mauc_std": 0.015884982244776368,
+        "ba_mean": 0.5355231597850824,
+        "ba_std": 0.07509497437792284,
+        "per_class_auc": {
+          "Silicic": 0.7817234096276204,
+          "Adv_Argillic": 0.825505687592649,
+          "Argillic_Phyllic": 0.7735620122401615,
+          "Propylitic": NaN,
+          "Iron_Oxide": 0.8903570881672511,
+          "Potassic_Skarn": 0.8380792174911207
+        },
+        "n_folds": 5
+      },
+      "sr_6": {
+        "mauc_mean": 0.8390256607384534,
+        "mauc_std": 0.015198605166175569,
+        "ba_mean": 0.5259567756710963,
+        "ba_std": 0.05639034515164479,
+        "per_class_auc": {
+          "Silicic": 0.7768986949296516,
+          "Adv_Argillic": 0.8202351356274578,
+          "Argillic_Phyllic": 0.768517770313154,
+          "Propylitic": NaN,
+          "Iron_Oxide": 0.9198228328126156,
+          "Potassic_Skarn": 0.8222605751386001
+        },
+        "n_folds": 5
+      },
+      "classical_7": {
+        "mauc_mean": 0.8224023947856411,
+        "mauc_std": 0.01875207505141069,
+        "ba_mean": 0.49424078507413904,
+        "ba_std": 0.06056879836696274,
+        "per_class_auc": {
+          "Silicic": 0.7633196816931853,
+          "Adv_Argillic": 0.803628351891423,
+          "Argillic_Phyllic": 0.7490632637546988,
+          "Propylitic": NaN,
+          "Iron_Oxide": 0.884837041282788,
+          "Potassic_Skarn": 0.7972680950112246
+        },
+        "n_folds": 5
+      },
+      "sr_plus_classical_13": {
+        "mauc_mean": 0.8623388655370133,
+        "mauc_std": 0.013034763282640843,
+        "ba_mean": 0.5647128661630912,
+        "ba_std": 0.066391400357138,
+        "per_class_auc": {
+          "Silicic": 0.8123545161379214,
+          "Adv_Argillic": 0.8421334869790188,
+          "Argillic_Phyllic": 0.7984649319951606,
+          "Propylitic": NaN,
+          "Iron_Oxide": 0.930350125618785,
+          "Potassic_Skarn": 0.8480052936807642
+        },
+        "n_folds": 5
+      }
+    }
+  },
+  "spatial_block_2km_groupkfold": {
+    "description": "Spatial GroupKFold(5) with 2 km blocks; train/test blocks are disjoint",
+    "n_groups": 283,
+    "feature_sets": {
+      "raw_10": {
+        "mauc_mean": 0.7809844058429616,
+        "mauc_std": 0.0436705676716465,
+        "ba_mean": 0.41967794295149163,
+        "ba_std": 0.04523400642395501,
+        "per_class_auc": {
+          "Silicic": 0.7297505179257004,
+          "Adv_Argillic": 0.7983324549251458,
+          "Argillic_Phyllic": 0.7232052640176752,
+          "Potassic_Skarn": 0.8106495603679151
+        },
+        "n_folds": 5
+      },
+      "sr_6": {
+        "mauc_mean": 0.7768473009549334,
+        "mauc_std": 0.04122511246205604,
+        "ba_mean": 0.42147218982237583,
+        "ba_std": 0.04349302203238669,
+        "per_class_auc": {
+          "Silicic": 0.7406359354630753,
+          "Adv_Argillic": 0.7881686105656815,
+          "Argillic_Phyllic": 0.7244045089526743,
+          "Potassic_Skarn": 0.7814036194296159
+        },
+        "n_folds": 5
+      },
+      "classical_7": {
+        "mauc_mean": 0.7547807295855581,
+        "mauc_std": 0.03686677306883697,
+        "ba_mean": 0.37685829335763854,
+        "ba_std": 0.035678555929937246,
+        "per_class_auc": {
+          "Silicic": 0.7187999720464646,
+          "Adv_Argillic": 0.778018023110935,
+          "Argillic_Phyllic": 0.7199162718420453,
+          "Potassic_Skarn": 0.7377420053478825
+        },
+        "n_folds": 5
+      },
+      "sr_plus_classical_13": {
+        "mauc_mean": 0.7998836826270903,
+        "mauc_std": 0.038038194859856274,
+        "ba_mean": 0.4471210851247891,
+        "ba_std": 0.037869071569888814,
+        "per_class_auc": {
+          "Silicic": 0.7581405740371345,
+          "Adv_Argillic": 0.8129246287227968,
+          "Argillic_Phyllic": 0.7550604046466841,
+          "Potassic_Skarn": 0.7982751970834981
+        },
+        "n_folds": 5
+      }
+    }
+  },
+  "spatial_block_5km_groupkfold": {
+    "description": "Spatial GroupKFold(5) with 5 km blocks; train/test blocks are disjoint",
+    "n_groups": 126,
+    "feature_sets": {
+      "raw_10": {
+        "mauc_mean": 0.7067376628005682,
+        "mauc_std": 0.018578562717346238,
+        "ba_mean": 0.3532189941852693,
+        "ba_std": 0.05711163012139509,
+        "per_class_auc": {
+          "Silicic": 0.5968425887816856,
+          "Adv_Argillic": 0.7559272447942288,
+          "Argillic_Phyllic": 0.6642312188965656,
+          "Potassic_Skarn": 0.757989910938789
+        },
+        "n_folds": 5
+      },
+      "sr_6": {
+        "mauc_mean": 0.7019872775940316,
+        "mauc_std": 0.01569505863884619,
+        "ba_mean": 0.3526555212760691,
+        "ba_std": 0.05440267224057801,
+        "per_class_auc": {
+          "Silicic": 0.6004632312619455,
+          "Adv_Argillic": 0.7494896323414673,
+          "Argillic_Phyllic": 0.6552286995966842,
+          "Potassic_Skarn": 0.749537006298183
+        },
+        "n_folds": 5
+      },
+      "classical_7": {
+        "mauc_mean": 0.682603264881869,
+        "mauc_std": 0.012274601267360179,
+        "ba_mean": 0.3397821434156098,
+        "ba_std": 0.05923902349404744,
+        "per_class_auc": {
+          "Silicic": 0.5712805879249997,
+          "Adv_Argillic": 0.74530260973023,
+          "Argillic_Phyllic": 0.6368817444433431,
+          "Potassic_Skarn": 0.7255477834331197
+        },
+        "n_folds": 5
+      },
+      "sr_plus_classical_13": {
+        "mauc_mean": 0.7193598153362724,
+        "mauc_std": 0.02075948653954082,
+        "ba_mean": 0.3792950541061768,
+        "ba_std": 0.0552474879752036,
+        "per_class_auc": {
+          "Silicic": 0.6173921480815825,
+          "Adv_Argillic": 0.7645867952232723,
+          "Argillic_Phyllic": 0.6819185649586326,
+          "Potassic_Skarn": 0.7647132724425069
+        },
+        "n_folds": 5
+      }
+    }
+  },
+  "spatial_block_10km_groupkfold": {
+    "description": "Spatial GroupKFold(5) with 10 km blocks; train/test blocks are disjoint",
+    "n_groups": 69,
+    "feature_sets": {
+      "raw_10": {
+        "mauc_mean": 0.6859942447773284,
+        "mauc_std": 0.03020446476747669,
+        "ba_mean": 0.33584396533851824,
+        "ba_std": 0.04899698357694073,
+        "per_class_auc": {
+          "Silicic": 0.5282139522857203,
+          "Adv_Argillic": 0.7501117612570293,
+          "Argillic_Phyllic": 0.6316392043177432,
+          "Iron_Oxide": NaN,
+          "Potassic_Skarn": 0.6942737942768051
+        },
+        "n_folds": 5
+      },
+      "sr_6": {
+        "mauc_mean": 0.7016785904884003,
+        "mauc_std": 0.023364711134078606,
+        "ba_mean": 0.35217195949247043,
+        "ba_std": 0.03630111887151415,
+        "per_class_auc": {
+          "Silicic": 0.5962760105501033,
+          "Adv_Argillic": 0.7469746222704907,
+          "Argillic_Phyllic": 0.6445898473344105,
+          "Iron_Oxide": NaN,
+          "Potassic_Skarn": 0.684297654966946
+        },
+        "n_folds": 5
+      },
+      "classical_7": {
+        "mauc_mean": 0.6735606263948208,
+        "mauc_std": 0.013331775003796448,
+        "ba_mean": 0.31501040710744854,
+        "ba_std": 0.049808911801841035,
+        "per_class_auc": {
+          "Silicic": 0.5487345743112975,
+          "Adv_Argillic": 0.706401678836928,
+          "Argillic_Phyllic": 0.6291796348977602,
+          "Iron_Oxide": NaN,
+          "Potassic_Skarn": 0.6761992380186503
+        },
+        "n_folds": 5
+      },
+      "sr_plus_classical_13": {
+        "mauc_mean": 0.7077459259043498,
+        "mauc_std": 0.025152949742557273,
+        "ba_mean": 0.35074506568684594,
+        "ba_std": 0.04222924114676167,
+        "per_class_auc": {
+          "Silicic": 0.5803314089612706,
+          "Adv_Argillic": 0.746032217273292,
+          "Argillic_Phyllic": 0.6592222082715623,
+          "Iron_Oxide": NaN,
+          "Potassic_Skarn": 0.704169861604315
+        },
+        "n_folds": 5
+      }
+    }
+  }
+}

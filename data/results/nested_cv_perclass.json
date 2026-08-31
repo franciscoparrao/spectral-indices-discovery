@@ -1,0 +1,81 @@
+{
+  "stratified": {
+    "raw": {
+      "Silicic": 0.862,
+      "Adv_Argillic": 0.873,
+      "Argillic_Phyllic": 0.841,
+      "Propylitic": 0.992,
+      "Iron_Oxide": 0.937,
+      "Potassic_Skarn": 0.889
+    },
+    "sr": {
+      "Silicic": 0.85,
+      "Adv_Argillic": 0.851,
+      "Argillic_Phyllic": 0.825,
+      "Propylitic": 0.99,
+      "Iron_Oxide": 0.941,
+      "Potassic_Skarn": 0.871
+    },
+    "classical": {
+      "Silicic": 0.843,
+      "Adv_Argillic": 0.848,
+      "Argillic_Phyllic": 0.809,
+      "Propylitic": 0.985,
+      "Iron_Oxide": 0.925,
+      "Potassic_Skarn": 0.859
+    },
+    "sr_classical": {
+      "Silicic": 0.89,
+      "Adv_Argillic": 0.888,
+      "Argillic_Phyllic": 0.87,
+      "Propylitic": 0.994,
+      "Iron_Oxide": 0.959,
+      "Potassic_Skarn": 0.906
+    },
+    "raw_classical": {
+      "Silicic": 0.882,
+      "Adv_Argillic": 0.884,
+      "Argillic_Phyllic": 0.866,
+      "Propylitic": 0.99,
+      "Iron_Oxide": 0.956,
+      "Potassic_Skarn": 0.904
+    }
+  },
+  "polygon": {
+    "raw": {
+      "Silicic": 0.725,
+      "Adv_Argillic": 0.838,
+      "Argillic_Phyllic": 0.786,
+      "Iron_Oxide": 0.913,
+      "Potassic_Skarn": 0.848
+    },
+    "sr": {
+      "Silicic": 0.707,
+      "Adv_Argillic": 0.812,
+      "Argillic_Phyllic": 0.768,
+      "Iron_Oxide": 0.913,
+      "Potassic_Skarn": 0.822
+    },
+    "classical": {
+      "Silicic": 0.69,
+      "Adv_Argillic": 0.813,
+      "Argillic_Phyllic": 0.757,
+      "Iron_Oxide": 0.879,
+      "Potassic_Skarn": 0.804
+    },
+    "sr_classical": {
+      "Silicic": 0.745,
+      "Adv_Argillic": 0.848,
+      "Argillic_Phyllic": 0.816,
+      "Iron_Oxide": 0.925,
+      "Potassic_Skarn": 0.858
+    },
+    "raw_classical": {
+      "Silicic": 0.73,
+      "Adv_Argillic": 0.842,
+      "Argillic_Phyllic": 0.807,
+      "Iron_Oxide": 0.923,
+      "Potassic_Skarn": 0.856
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "n_polygons": 3828,
+  "eps_deg": 0.001,
+  "eps_meters_approx": 110,
+  "feature_sets": {
+    "raw_10": {
+      "mauc_mean": 0.8219948412667971,
+      "mauc_std": 0.020775220966706833,
+      "ba_mean": 0.4724925701098067,
+      "ba_std": 0.06578743405215841,
+      "per_class_auc": {
+        "Silicic": 0.7250850736803164,
+        "Adv_Argillic": 0.8377520575915035,
+        "Argillic_Phyllic": 0.785897224657462,
+        "Iron_Oxide": 0.9127956006566113,
+        "Potassic_Skarn": 0.8484442497480928
+      },
+      "n_folds": 5
+    },
+    "sr_6": {
+      "mauc_mean": 0.8149398462374131,
+      "mauc_std": 0.025375456669582578,
+      "ba_mean": 0.47659962509397263,
+      "ba_std": 0.07955092620111805,
+      "per_class_auc": {
+        "Silicic": 0.722709563595362,
+        "Adv_Argillic": 0.8324439827422241,
+        "Argillic_Phyllic": 0.7743283815876747,
+        "Iron_Oxide": 0.9148219343430052,
+        "Potassic_Skarn": 0.8303953689188003
+      },
+      "n_folds": 5
+    },
+    "classical_7": {
+      "mauc_mean": 0.7885928038548028,
+      "mauc_std": 0.030893233320620543,
+      "ba_mean": 0.42096602361623425,
+      "ba_std": 0.02955055122921208,
+      "per_class_auc": {
+        "Silicic": 0.690194754929734,
+        "Adv_Argillic": 0.8127785965863419,
+        "Argillic_Phyllic": 0.7567040710517254,
+        "Iron_Oxide": 0.8789390862166222,
+        "Potassic_Skarn": 0.8043475104895903
+      },
+      "n_folds": 5
+    },
+    "sr_plus_classical_13": {
+      "mauc_mean": 0.8387066101904639,
+      "mauc_std": 0.02452777513210598,
+      "ba_mean": 0.5040463112733862,
+      "ba_std": 0.06986062127771667,
+      "per_class_auc": {
+        "Silicic": 0.7436393711786531,
+        "Adv_Argillic": 0.8543075117895773,
+        "Argillic_Phyllic": 0.8107718912023211,
+        "Iron_Oxide": 0.9271943794406324,
+        "Potassic_Skarn": 0.857619897341135
+      },
+      "n_folds": 5
+    }
+  }
+}

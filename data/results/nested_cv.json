@@ -1,0 +1,729 @@
+{
+  "description": "Nested CV: PySR discovery inside each outer training fold; the complete SR+RF pipeline evaluated as a single predictive unit (fix for NRR R1.1)",
+  "pysr_config": "identical to run_pysr_atlas_gee.py",
+  "schemes": {
+    "stratified": {
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 + -0.13511795",
+              "complexity": 3,
+              "loss": 0.11590502,
+              "n_pos_train": 1760,
+              "time_s": 156.8
+            },
+            "Adv_Argillic": {
+              "equation": "log(B05 * (0.6927856 / B02))",
+              "complexity": 6,
+              "loss": 0.19251908,
+              "n_pos_train": 4000,
+              "time_s": 140.0
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09038804 / B05",
+              "complexity": 3,
+              "loss": 0.20542626,
+              "n_pos_train": 4000,
+              "time_s": 114.7
+            },
+            "Propylitic": {
+              "equation": "((B03 + -0.09516074) / B11) - (B02 / 0.5786043)",
+              "complexity": 9,
+              "loss": 0.027705135,
+              "n_pos_train": 396,
+              "time_s": 134.5
+            },
+            "Iron_Oxide": {
+              "equation": "(square(B11 - sqrt(B8A)) / (-0.29438543 + (B03 / B12))) + -0.05119165",
+              "complexity": 13,
+              "loss": 0.029312328,
+              "n_pos_train": 400,
+              "time_s": 94.0
+            },
+            "Potassic_Skarn": {
+              "equation": "(B02 * (B12 / square(B08))) + -0.31095463",
+              "complexity": 8,
+              "loss": 0.11549689,
+              "n_pos_train": 1920,
+              "time_s": 127.4
+            }
+          },
+          "auc_raw": {
+            "1": 0.8539427025009332,
+            "2": 0.872475696083058,
+            "3": 0.8454185936762625,
+            "4": 0.994484580908422,
+            "5": 0.9307585293143426,
+            "6": 0.8899456864974106
+          },
+          "auc_sr": {
+            "1": 0.8542811937968713,
+            "2": 0.8552133081642284,
+            "3": 0.8389771118452101,
+            "4": 0.9903923339353803,
+            "5": 0.9564872474329249,
+            "6": 0.8839258083870153
+          },
+          "mean_auc_raw": 0.8978376314967381,
+          "mean_auc_sr": 0.8965461672602718,
+          "delta_sr_minus_raw": -0.001291464236466311,
+          "time_fold_s": 770.0
+        },
+        {
+          "fold": 2,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 - 0.13500157",
+              "complexity": 3,
+              "loss": 0.116008095,
+              "n_pos_train": 1760,
+              "time_s": 116.4
+            },
+            "Adv_Argillic": {
+              "equation": "square((B05 - B02) / B12)",
+              "complexity": 6,
+              "loss": 0.18798354,
+              "n_pos_train": 4000,
+              "time_s": 128.0
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.090164505 / B05",
+              "complexity": 3,
+              "loss": 0.20543823,
+              "n_pos_train": 4000,
+              "time_s": 109.0
+            },
+            "Propylitic": {
+              "equation": "(B11 * -0.4822942) + B03",
+              "complexity": 5,
+              "loss": 0.028978914,
+              "n_pos_train": 396,
+              "time_s": 130.9
+            },
+            "Iron_Oxide": {
+              "equation": "square((B12 - 0.1085883) / B03) * square(B11 - 0.5815465)",
+              "complexity": 11,
+              "loss": 0.029675735,
+              "n_pos_train": 400,
+              "time_s": 94.7
+            },
+            "Potassic_Skarn": {
+              "equation": "B12 - square(B07)",
+              "complexity": 4,
+              "loss": 0.12447111,
+              "n_pos_train": 1920,
+              "time_s": 134.0
+            }
+          },
+          "auc_raw": {
+            "1": 0.8654560724829481,
+            "2": 0.8706974988201983,
+            "3": 0.8396455875412931,
+            "4": 0.9908990567930966,
+            "5": 0.949052666445843,
+            "6": 0.8950557344953898
+          },
+          "auc_sr": {
+            "1": 0.8484653364552581,
+            "2": 0.839047192071732,
+            "3": 0.81929400660689,
+            "4": 0.9889925747541641,
+            "5": 0.9485756873136799,
+            "6": 0.8681823923203233
+          },
+          "mean_auc_raw": 0.9018011027631282,
+          "mean_auc_sr": 0.8854261982536746,
+          "delta_sr_minus_raw": -0.01637490450945356,
+          "time_fold_s": 716.3
+        },
+        {
+          "fold": 3,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 - 0.13497527",
+              "complexity": 3,
+              "loss": 0.1162305,
+              "n_pos_train": 1760,
+              "time_s": 132.4
+            },
+            "Adv_Argillic": {
+              "equation": "square((B05 - B02) / B12)",
+              "complexity": 6,
+              "loss": 0.1875505,
+              "n_pos_train": 4000,
+              "time_s": 157.9
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09053801 / B05",
+              "complexity": 3,
+              "loss": 0.20444687,
+              "n_pos_train": 4000,
+              "time_s": 119.1
+            },
+            "Propylitic": {
+              "equation": "B03 + (B11 * -0.4835367)",
+              "complexity": 5,
+              "loss": 0.029043581,
+              "n_pos_train": 396,
+              "time_s": 134.8
+            },
+            "Iron_Oxide": {
+              "equation": "square(B11 - sqrt(B12))",
+              "complexity": 5,
+              "loss": 0.03042723,
+              "n_pos_train": 400,
+              "time_s": 104.3
+            },
+            "Potassic_Skarn": {
+              "equation": "(B02 * (B12 * ((7.675286 / B08) - 10.838616))) + -0.4331551",
+              "complexity": 11,
+              "loss": 0.11115313,
+              "n_pos_train": 1920,
+              "time_s": 134.7
+            }
+          },
+          "auc_raw": {
+            "1": 0.8684549865960839,
+            "2": 0.8733043888626711,
+            "3": 0.840486078338839,
+            "4": 0.9885878654090574,
+            "5": 0.9339682013911891,
+            "6": 0.8884923266388783
+          },
+          "auc_sr": {
+            "1": 0.8675277410159828,
+            "2": 0.851171307220387,
+            "3": 0.8259891458235017,
+            "4": 0.9854471871028163,
+            "5": 0.9341321629678702,
+            "6": 0.8732356006062902
+          },
+          "mean_auc_raw": 0.8988823078727864,
+          "mean_auc_sr": 0.8895838574561413,
+          "delta_sr_minus_raw": -0.009298450416645121,
+          "time_fold_s": 786.3
+        },
+        {
+          "fold": 4,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 + -0.13480134",
+              "complexity": 3,
+              "loss": 0.11624866,
+              "n_pos_train": 1760,
+              "time_s": 131.9
+            },
+            "Adv_Argillic": {
+              "equation": "square((B02 - B05) / B12)",
+              "complexity": 6,
+              "loss": 0.188853,
+              "n_pos_train": 4000,
+              "time_s": 143.1
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09017292 / B05",
+              "complexity": 3,
+              "loss": 0.20513256,
+              "n_pos_train": 4000,
+              "time_s": 110.3
+            },
+            "Propylitic": {
+              "equation": "B03 + (B11 * -0.48237517)",
+              "complexity": 5,
+              "loss": 0.02896164,
+              "n_pos_train": 396,
+              "time_s": 124.1
+            },
+            "Iron_Oxide": {
+              "equation": "B12 * (0.50241244 - B11)",
+              "complexity": 5,
+              "loss": 0.03044223,
+              "n_pos_train": 400,
+              "time_s": 97.6
+            },
+            "Potassic_Skarn": {
+              "equation": "(B02 + -0.08253834) * ((tanh((B08 - B12) * -30.328918) - -1.209799) / B07)",
+              "complexity": 14,
+              "loss": 0.10689892,
+              "n_pos_train": 1920,
+              "time_s": 130.9
+            }
+          },
+          "auc_raw": {
+            "1": 0.8781516169534087,
+            "2": 0.8841387446908919,
+            "3": 0.8538249174138745,
+            "4": 0.9964144758846746,
+            "5": 0.9338903610467042,
+            "6": 0.8932542314007831
+          },
+          "auc_sr": {
+            "1": 0.8495860056330382,
+            "2": 0.8556998584237847,
+            "3": 0.8235941481831053,
+            "4": 0.9921399424710684,
+            "5": 0.929180192116595,
+            "6": 0.8664385183781735
+          },
+          "mean_auc_raw": 0.9066123912317227,
+          "mean_auc_sr": 0.8861064442009609,
+          "delta_sr_minus_raw": -0.020505947030761806,
+          "time_fold_s": 740.3
+        },
+        {
+          "fold": 5,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 + -0.13462406",
+              "complexity": 3,
+              "loss": 0.11567995,
+              "n_pos_train": 1760,
+              "time_s": 123.0
+            },
+            "Adv_Argillic": {
+              "equation": "0.8317015 - (B02 / B05)",
+              "complexity": 5,
+              "loss": 0.19828235,
+              "n_pos_train": 4000,
+              "time_s": 125.0
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09040523 / B05",
+              "complexity": 3,
+              "loss": 0.20415798,
+              "n_pos_train": 4000,
+              "time_s": 102.9
+            },
+            "Propylitic": {
+              "equation": "B03 - (B11 * 0.48272926)",
+              "complexity": 5,
+              "loss": 0.02894925,
+              "n_pos_train": 396,
+              "time_s": 128.2
+            },
+            "Iron_Oxide": {
+              "equation": "square(B11 - sqrt(B12))",
+              "complexity": 5,
+              "loss": 0.03048613,
+              "n_pos_train": 400,
+              "time_s": 89.6
+            },
+            "Potassic_Skarn": {
+              "equation": "B12 - square(B07)",
+              "complexity": 4,
+              "loss": 0.12425721,
+              "n_pos_train": 1920,
+              "time_s": 122.5
+            }
+          },
+          "auc_raw": {
+            "1": 0.8436284739896162,
+            "2": 0.8659065596979707,
+            "3": 0.826858423784804,
+            "4": 0.9912569402635629,
+            "5": 0.9361311692613449,
+            "6": 0.8777133068081344
+          },
+          "auc_sr": {
+            "1": 0.8283518273439887,
+            "2": 0.8555672487022181,
+            "3": 0.8192043416705994,
+            "4": 0.993424309318349,
+            "5": 0.934373964889036,
+            "6": 0.8632436528988254
+          },
+          "mean_auc_raw": 0.8902491456342388,
+          "mean_auc_sr": 0.8823608908038362,
+          "delta_sr_minus_raw": -0.007888254830402675,
+          "time_fold_s": 693.7
+        }
+      ],
+      "reference_non_nested": {
+        "sr": 0.898,
+        "raw": 0.899
+      },
+      "summary": {
+        "mean_auc_raw": 0.8990765157997229,
+        "mean_auc_sr": 0.8880047115949768,
+        "mean_delta": -0.011071804204745895,
+        "se_delta": 0.003361998987769312,
+        "per_fold_deltas": [
+          -0.001291464236466311,
+          -0.01637490450945356,
+          -0.009298450416645121,
+          -0.020505947030761806,
+          -0.007888254830402675
+        ],
+        "tost_epsilon_0.01_p": 0.6170843221712718,
+        "tost_reject_nonequivalence": false
+      }
+    },
+    "polygon": {
+      "folds": [
+        {
+          "fold": 1,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "((B03 - B02) * square(B03 / B12)) / B12",
+              "complexity": 10,
+              "loss": 0.0976204,
+              "n_pos_train": 1502,
+              "time_s": 114.7
+            },
+            "Adv_Argillic": {
+              "equation": "square((B05 - B02) / B12)",
+              "complexity": 6,
+              "loss": 0.1896587,
+              "n_pos_train": 3978,
+              "time_s": 122.7
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.0897192 / B05",
+              "complexity": 3,
+              "loss": 0.20544003,
+              "n_pos_train": 4001,
+              "time_s": 103.2
+            },
+            "Propylitic": {
+              "equation": "B03 - square(B11)",
+              "complexity": 4,
+              "loss": 0.035803977,
+              "n_pos_train": 495,
+              "time_s": 124.2
+            },
+            "Iron_Oxide": {
+              "equation": "B12 * (0.51892805 - B11)",
+              "complexity": 5,
+              "loss": 0.035813693,
+              "n_pos_train": 474,
+              "time_s": 86.2
+            },
+            "Potassic_Skarn": {
+              "equation": "(B12 * (B02 / (B08 / 3.3789427))) - B08",
+              "complexity": 9,
+              "loss": 0.120702185,
+              "n_pos_train": 2026,
+              "time_s": 115.5
+            }
+          },
+          "auc_raw": {
+            "1": 0.6928975689081569,
+            "2": 0.8497121505234858,
+            "3": 0.7626952424122235,
+            "5": 0.925849934094357,
+            "6": 0.8258350135881476
+          },
+          "auc_sr": {
+            "1": 0.6594628069340738,
+            "2": 0.8348670685080822,
+            "3": 0.7406241146807184,
+            "5": 0.8928598075057823,
+            "6": 0.8016515200218189
+          },
+          "mean_auc_raw": 0.8113979819052741,
+          "mean_auc_sr": 0.7858930635300951,
+          "delta_sr_minus_raw": -0.025504918375178987,
+          "time_fold_s": 669.2
+        },
+        {
+          "fold": 2,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 - 0.11419979",
+              "complexity": 3,
+              "loss": 0.12936637,
+              "n_pos_train": 2026,
+              "time_s": 116.9
+            },
+            "Adv_Argillic": {
+              "equation": "0.8317737 - (B02 / B05)",
+              "complexity": 5,
+              "loss": 0.19985208,
+              "n_pos_train": 4026,
+              "time_s": 122.2
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09046226 / B05",
+              "complexity": 3,
+              "loss": 0.20656763,
+              "n_pos_train": 4026,
+              "time_s": 96.7
+            },
+            "Propylitic": {
+              "skipped": true,
+              "n_pos_train": 0
+            },
+            "Iron_Oxide": {
+              "equation": "(0.5104191 - B11) * B12",
+              "complexity": 5,
+              "loss": 0.032330964,
+              "n_pos_train": 426,
+              "time_s": 79.9
+            },
+            "Potassic_Skarn": {
+              "equation": "B12 - square(B07)",
+              "complexity": 4,
+              "loss": 0.12704264,
+              "n_pos_train": 1972,
+              "time_s": 114.7
+            }
+          },
+          "auc_raw": {
+            "1": 0.6482661046386824,
+            "2": 0.8412199709940984,
+            "3": 0.7898216089181183,
+            "5": 0.9341831979763013,
+            "6": 0.8520257903638644
+          },
+          "auc_sr": {
+            "1": 0.679244970044689,
+            "2": 0.8116009247426086,
+            "3": 0.7641241031384768,
+            "5": 0.9088359295255848,
+            "6": 0.8119823086300129
+          },
+          "mean_auc_raw": 0.8131033345782128,
+          "mean_auc_sr": 0.7951576472162744,
+          "delta_sr_minus_raw": -0.017945687361938467,
+          "time_fold_s": 532.5
+        },
+        {
+          "fold": 3,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "(B08 / (tanh((B02 / B12) / B12) + -0.19880964)) - B12",
+              "complexity": 12,
+              "loss": 0.10460935,
+              "n_pos_train": 1603,
+              "time_s": 107.4
+            },
+            "Adv_Argillic": {
+              "equation": "square((B02 - B05) / B12)",
+              "complexity": 6,
+              "loss": 0.18556991,
+              "n_pos_train": 3976,
+              "time_s": 110.2
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.09078452 / B05",
+              "complexity": 3,
+              "loss": 0.20447241,
+              "n_pos_train": 4027,
+              "time_s": 94.3
+            },
+            "Propylitic": {
+              "equation": "B03 - square(B11)",
+              "complexity": 4,
+              "loss": 0.035624582,
+              "n_pos_train": 495,
+              "time_s": 111.5
+            },
+            "Iron_Oxide": {
+              "equation": "square(B12) * ((0.4854358 - B11) / B03)",
+              "complexity": 8,
+              "loss": 0.036018495,
+              "n_pos_train": 484,
+              "time_s": 80.0
+            },
+            "Potassic_Skarn": {
+              "equation": "(B02 / ((B08 + 0.30372924) - B12)) - B08",
+              "complexity": 9,
+              "loss": 0.11435034,
+              "n_pos_train": 1891,
+              "time_s": 105.9
+            }
+          },
+          "auc_raw": {
+            "1": 0.8077999035622203,
+            "2": 0.8437611873508354,
+            "3": 0.7895719371779902,
+            "5": 0.9865251369642282,
+            "6": 0.879641171555676
+          },
+          "auc_sr": {
+            "1": 0.7796443225910148,
+            "2": 0.8123694809069213,
+            "3": 0.7769650076769898,
+            "5": 0.9882774734128262,
+            "6": 0.8742542284849716
+          },
+          "mean_auc_raw": 0.86145986732219,
+          "mean_auc_sr": 0.8463021026145447,
+          "delta_sr_minus_raw": -0.015157764707645294,
+          "time_fold_s": 611.3
+        },
+        {
+          "fold": 4,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 - 0.13045831",
+              "complexity": 3,
+              "loss": 0.11970454,
+              "n_pos_train": 1844,
+              "time_s": 96.0
+            },
+            "Adv_Argillic": {
+              "equation": "log(B05 / B03)",
+              "complexity": 4,
+              "loss": 0.18941385,
+              "n_pos_train": 4039,
+              "time_s": 102.2
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.08884253 / B05",
+              "complexity": 3,
+              "loss": 0.20096783,
+              "n_pos_train": 3881,
+              "time_s": 84.1
+            },
+            "Propylitic": {
+              "equation": "B03 - square(B11)",
+              "complexity": 4,
+              "loss": 0.0358619,
+              "n_pos_train": 495,
+              "time_s": 98.7
+            },
+            "Iron_Oxide": {
+              "equation": "(0.45361573 - B11) * square((B12 - B03) / B03)",
+              "complexity": 10,
+              "loss": 0.025040422,
+              "n_pos_train": 344,
+              "time_s": 71.1
+            },
+            "Potassic_Skarn": {
+              "equation": "B12 * (-1.4002199 - (B12 / (B02 - B08)))",
+              "complexity": 9,
+              "loss": 0.11141638,
+              "n_pos_train": 1873,
+              "time_s": 110.9
+            }
+          },
+          "auc_raw": {
+            "1": 0.6843247650534552,
+            "2": 0.8222416601489604,
+            "3": 0.7808999106344952,
+            "5": 0.8864045449431882,
+            "6": 0.8349665881884414
+          },
+          "auc_sr": {
+            "1": 0.6725881125791457,
+            "2": 0.7991067769034996,
+            "3": 0.7652859696157283,
+            "5": 0.9044757132843533,
+            "6": 0.8167222310070982
+          },
+          "mean_auc_raw": 0.801767493793708,
+          "mean_auc_sr": 0.791635760677965,
+          "delta_sr_minus_raw": -0.010131733115743002,
+          "time_fold_s": 565.2
+        },
+        {
+          "fold": 5,
+          "n_train": 12476,
+          "n_test": 3119,
+          "classes": {
+            "Silicic": {
+              "equation": "B04 + -0.13035546",
+              "complexity": 3,
+              "loss": 0.119548574,
+              "n_pos_train": 1825,
+              "time_s": 92.1
+            },
+            "Adv_Argillic": {
+              "equation": "log(sqrt(B06 / B02))",
+              "complexity": 5,
+              "loss": 0.19848809,
+              "n_pos_train": 3981,
+              "time_s": 99.0
+            },
+            "Argillic_Phyllic": {
+              "equation": "0.0918444 / B05",
+              "complexity": 3,
+              "loss": 0.20708366,
+              "n_pos_train": 4065,
+              "time_s": 84.8
+            },
+            "Propylitic": {
+              "equation": "B03 - square(B11)",
+              "complexity": 4,
+              "loss": 0.035932727,
+              "n_pos_train": 495,
+              "time_s": 98.2
+            },
+            "Iron_Oxide": {
+              "equation": "(0.46835247 - B11) * B12",
+              "complexity": 5,
+              "loss": 0.021009963,
+              "n_pos_train": 272,
+              "time_s": 72.7
+            },
+            "Potassic_Skarn": {
+              "equation": "((B12 * (B02 / B07)) / B08) + -0.31019795",
+              "complexity": 9,
+              "loss": 0.11049805,
+              "n_pos_train": 1838,
+              "time_s": 84.4
+            }
+          },
+          "auc_raw": {
+            "1": 0.792137026239067,
+            "2": 0.8318253189401374,
+            "3": 0.806497424144483,
+            "5": 0.8310151893049815,
+            "6": 0.8497526850443345
+          },
+          "auc_sr": {
+            "1": 0.7418172983479105,
+            "2": 0.800777606430207,
+            "3": 0.7941960000783531,
+            "5": 0.870940213730452,
+            "6": 0.8045968293025774
+          },
+          "mean_auc_raw": 0.8222455287346007,
+          "mean_auc_sr": 0.8024655895779,
+          "delta_sr_minus_raw": -0.01977993915670062,
+          "time_fold_s": 533.4
+        }
+      ],
+      "reference_non_nested": {
+        "sr": 0.815,
+        "raw": 0.822
+      },
+      "summary": {
+        "mean_auc_raw": 0.8219948412667971,
+        "mean_auc_sr": 0.8042908327233558,
+        "mean_delta": -0.017704008543441275,
+        "se_delta": 0.0025401260164559917,
+        "per_fold_deltas": [
+          -0.025504918375178987,
+          -0.017945687361938467,
+          -0.015157764707645294,
+          -0.010131733115743002,
+          -0.01977993915670062
+        ],
+        "tost_epsilon_0.01_p": 0.9806652555781739,
+        "tost_reject_nonequivalence": false
+      }
+    }
+  }
+}

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review — NARR-D-26-00870 (humanized draft)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --fg-soft: #4a4a4a;
+      --accent: #1e5aa8;
+      --border: #d9d9d9;
+      --card-bg: #f7f7f7;
+      --focus: #005fcc;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #131519;
+        --fg: #eaeaea;
+        --fg-soft: #b5b5b5;
+        --accent: #7aa7dc;
+        --border: #2b2f36;
+        --card-bg: #1a1d22;
+        --focus: #9ecbff;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #131519; --fg: #eaeaea; --fg-soft: #b5b5b5;
+      --accent: #7aa7dc; --border: #2b2f36; --card-bg: #1a1d22; --focus: #9ecbff;
+    }
+    :root[data-theme="light"] {
+      --bg: #ffffff; --fg: #1a1a1a; --fg-soft: #4a4a4a;
+      --accent: #1e5aa8; --border: #d9d9d9; --card-bg: #f7f7f7; --focus: #005fcc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: var(--font-body); line-height: 1.7;
+      font-size: 16.5px; -webkit-font-smoothing: antialiased;
+    }
+    a.skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--accent); color: white;
+      padding: 0.5rem 1rem; z-index: 1000; text-decoration: none;
+      border-radius: 0 0 4px 0;
+    }
+    a.skip-link:focus { left: 0; outline: 3px solid var(--focus); }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+    .container {
+      max-width: 48rem; margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    header.page {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem; margin-bottom: 1.75rem;
+    }
+    header.page p.eyebrow {
+      margin: 0; color: var(--fg-soft); font-size: 0.85rem;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    header.page h1 {
+      margin: 0.5rem 0 0.5rem;
+      font-size: 1.7rem; line-height: 1.25;
+      font-weight: 600;
+    }
+    header.page p.subtitle {
+      margin: 0.35rem 0; color: var(--fg-soft);
+      font-style: italic; font-size: 1rem;
+    }
+    header.page p.authors {
+      margin: 0.35rem 0 0; color: var(--fg-soft);
+      font-size: 0.95rem;
+    }
+    header.page .draft-note {
+      margin-top: 1rem;
+      padding: 0.6rem 0.9rem;
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+      color: var(--fg-soft);
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+    }
+    h2#h-rec { color: var(--accent); }
+    h3 {
+      font-size: 1.02rem;
+      margin: 1.6rem 0 0.4rem;
+      color: var(--fg);
+      font-weight: 600;
+    }
+    p { margin: 0.5rem 0 1rem; }
+    ul { padding-left: 1.5rem; margin: 0.5rem 0 1rem; }
+    ul li { margin: 0.7rem 0; }
+    strong { color: var(--fg); font-weight: 600; }
+    em { color: var(--fg); }
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .final-note {
+      font-style: italic;
+      color: var(--fg-soft);
+      font-size: 0.92rem;
+      padding: 0.75rem 1rem;
+      background: var(--card-bg);
+      border-radius: 4px;
+      margin: 1.5rem 0 0;
+    }
+    .theme-toggle {
+      position: fixed; right: 1rem; top: 1rem;
+      background: var(--card-bg); color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem; border-radius: 4px;
+      cursor: pointer; font-family: inherit; font-size: 0.85rem;
+      z-index: 100;
+    }
+    .theme-toggle:focus-visible { outline: 3px solid var(--focus); }
+    @media print {
+      .theme-toggle, .skip-link, .draft-note { display: none; }
+      body { font-size: 10.5pt; background: white; color: black; line-height: 1.55; }
+      .container { max-width: none; padding: 0; }
+      h2 { page-break-after: avoid; }
+      h3 { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <button type="button" class="theme-toggle" aria-pressed="false" id="themeToggle" title="Toggle light/dark theme">Cambiar tema</button>
+
+  <div class="container">
+
+    <header class="page">
+      <p class="eyebrow">Peer review — humanized draft</p>
+      <h1>Review for NARR-D-26-00870</h1>
+      <p class="subtitle">Sparse Spectral Unmixing with Nonlinear Mixing Model Applied to HISUI Imagery for Accurate Identification and Mapping of Hydrothermal Alteration Minerals</p>
+      <p class="authors">Kishimoto, Kubo, Koike (Kyoto University)</p>
+      <div class="draft-note">
+        <strong>Draft status:</strong> humanized from the auto-generated review. Not for submission until Francisco does a final voice pass. Corrections you apply in <code>~/vault/journals/nrr/my-reviews/</code> feed back into the <code>/review-humanize</code> skill for future runs.
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+      <h2 id="h-rec">Recommendation: Major Revision</h2>
+      <p>The methodological core of this paper is legitimate. Combining LCRM preprocessing with sparse regularization (SUnSAL, CLSUnSAL) is a reasonable extension of the authors' own LCRM-FCLS line, and the empirical evaluation on Cuprite touches the right benchmarks. My concerns are with how the contribution is framed and how the numbers are presented, not with the mathematics. Specifically: the abstract's "1.4–1.5 times higher κ" hides that the absolute κ values sit in Fleiss "poor agreement" (0.21 → 0.31–0.34); the natural ablation against the authors' own LCRM-FCLS is missing; and the 10% presence/absence threshold that defines κ is not justified anywhere I could find.</p>
+      <p>I'd like these addressed before recommending acceptance.</p>
+
+      <h2>Manuscript summary</h2>
+      <p>The authors extend LCRM (Log + Continuum Removal Model, Zhao and Zhao 2019) by pairing it with sparse regularization instead of fully-constrained least squares as in their prior LCRM-FCLS work (Kishimoto et al. 2024). Two additions are introduced along the way: an "Asymmetric Distribution Noise Reduction" (ADNR) step, which is a smoothing kernel of size 3 applied to the natural-log spectrum, and a piecewise segmentation strategy that avoids atmospheric water-vapor bands. The method is evaluated at Cuprite, Nevada, on three hyperspectral datasets (HISUI, AVIRIS, Hyperion) and one multispectral dataset (WV3), against a USGS spectral-library subset of 78 spectra covering 13 endmembers. Three metrics are reported: κ on presence/absence at ≥10% threshold, SAM, and reconstruction RMSE.</p>
+      <p>Absolute κ across the five main endmembers: 0.21 (LMM-SUnSAL), 0.34 (LCRM-SUnSAL), 0.31 (LCRM-CLSUnSAL) on hyperspectral; 0.13 / 0.09 / 0.15 on WV3.</p>
+
+      <h2>Strengths</h2>
+      <p><strong>S1. Calcite noise-amplification analysis.</strong> The numerical simulation in Fig. 7 showing that the noise amplification index depends on source-spectrum SNR, and is largest for spectra with weak absorptions, is a substantive piece of self-critical work. Many methodology papers hide this class of artefact; this one investigates it. It adds credibility to the surrounding claims.</p>
+      <p><strong>S2. Reporting three metrics (κ, SAM, RRMSE).</strong> Although the abstract leans on κ, the discussion uses SAM and RRMSE to corroborate the same ordering of methods. If only κ had been reported I would have flagged a metric-mismatch problem (unmixing produces continuous abundances; κ is a classification metric). The presence of SAM and RRMSE mitigates that concern.</p>
+      <p><strong>S3. Honest comparison between SUnSAL and CLSUnSAL.</strong> The authors don't hide that LCRM-CLSUnSAL underestimates hydrated silica because L2,1 collaborative regularization assumes global sparsity that doesn't match localized endmember distributions. The reference to Chen et al. 2021 is well-placed. This is the kind of paper-internal honesty I want to see.</p>
+
+      <h2>Critical issues</h2>
+
+      <h3>Issue 1. The LCRM-FCLS ablation is missing</h3>
+      <p>The manuscript compares LCRM-SUnSAL and LCRM-CLSUnSAL against LMM-SUnSAL. That's the wrong baseline. It tells me the combined pipeline beats a plain linear one, but it doesn't tell me where the improvement comes from. The question I want answered is: is it the LCRM preprocessing that does the work, or the sparse regularization? To rule out that LCRM alone would produce the same numbers, I need to see LCRM-FCLS as a row in Table 4 and as a panel in Fig. 5.</p>
+      <p>LCRM-FCLS is the authors' own method from Kishimoto et al. 2024, cited at line 254. It's already implemented in their pipeline. Running it on the same data is a small marginal cost and it decides whether the "primary innovation" claimed in the cover letter is real. Without it, the paper reads as an incremental extension of Kishimoto et al. 2024 dressed as something bigger.</p>
+      <p>This is the single most important item on my list.</p>
+
+      <h3>Issue 2. Absolute κ values are hidden behind a ratio</h3>
+      <p>κ = 0.34 is Fleiss "poor agreement" (&lt;0.40). κ = 0.31 is also poor. The LMM-SUnSAL baseline at 0.21 is worse still. The WV3 numbers (0.09 to 0.15) are essentially at chance. None of this is disclosed in the abstract or the conclusion, which frame the finding as "substantially (1.4–1.5 times) higher discrimination accuracy". A reader picking up the abstract will assume the methods reach good agreement with ground truth. They don't. They reach <em>better poor agreement</em>.</p>
+      <p>I want the abstract to report absolute κ (ideally with 95% CIs) and to acknowledge the poor-to-fair band explicitly, with a plausible explanation for why absolute agreement is limited at this site: sparse polygon ground truth, spectral confusion between overlapping alteration classes, mixed pixels at 20–30 m. The conclusion should be reframed so the ratio isn't the headline; ordering against alternatives is the honest finding.</p>
+      <p>The 1.6–3.8× number in the conclusions (line 557) needs the same treatment. It compares hyperspectral against multispectral, and almost none of that gain is attributable to LCRM+sparse. It's a hyperspectral-over-multispectral advantage that any unmixing method would show. Attributing it to the proposed framework is an over-generalization.</p>
+
+      <h3>Issue 3. The 10% threshold on presence/absence is arbitrary</h3>
+      <p>κ here is computed after collapsing continuous abundances into a binary presence/absence map using a ≥10% threshold (line 341). I looked for a justification of 10% and didn't find one. No citation, no sensitivity analysis, nothing. The 1.4–1.5× improvement ratio depends entirely on that number. If the threshold were 5% or 20%, the ranking of methods can change and the ratio certainly will.</p>
+      <p>Three things would fix this. First, cite where 10% comes from, if it's a community standard. Second, run the whole comparison at 1%, 5%, 10%, 20%, 30% and show the ranking is stable. Third, and this is what I'd actually prefer: report a threshold-free metric such as ROC AUC on continuous abundance vs. binary presence/absence, or abundance-space RMSE where quantitative ground truth exists (Rockwell 2017 has some).</p>
+      <p>As it stands, the headline claim is not falsifiable. An adversary picking a different threshold could reverse the ranking.</p>
+
+      <h3>Issue 4. Ten-year date gap across sensors, no caveat</h3>
+      <p>AVIRIS 2011-08-08, Hyperion 2011-09-19, WV3 2014-09-19, HISUI 2021-10-01. Cuprite is stable but not perfectly. Surface moisture, minor vegetation encroachment, roads all vary. The Discussion attributes cross-sensor consistency to spectral resolution and method robustness; it doesn't consider that the pipeline may be smoothing out real inter-date differences that a sharper method would preserve. A short caveat paragraph is enough. Not a killer, but currently the reader is asked to treat temporal invariance as demonstrated when it's only assumed.</p>
+
+      <h3>Issue 5. Asymmetric hyperparameter selection</h3>
+      <p>λ for the hyperspectral cases is chosen by 3-fold cross-validation. For WV3 it's chosen "empirically" (line 328), which the manuscript attributes to compute cost. Two things bother me here:</p>
+      <ul>
+        <li>The WV3 result for LCRM-SUnSAL (κ = 0.09) is actually <em>lower</em> than LMM-SUnSAL (κ = 0.13). Before concluding "the method degrades on multispectral", I'd want CV-selected λ for WV3 too, even if it takes overnight compute. The empirical value may simply be suboptimal.</li>
+        <li>If "empirically" means tuning against the same mineral distribution map (Fig. 2) that is later used to compute κ, that's test-set leakage. Please clarify what was tuned against what.</li>
+      </ul>
+      <p>Minor related question: μ = 1 is set as the ADMM penalty initialization. Was that tuned or just picked? The manuscript doesn't say.</p>
+
+      <h3>Issue 6. ADNR kernel is under-specified</h3>
+      <p>The ADNR smoothing kernel of size 3 is doing real work. It's what makes the noise distribution symmetric enough to satisfy the Gaussian error assumption. Yet the kernel shape isn't specified (uniform? Gaussian? weighted?), size 3 isn't justified against 5 or 7, and there's no sensitivity analysis. A short experiment varying the kernel size on one representative dataset would answer whether the results are robust or accidental.</p>
+      <p>I also suspect the smoothing is what causes the systematic underestimation of localized abundances such as hydrated silica (see the discussion at line 496), but that's speculative on my part until the sensitivity analysis exists.</p>
+
+      <h2>Minor issues</h2>
+      <ul>
+        <li>The title and abstract call this a "nonlinear mixing model", but internally (line 285) the two proposed methods are described as sparse spectral unmixing applied to LMM in the LCR-ADNR-transformed space. LCRM is a nonlinear preprocessing on top of a linear mixing model, not a nonlinear mixing model in the Hapke or bilinear sense. Renaming to something like "LCRM-preprocessed sparse linear unmixing" would be more accurate and wouldn't weaken the paper.</li>
+        <li>The cover letter claim "for the first time, the robust application of a nonlinear model that can leverage large-scale spectral libraries" isn't quite right. LCRM-FCLS (Zhao and Zhao 2019; Kishimoto et al. 2024) already leverages large libraries. What's genuinely first here is the combination with L1 and L2,1 solvers. Please tone this down.</li>
+        <li>Calcite noise amplification is a known continuum-removal pathology, not a new discovery. The physics is straightforward: division by a small continuum near a broad, shallow feature inflates noise. Kruse et al. 1993 and later AVIRIS-era CR literature discuss it. Your Fig. 7 analysis is rigorous and welcome, but the framing should credit prior understanding.</li>
+        <li>NCLS chosen over FCLS (line 227): the justification that "the endmembers selected are not all always types of surface materials" is under-explained. Which library entries aren't materials? Why does that argue for dropping sum-to-one instead of removing those entries?</li>
+        <li>κ on presence/absence is a classification metric applied downstream of unmixing. Even after the sensitivity analysis of Issue 3, the fundamental limitation is that continuous abundance information is being collapsed. Please acknowledge this explicitly in the Discussion.</li>
+        <li>P-A diagrams (Yousefi and Carranza framework) aren't mentioned. This isn't a prospectivity paper so P-A may not directly apply, but at NRR a mineral-mapping paper that ignores the metric tradition is unusual. If P-A doesn't apply, briefly say why.</li>
+        <li>Reference list has inconsistencies. Line 71 has "J.M.P. Nascimento and Bioucas-Dias 2005"; line 87 has "José M. P. Nascimento and Biocas-Dias 2009". Same author, different name form; also "Biocas" seems to be a typo of "Bioucas". Please audit the whole reference list.</li>
+        <li>I couldn't locate an explicit code-availability statement in the pages I read. NRR expects a public repository with DOI before submission, not "upon request". Please confirm the repo link is in the resubmission.</li>
+      </ul>
+
+      <h2>Fit with the journal</h2>
+      <p>Fit with NRR is partial and defensible. The paper is methodological, applied to a benchmark site rather than an exploration campaign, and it doesn't invoke the P-A / success-rate framework that dominates the journal's prospectivity papers. That's neutral for a mineral-mapping methodology paper, but one paragraph in the Introduction or Discussion connecting the method to actual exploration decisions would help. Without it, the paper reads as a signal-processing contribution more suited to ISPRS J P&amp;RS or IJRS than to NRR. The extension is small (a paragraph), and would strengthen the fit substantially.</p>
+      <p>Compared to recent NRR peers I've seen, methodological rigor is at the level. What's below the median is the "so-what for exploration" framing that reviewers of prospectivity papers push. Addressing this in the resubmission is the cheapest way to move the perception from "signal-processing paper on Cuprite" to "mineral-mapping methodology relevant to exploration".</p>
+
+      <hr>
+
+      <p class="final-note">Reviewer's note on my own competence: I'm reasonably comfortable with LCRM, continuum removal and the SUnSAL family, less so with the ADMM convergence details of Algorithms 1 and 2. A reviewer with deeper background in Bioucas-Dias / Iordache work may surface additional issues in the mathematical formulation that I did not.</p>
+
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const key = 'theme-narr-humanized';
+      const stored = localStorage.getItem(key);
+      if (stored) root.setAttribute('data-theme', stored);
+      const setPressed = () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        toggle.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+      };
+      setPressed();
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(key, next);
+        setPressed();
+      });
+    })();
+  </script>
+</body>
+</html>

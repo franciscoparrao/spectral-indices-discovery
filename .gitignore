@@ -1,3 +1,7 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
 # Virtual environment
 .venv/
 venv/
@@ -10,8 +14,39 @@ data/ground_truth/*.npz
 data/ground_truth/*.tif
 data/ground_truth/*.csv
 
+# --- Reproducibility exceptions -------------------------------------------
+# The manuscript's data availability statement promises the extracted
+# per-pixel tables for the three study sites. They are small and must be
+# tracked despite the blanket exclusions above.
+!data/ground_truth/maricunga_training_s2_gee.csv
+!data/ground_truth/region_iv_validation_s2.csv
+!data/ground_truth/cuprite_training_s2.npz
+!data/ground_truth/binary_training_s2.csv
+
 # Keep results JSONs (small, reproducibility)
 # data/results/ is tracked
+data/results/*.log
+
+# Large source rasters: regenerable from public sources (ESA WorldCover,
+# Copernicus/GEE). The extracted per-pixel tables used by the analysis are
+# tracked instead (data/results/land_cover_s2_samples.csv).
+data/land_cover/
+data/maps/
+
+# --- Submission material: PRIVATE, never publish --------------------------
+# Cover letters, editor correspondence, suggested/opposed reviewers and
+# compiled submission bundles are confidential to the journals involved.
+paper/nrr_bundle_*/
+paper/nrr_submission/
+paper/em_upload/
+paper/springer/
+paper/*.docx
+paper/cover_letter.*
+paper/highlights.txt
+# Submission bundles and journal-stamped PDFs from previous venues
+paper/*.zip
+paper/PHOTO-S-*.pdf
+paper/supplementary.pdf
 
 # LaTeX build artifacts
 paper/*.aux
@@ -19,23 +54,7 @@ paper/*.bbl
 paper/*.blg
 paper/*.log
 paper/*.out
-paper/*.pdf
-paper/*.synctex*
-paper/*.fls
-paper/*.fdb_latexmk
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-
-# Jupyter
-.ipynb_checkpoints/
-
-# PySR temp files
-hall_of_fame*
-*.pkl
-
-# OS
-.DS_Store
-Thumbs.db
+paper/*.spl
+paper/*.bak
+paper/*.emdash-bak
+texput.log

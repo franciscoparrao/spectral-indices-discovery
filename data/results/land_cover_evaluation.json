@@ -1,0 +1,87 @@
+{
+  "RF|10 raw bands": {
+    "classifier": "RF",
+    "features": "10 raw bands",
+    "n_features": 10,
+    "mean_auc": 0.9200632405752703,
+    "balanced_accuracy": 0.7212378555725031,
+    "per_class_auc": [
+      0.883124742622762,
+      0.8796713364084933,
+      0.919584094615037,
+      0.9455857809555377,
+      0.972350248274521
+    ]
+  },
+  "RF|5 SR indices": {
+    "classifier": "RF",
+    "features": "5 SR indices",
+    "n_features": 5,
+    "mean_auc": 0.9023358953451369,
+    "balanced_accuracy": 0.6796251751819831,
+    "per_class_auc": [
+      0.8598226488051469,
+      0.8670798779515354,
+      0.8909950271858682,
+      0.9317567397303943,
+      0.9620251830527399
+    ]
+  },
+  "RF|5 SR + 7 classical": {
+    "classifier": "RF",
+    "features": "5 SR + 7 classical",
+    "n_features": 12,
+    "mean_auc": 0.9263654390820959,
+    "balanced_accuracy": 0.721820303929679,
+    "per_class_auc": [
+      0.8935095949674609,
+      0.8847294448678484,
+      0.9327951972128903,
+      0.951712944138254,
+      0.9690800142240256
+    ]
+  },
+  "SVM-RBF|10 raw bands": {
+    "classifier": "SVM-RBF",
+    "features": "10 raw bands",
+    "n_features": 10,
+    "mean_auc": 0.8949614826314057,
+    "balanced_accuracy": 0.6739297725761613,
+    "per_class_auc": [
+      0.8459851809480046,
+      0.8569448817194909,
+      0.905767910733432,
+      0.923327146900275,
+      0.9427822928558267
+    ]
+  },
+  "SVM-RBF|5 SR indices": {
+    "classifier": "SVM-RBF",
+    "features": "5 SR indices",
+    "n_features": 5,
+    "mean_auc": 0.8837439126316597,
+    "balanced_accuracy": 0.6529949399995953,
+    "per_class_auc": [
+      0.8344114434100304,
+      0.8562483399158146,
+      0.8837587580883389,
+      0.9138983907073184,
+      0.9304026310367968
+    ]
+  },
+  "SVM-RBF|5 SR + 7 classical": {
+    "classifier": "SVM-RBF",
+    "features": "5 SR + 7 classical",
+    "n_features": 12,
+    "mean_auc": 0.8885436366980238,
+    "balanced_accuracy": 0.6565668266726783,
+    "per_class_auc": [
+      0.8396641429063371,
+      0.855280351673941,
+      0.8970098223943923,
+      0.9169567162908361,
+      0.9338071502246131
+    ]
+  },
+  "tost_delta": -0.017727345230133418
+}

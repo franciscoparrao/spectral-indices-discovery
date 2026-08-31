@@ -1,0 +1,10 @@
+{
+  "site": "Cuprite, NV",
+  "n_folds": 10,
+  "mean_auc_6sr_full": 0.9437348776739608,
+  "mean_auc_4sr_target": 0.8677898559058127,
+  "mean_auc_10raw": 0.9423571865669744,
+  "abs_delta_6_minus_4": 0.0759450217681481,
+  "abs_delta_4_minus_raw": 0.07456733066116172,
+  "abs_delta_6_minus_raw": 0.0013776911069863784
+}
