@@ -1,0 +1,252 @@
+{
+ "config": {
+  "max_ratios": 4,
+  "batch": 1000,
+  "perms": 200,
+  "negatives": "boxes",
+  "seed": 0,
+  "tag": "",
+  "negatives_mode": "boxes",
+  "n_expressions": 87000,
+  "counts_per_m": {
+   "1": 45,
+   "2": 990,
+   "3": 11220,
+   "4": 74745
+  }
+ },
+ "sets": {
+  "sel": {
+   "pos": 4009,
+   "neg": 3966
+  },
+  "R3_ho_boxes": {
+   "pos": 3991,
+   "neg": 4034
+  }
+ },
+ "winner_by_selection": {
+  "expr": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+  "m": 4,
+  "auc_sel": 0.9094690753167954,
+  "auc_R3_ho_boxes": 0.9105742009754968,
+  "recall_R3_ho@t": 0.7947882736156352,
+  "fpr@t": {
+   "R3_boxes": 0.11948438274665345
+  },
+  "fpr_distractors_mean": null
+ },
+ "runner_up_by_selection": {
+  "expr": "B02\u00b7B8A^2\u00b7B12 / (B03\u00b7B04\u00b7B08\u00b7B11)",
+  "m": 4,
+  "auc_sel": 0.9075677808642103,
+  "auc_R3_ho_boxes": 0.9084273899864184
+ },
+ "gap_sel_winner_vs_runner": 0.0019012944525851339,
+ "winner_heldout_percentile_in_family": 99.99885057471263,
+ "best_heldout_in_family": {
+  "expr": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+  "m": 4,
+  "auc_sel": 0.9094690753167954,
+  "auc_R3_ho_boxes": 0.9105742009754968
+ },
+ "heldout_auc_quantiles": {
+  "0.5": 0.6419478531703771,
+  "0.9": 0.7854093438049194,
+  "0.99": 0.8616926917989868,
+  "0.999": 0.8930595038638625,
+  "1.0": 0.9105742009754968
+ },
+ "spearman_sel_vs_heldout": 0.9922326450637445,
+ "pareto_front_exact": [
+  {
+   "m": 1,
+   "idx": 44,
+   "expr": "B11 / B12",
+   "auc_sel": 0.8672607787294523,
+   "auc_R3_ho_boxes": 0.8695259363314607,
+   "improves": true
+  },
+  {
+   "m": 2,
+   "idx": 1027,
+   "expr": "B08\u00b7B11 / (B8A\u00b7B12)",
+   "auc_sel": 0.8873673921020115,
+   "auc_R3_ho_boxes": 0.8892783924961555,
+   "improves": true
+  },
+  {
+   "m": 3,
+   "idx": 5979,
+   "expr": "B02\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B11)",
+   "auc_sel": 0.9033854991171528,
+   "auc_R3_ho_boxes": 0.9048716702317448,
+   "improves": true
+  },
+  {
+   "m": 4,
+   "idx": 43108,
+   "expr": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "auc_sel": 0.9094690753167954,
+   "auc_R3_ho_boxes": 0.9105742009754968,
+   "improves": true
+  }
+ ],
+ "top20_by_selection": [
+  {
+   "expr": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9094690753167954,
+   "auc_R3_ho_boxes": 0.9105742009754968
+  },
+  {
+   "expr": "B02\u00b7B8A^2\u00b7B12 / (B03\u00b7B04\u00b7B08\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9075677808642103,
+   "auc_R3_ho_boxes": 0.9084273899864184
+  },
+  {
+   "expr": "B02\u00b7B05\u00b7B07\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9070738090934328,
+   "auc_R3_ho_boxes": 0.9076188031896755
+  },
+  {
+   "expr": "B02\u00b7B07\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B08\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9063154297183329,
+   "auc_R3_ho_boxes": 0.9069094729378087
+  },
+  {
+   "expr": "B02\u00b7B05\u00b7B08\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.904200043095169,
+   "auc_R3_ho_boxes": 0.9057180217214066
+  },
+  {
+   "expr": "B02\u00b7B06\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9041083432171714,
+   "auc_R3_ho_boxes": 0.9039721500296838
+  },
+  {
+   "expr": "B02\u00b7B06\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B08\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9041031858852127,
+   "auc_R3_ho_boxes": 0.9039070556247839
+  },
+  {
+   "expr": "B02\u00b7B05\u00b7B06\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9038856974228561,
+   "auc_R3_ho_boxes": 0.9034467984298336
+  },
+  {
+   "expr": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B06\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9036479569984177,
+   "auc_R3_ho_boxes": 0.9061961053421264
+  },
+  {
+   "expr": "B02\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B11)",
+   "m": 3,
+   "auc_sel": 0.9033854991171528,
+   "auc_R3_ho_boxes": 0.9048716702317448
+  },
+  {
+   "expr": "B04\u00b7B07\u00b7B08\u00b7B11 / (B05\u00b7B8A^2\u00b7B12)",
+   "m": 4,
+   "auc_sel": 0.9030042339179609,
+   "auc_R3_ho_boxes": 0.9030040570957436
+  },
+  {
+   "expr": "B02\u00b7B06\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B07\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9026395728119044,
+   "auc_R3_ho_boxes": 0.9031969179041539
+  },
+  {
+   "expr": "B02\u00b7B05^2\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9025847918834161,
+   "auc_R3_ho_boxes": 0.9033026963121162
+  },
+  {
+   "expr": "B02\u00b7B06\u00b7B07\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9024561730559091,
+   "auc_R3_ho_boxes": 0.901942608350196
+  },
+  {
+   "expr": "B02\u00b7B07\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9023213905877685,
+   "auc_R3_ho_boxes": 0.9028708868628186
+  },
+  {
+   "expr": "B02\u00b7B07^2\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.902171199018044,
+   "auc_R3_ho_boxes": 0.9024760967506588
+  },
+  {
+   "expr": "B04\u00b7B08^2\u00b7B11 / (B05\u00b7B8A^2\u00b7B12)",
+   "m": 4,
+   "auc_sel": 0.9021238396160328,
+   "auc_R3_ho_boxes": 0.9011886809774149
+  },
+  {
+   "expr": "B02\u00b7B8A^2\u00b7B12 / (B03\u00b7B04\u00b7B07\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9020367939156565,
+   "auc_R3_ho_boxes": 0.9036233856370189
+  },
+  {
+   "expr": "B02\u00b7B07\u00b7B8A\u00b7B12 / (B03\u00b7B04\u00b7B06\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9019781764353453,
+   "auc_R3_ho_boxes": 0.9042578697458473
+  },
+  {
+   "expr": "B04\u00b7B06\u00b7B08\u00b7B11 / (B05\u00b7B8A^2\u00b7B12)",
+   "m": 4,
+   "auc_sel": 0.9013760893763113,
+   "auc_R3_ho_boxes": 0.9018650913489412
+  }
+ ],
+ "clay_B11_B12": {
+  "expr": "B11 / B12",
+  "m": 1,
+  "auc_sel": 0.8672607787294523,
+  "auc_R3_ho_boxes": 0.8695259363314607,
+  "recall_R3_ho@t": 0.726634928589326,
+  "fpr@t": {
+   "R3_boxes": 0.10932077342588002
+  },
+  "fpr_distractors_mean": null
+ },
+ "null_max_sel_auc_under_label_permutation": {
+  "perms": 200,
+  "mean": 0.5165192778238373,
+  "q95": 0.5233540280712321,
+  "q99": 0.5256842515333943,
+  "max": 0.5278382716044724,
+  "note": "max over the whole family of oriented AUC when labels are permuted; an observed selection AUC below q95 is indistinguishable from the winner's curse"
+ },
+ "continuous_relaxation_logistic_logratios": {
+  "auc_sel": 0.905426670475545,
+  "auc_R3_ho_boxes": 0.9067434449375249
+ },
+ "logistic_exponents_relative_to_B08": {
+  "B02": -6.855,
+  "B03": 6.878,
+  "B04": 8.08,
+  "B05": -1.418,
+  "B06": 0.932,
+  "B07": -2.351,
+  "B08": 0.0,
+  "B8A": -9.85,
+  "B11": 10.378,
+  "B12": -10.562
+ }
+}

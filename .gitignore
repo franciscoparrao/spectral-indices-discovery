@@ -22,6 +22,10 @@ data/ground_truth/*.csv
 !data/ground_truth/region_iv_validation_s2.csv
 !data/ground_truth/cuprite_training_s2.npz
 !data/ground_truth/binary_training_s2.csv
+# Hard-negative redesign (2026-10-09/10): ring + distractor pixels and the
+# georeferenced Region III positives that enum_logspace.py --positives geo uses.
+!data/ground_truth/pilot_hard_negatives.csv
+!data/ground_truth/binary_training_s2_positives_geo.csv
 
 # Keep results JSONs (small, reproducibility)
 # data/results/ is tracked
@@ -58,3 +62,6 @@ paper/*.spl
 paper/*.bak
 paper/*.emdash-bak
 texput.log
+
+# Run logs of long enumerations (regenerable)
+logs/

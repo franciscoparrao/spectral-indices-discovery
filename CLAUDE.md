@@ -298,3 +298,38 @@ spectral-indices-discovery/
 3. Descargar Sentinel-2 de El Tatio como zona piloto
 4. Notebook 01: descarga y visualización de bandas
 5. Notebook 02: preprocesamiento y extracción de training data
+
+## Enumeración exhaustiva en log-espacio (2026-10-09)
+
+- `scripts/enum_logspace.py`: enumera TODOS los productos de ratios hasta m factores
+  (vectores enteros suma 0 sobre 10 bandas, sign-canónicos, primitivos). Para AUC, una
+  diferencia normalizada es la misma expresión que el ratio (tanh monótono), así que la
+  familia {ratios, productos/cocientes, ND} queda cubierta completa. m≤4 = 87 000
+  expresiones (~12 min), m≤5 = 452 706 (~1 h). Salida en `data/results/enum_logspace_m{M}_{design}.{csv.gz,json}`.
+- **Criterio de selección vigente** (`--select-on all`, default): AUC ponderado de positivos R3
+  contra TODOS los grupos negativos de R3 (anillo 50 %, distractores 50 % repartido por
+  grupo; vegetación y agua con peso 0 porque se enmascaran). **Región IV nunca entra en la
+  selección**: es el único test cross-site válido. El split interno de R3 es por píxel, así
+  que las columnas R3_ho están infladas por autocorrelación; no usarlas como evidencia.
+- Gotcha: con el criterio del piloto (`--select-on ring`, positivos vs anillo) la familia
+  contiene índices buenos en R4 pero la selección no los encuentra (Spearman sel–R4 0.31) y
+  la compuerta falla. Con `all`, el ganador m=4 `B02·B8A²·B12/(B03·B04·B11²)` pasa la
+  compuerta R4 por +0.11 AUC e iguala la logística sobre log-ratios (0.756). El ganador es
+  uno de decenas de empates a 0.004: el resultado es la estructura
+  (SWIR² × B8A/B04 × B02/B03), no la fórmula puntual.
+- Literatura y gaps: `docs/revision_literatura_enumeracion_indices_2026-10-09.md`.
+- **m≤5 (10 oct 2026)**: ganador `B02·B8A³·B12/(B03·B04·B06·B11²)`, R4 ring 0.751 vs 0.738 de m=4 y 0.628 del
+  clay ratio; techo de la familia en R4 ring 0.763. Rendimiento decreciente: m=4 es el índice a proponer,
+  m=5 es evidencia de saturación. Empate con el segundo a 0.0001.
+- **Positivos de R3 georreferenciados**: `data/ground_truth/binary_training_s2_positives_geo.csv` (remuestreo GEE
+  del mismo compuesto con `scripts/resample_r3_positives_geo.py`; lon/lat + `poly_id` del Atlas, 460 polígonos).
+  Los positivos legacy de `binary_training_s2.csv` NO se pueden georreferenciar (GEE devuelve otra muestra con
+  `geometries=True`; misma distribución, cuantiles difieren <0.003). Usar `--positives geo` en adelante.
+- **Split espacial** (`--split pixel|polygon|block`, `--block-km 10`, distractores siempre en bloques de 2 km):
+  el ganador m=4 es el mismo bajo los cuatro diseños y la compuerta R4 es idéntica (+0.110 ring, +0.123 hard).
+  Inflación por autocorrelación en R3 held-out con distractores: ganador 0.858 (píxel) → 0.854 (polígono) → 0.844
+  (bloque 10 km); el clay ratio cae igual (0.803 → 0.800 → 0.788), así que la ventaja en R3 se mantiene en
+  +0.054–0.058. El gap selección−held-out crece de 0.00 a 0.03 con el bloque. Para el paper, reportar R3 con
+  split por bloque y R4 como test cross-site; `R3_ho` por píxel ya no se usa como evidencia.
+- Corridas largas: checkpoint cada 10 lotes en `data/results/.ckpt_enum_logspace_*.npz` (reanuda solo), lanzar con
+  `nice -n 10`, `OMP_NUM_THREADS=6` y `systemd-run --user --scope -p MemoryMax=12G` (la máquina se congeló el 9 oct).
