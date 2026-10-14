@@ -331,5 +331,30 @@ spectral-indices-discovery/
   (bloque 10 km); el clay ratio cae igual (0.803 → 0.800 → 0.788), así que la ventaja en R3 se mantiene en
   +0.054–0.058. El gap selección−held-out crece de 0.00 a 0.03 con el bloque. Para el paper, reportar R3 con
   split por bloque y R4 como test cross-site; `R3_ho` por píxel ya no se usa como evidencia.
+- **Cuprite como segundo sitio cross-site (R5, 12 oct 2026)**: `scripts/pilot_sample_cuprite.py` (todo en ráster con
+  transformada de distancia; la versión vectorial reventaba la RAM) genera `cuprite_positives_geo.csv` (3 760 px, clase
+  USGS, blob) y `cuprite_hard_negatives.csv` (anillo 4 000, sombra 1 500, vegetación 800, playa 800, aluvio 800, agua
+  520). El mapa USGS cubre mucho más que el bbox (2/3 de la alteración mapeada está fuera, Goldfield al norte); el
+  anillo se traza solo sobre terreno mapeado. `enum_logspace.py --cuprite` agrega R5 y su compuerta; R5 nunca entra en
+  la selección. Resultado (m≤4, geo, bloque): ganador 0.960 vs clay 0.903 en R5 ring (+0.057), 0.960 vs 0.867 en R5
+  hard (+0.094), FPR distractores 4.7 % vs 28 %; techo logístico 0.961. **Compuerta pasa en los dos sitios
+  independientes.** Gotcha: el ganador dispara en agua (FPR 0.69 vs 0.14 del clay); agua se enmascara con NDWI y está
+  excluida de *_hard, pero hay que decirlo en el paper. Recall en umbral de Youden es menor que el del clay (0.78 vs
+  0.89): la ganancia es de especificidad.
+- **Baselines y ROC en el diseño final (13 oct 2026)**: `scripts/hardneg_design.py` (loader compartido, reproduce los
+  conjuntos del enumerador) + `scripts/final_design_baselines.py` → `data/results/final_design_baselines.json`,
+  `figures/roc_final_design.png` (exploratoria). ΔAUC ganador−clay con IC 95 % bootstrap por bloque (10 km R3/R4, 2 km
+  R5): R4 ring +0.110 [+0.04, +0.17], R4 hard +0.123 [+0.07, +0.19], R5 ring +0.057 [+0.02, +0.11], R5 hard +0.094
+  [+0.05, +0.16]. **RF entrenado en R3 no transfiere** (R4 0.67–0.69 vs 0.74–0.75 del índice); la logística sobre
+  log-ratios sí (0.755/0.772). **Resultado incómodo a reportar**: en R3 vs anillo solo, el clay ratio gana por 0.036
+  [−0.065, −0.004]; la ventaja in situ del ganador viene de apagar distractores.
+- **Estabilidad temporal** (`scripts/temporal_stability_sample.py` + `_eval.py` → `data/results/temporal_stability.json`,
+  CSVs en `data/ground_truth/temporal/`, no versionados): mismo índice, mismas etiquetas, otro compuesto.
+  Misma estación del año anterior: estable en los tres sitios (R3 hard 0.843, R4 hard 0.774, R5 hard 0.957; Spearman
+  0.94–0.97 con el base). **Estación opuesta degrada**: invierno R3 hard 0.726 (clay 0.764, lo supera), invierno R4
+  hard 0.733 (clay 0.588, sigue ganando), primavera R5 hard 0.903 (clay 0.878, ventaja cae a +0.025). Los términos
+  VNIR (B8A/B04, B02/B03) son sensibles a iluminación y nieve; el clay ratio es más robusto a la estación. El índice
+  se declara para compuestos de verano. Chequeo: el base remuestreado reproduce los valores almacenados (dif. rel.
+  mediana 0): la colección GEE no se movió.
 - Corridas largas: checkpoint cada 10 lotes en `data/results/.ckpt_enum_logspace_*.npz` (reanuda solo), lanzar con
   `nice -n 10`, `OMP_NUM_THREADS=6` y `systemd-run --user --scope -p MemoryMax=12G` (la máquina se congeló el 9 oct).

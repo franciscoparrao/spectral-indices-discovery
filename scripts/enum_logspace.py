@@ -59,6 +59,9 @@ ap.add_argument("--split", choices=["pixel", "polygon", "block"], default="pixel
                      "autocorrelation), polygon (positives and ring grouped by Atlas polygon, distractors by block), "
                      "block (every Region III pixel grouped by --block-km grid cell). polygon/block need --positives geo")
 ap.add_argument("--block-km", type=float, default=10.0)
+ap.add_argument("--cuprite", action="store_true",
+                help="add Cuprite, Nevada (site R5) as a second cross-site test: cuprite_positives_geo.csv vs "
+                     "cuprite_hard_negatives.csv (ring + distractors, pilot_sample_cuprite.py). Never used for selection")
 ap.add_argument("--distractor-block-km", type=float, default=2.0,
                 help="block size for the distractor boxes (~10 km wide, so 10 km blocks would leave a side empty)")
 args = ap.parse_args()
@@ -137,6 +140,14 @@ for g, d in distract3.items():
     d3_sel[g], d3_ho[g] = split(d, grp(d, "distractor"))
 ring4 = neg[("R4", "ring")]
 distract4 = {g: d for (s, g), d in neg.items() if s == "R4" and g != "ring"}
+SITES = ["R3", "R4"]
+if args.cuprite:
+    pos5 = pd.read_csv(GT / "cuprite_positives_geo.csv")[BANDS].reset_index(drop=True)
+    hard5 = pd.read_csv(GT / "cuprite_hard_negatives.csv")
+    hard5 = hard5[(hard5[BANDS] > 0).all(axis=1)]
+    neg5 = {g: d[BANDS].reset_index(drop=True) for g, d in hard5.groupby("group")}
+    ring5 = neg5.pop("ring"); distract5 = neg5
+    SITES.append("R5")
 neg = {k: v[BANDS] for k, v in neg.items()}
 for _d in (pos3_sel, pos3_ho, ring3_sel, ring3_ho, ring4):
     _d.drop(columns=[c for c in ("lon", "lat") if c in _d], inplace=True)
@@ -174,6 +185,11 @@ sets["R4_ring"] = (logb(pos4), logb(ring4))
 sets["R4_hard"] = (logb(pos4), logb(cat([ring4, *keep4.values()])))
 groups = {f"R3_{g}": logb(d) for g, d in {"ring": ring3_ho, **d3_ho}.items()}
 groups.update({f"R4_{g}": logb(d) for g, d in {"ring": ring4, **distract4}.items()})
+if args.cuprite:
+    keep5 = {g: d for g, d in distract5.items() if g not in EXCL}
+    sets["R5_ring"] = (logb(pos5), logb(ring5))
+    sets["R5_hard"] = (logb(pos5), logb(cat([ring5, *keep5.values()])))
+    groups.update({f"R5_{g}": logb(d) for g, d in {"ring": ring5, **distract5}.items()})
 
 print(f"design: select-on={args.select_on}  ring-weight={args.ring_weight}  excluded={sorted(EXCL)}  positives={args.positives}  split={args.split}")
 for k, (p, n) in sets.items():
@@ -245,7 +261,7 @@ auc = {k: np.zeros(E) for k in sets}; sign = np.zeros(E)
 # AUCs every 10 batches and resume from them if the configuration matches.
 RES.mkdir(exist_ok=True)
 DESIGN = (("_geo" if args.positives == "geo" else "") + (f"_{args.split}" if args.split != "pixel" else "")
-          + (f"_{args.tag}" if args.tag else ""))
+          + ("_cuprite" if args.cuprite else "") + (f"_{args.tag}" if args.tag else ""))
 CKPT = RES / f".ckpt_enum_logspace_m{args.max_ratios}_{args.select_on}{DESIGN}.npz"
 start = 0
 if CKPT.exists():
@@ -307,7 +323,9 @@ def fpr_report(i):
     out = {"recall_R3_ho@t": float((sg * (sets["R3_ho_ring"][0] @ c) > t).mean()),
            "recall_R4@t": float((sg * (sets["R4_ring"][0] @ c) > t).mean()),
            "fpr@t": {g: float((sg * (L @ c) > t).mean()) for g, L in groups.items()}}
-    for site in ("R3", "R4"):
+    if args.cuprite:
+        out["recall_R5@t"] = float((sg * (sets["R5_ring"][0] @ c) > t).mean())
+    for site in SITES:
         d = [v for g, v in out["fpr@t"].items() if g.startswith(site) and "ring" not in g
              and g.split("_", 1)[1] not in EXCL]
         out[f"fpr_distractors_mean_{site}"] = float(np.mean(d)) if d else None
@@ -334,6 +352,12 @@ gate = {"best": df.expr[winner],
         "fpr_distractors_R3_best": w_["fpr_distractors_mean_R3"], "fpr_distractors_R3_clay": c_["fpr_distractors_mean_R3"]}
 gate["pass_R4"] = bool(gate["delta_auc_R4_ring"] >= 0.03 and gate["delta_auc_R4_hard"] >= 0.03
                        and (gate["fpr_distractors_R4_best"] or 0) <= (gate["fpr_distractors_R4_clay"] or 0))
+if args.cuprite:   # same pre-registered rule, second independent site
+    gate.update({"delta_auc_R5_ring": w_["auc_R5_ring"] - c_["auc_R5_ring"],
+                 "delta_auc_R5_hard": w_["auc_R5_hard"] - c_["auc_R5_hard"],
+                 "fpr_distractors_R5_best": w_["fpr_distractors_mean_R5"], "fpr_distractors_R5_clay": c_["fpr_distractors_mean_R5"]})
+    gate["pass_R5"] = bool(gate["delta_auc_R5_ring"] >= 0.03 and gate["delta_auc_R5_hard"] >= 0.03
+                           and (gate["fpr_distractors_R5_best"] or 0) <= (gate["fpr_distractors_R5_clay"] or 0))
 
 summary = {
     "config": vars(args) | {"n_expressions": int(E), "counts_per_m": {int(m): int((M == m).sum()) for m in range(1, args.max_ratios + 1)}},
@@ -380,7 +404,7 @@ if Yperm is not None: print("== Null max sel AUC:", summary["null_max_sel_auc_un
 print("\n== FPR per group at Youden threshold (winner | clay):")
 for g in groups: print(f"  {g:22s} {w_['fpr@t'][g]:6.2f} | {c_['fpr@t'][g]:6.2f}")
 print(f"  recall R3 ho / R4 at t: {w_['recall_R3_ho@t']:.2f} {w_['recall_R4@t']:.2f} | {c_['recall_R3_ho@t']:.2f} {c_['recall_R4@t']:.2f}")
-print("\n== GATE (R4 cross-site):", json.dumps(gate, indent=1))
+print("\n== GATE (cross-site, R4" + (" and R5" if args.cuprite else "") + "):", json.dumps(gate, indent=1))
 
 RES.mkdir(exist_ok=True)
 name = f"enum_logspace_m{args.max_ratios}_{args.select_on}{DESIGN}"

@@ -26,6 +26,11 @@ data/ground_truth/*.csv
 # georeferenced Region III positives that enum_logspace.py --positives geo uses.
 !data/ground_truth/pilot_hard_negatives.csv
 !data/ground_truth/binary_training_s2_positives_geo.csv
+# Cuprite (site R5) of the hard-negative design (pilot_sample_cuprite.py)
+!data/ground_truth/cuprite_positives_geo.csv
+!data/ground_truth/cuprite_hard_negatives.csv
+# Alternative-composite re-samples (temporal_stability_sample.py): regenerable, not tracked
+data/ground_truth/temporal/
 
 # Keep results JSONs (small, reproducibility)
 # data/results/ is tracked
