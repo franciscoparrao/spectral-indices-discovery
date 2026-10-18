@@ -1,0 +1,5 @@
+Sentinel-2 alteration indices vs host rock, distractors and 1,454 mapped deposits
+Exhaustive enumeration of 87,000 band-ratio indices removes search variability
+Negative set changes the selected index; none transfers to all three test sites
+Selected index beats clay ratio on deposits in Cretaceous Cu-Fe-Au districts only
+Clay ratio stays equal or better in epithermal Au-Ag districts

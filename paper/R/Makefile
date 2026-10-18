@@ -76,3 +76,11 @@ clean:
 	rm -f $(ALL_FIGS) $(ALL_FIGS:.pdf=.png)
 
 .PHONY: all clean sync-submission
+
+# ---- main_v2 (hard-negative redesign, 2026-10-17) ----
+FIGV2 = $(FIGS)/v2
+$(ROOT)/paper/data/figs_v2/f2_scatter.csv:
+	cd $(ROOT) && $(PYTHON) scripts/prep_figs_v2.py
+v2: $(ROOT)/paper/data/figs_v2/f2_scatter.csv
+	cd $(ROOT) && for f in study_area scatter pareto roc fpr temporal; do $(R) paper/R/fig_v2_$$f.R; done
+.PHONY: v2

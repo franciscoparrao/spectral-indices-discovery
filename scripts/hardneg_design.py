@@ -121,7 +121,7 @@ def load_design(positives="geo", split="block", block_km=10.0, distractor_block_
     if verbose:
         for k, (p, n) in sets.items():
             print(f"  {k:12s} pos {len(p):6d}  neg {len(n):6d}")
-    return {"sets": sets, "sel_w": sel_w, "groups": groups, "sites": out_sites, "excl": EXCL,
+    return {"sets": sets, "sel_w": sel_w, "sel_ring": ring3_sel, "groups": groups, "sites": out_sites, "excl": EXCL,
             "block_km": block_km, "split": split}
 
 

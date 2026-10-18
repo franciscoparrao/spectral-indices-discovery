@@ -1,0 +1,63 @@
+site,group,index,fpr
+Atacama (held-out),ring,Selected index,0.2795404814004376
+Atacama (held-out),ring,Clay ratio,0.1931072210065645
+Atacama (held-out),litho_alluvium,Selected index,0.2647975077881619
+Atacama (held-out),litho_alluvium,Clay ratio,0.1495327102803738
+Atacama (held-out),litho_andesite,Selected index,0.0874635568513119
+Atacama (held-out),litho_andesite,Clay ratio,0.1224489795918367
+Atacama (held-out),litho_basalt,Selected index,0.064343163538874
+Atacama (held-out),litho_basalt,Clay ratio,0.2627345844504021
+Atacama (held-out),litho_granitoid,Selected index,0.163538873994638
+Atacama (held-out),litho_granitoid,Clay ratio,0.03485254691689
+Atacama (held-out),litho_greenschist,Selected index,0.1082474226804123
+Atacama (held-out),litho_greenschist,Clay ratio,0.0231958762886597
+Atacama (held-out),litho_sedimentary,Selected index,0.0138248847926267
+Atacama (held-out),litho_sedimentary,Clay ratio,0.0046082949308755
+Atacama (held-out),salar_atacama,Selected index,0.0491400491400491
+Atacama (held-out),salar_atacama,Clay ratio,0.1572481572481572
+Atacama (held-out),salar_maricunga,Selected index,0.0704225352112676
+Atacama (held-out),salar_maricunga,Clay ratio,0.4671361502347418
+Atacama (held-out),salar_pedernales,Selected index,0.3405275779376499
+Atacama (held-out),salar_pedernales,Clay ratio,0.894484412470024
+Atacama (held-out),salar_uyuni,Selected index,0.0
+Atacama (held-out),salar_uyuni,Clay ratio,1.0
+Atacama (held-out),sand_atacama,Selected index,0.0
+Atacama (held-out),sand_atacama,Clay ratio,0.0
+Atacama (held-out),shadow,Selected index,0.3032544378698225
+Atacama (held-out),shadow,Clay ratio,0.1997041420118343
+Atacama (held-out),snow,Selected index,0.0
+Atacama (held-out),snow,Clay ratio,0.0267857142857142
+Atacama (held-out),vegetation,Selected index,0.0
+Atacama (held-out),vegetation,Clay ratio,0.973941368078176
+Atacama (held-out),water,Selected index,0.3597883597883597
+Atacama (held-out),water,Clay ratio,0.5211640211640212
+Coquimbo,ring,Selected index,0.2412857142857143
+Coquimbo,ring,Clay ratio,0.5398571428571428
+Coquimbo,shadow,Selected index,0.1033333333333333
+Coquimbo,shadow,Clay ratio,0.5473333333333333
+Coquimbo,vegetation,Selected index,0.0
+Coquimbo,vegetation,Clay ratio,0.99125
+Cuprite,ring,Selected index,0.0335
+Cuprite,ring,Clay ratio,0.22825
+Cuprite,alluvium,Selected index,0.0
+Cuprite,alluvium,Clay ratio,0.0175
+Cuprite,playa,Selected index,0.13
+Cuprite,playa,Clay ratio,0.22625
+Cuprite,shadow,Selected index,0.01
+Cuprite,shadow,Clay ratio,0.602
+Cuprite,vegetation,Selected index,0.0
+Cuprite,vegetation,Clay ratio,0.97
+Cuprite,water,Selected index,0.6923076923076923
+Cuprite,water,Clay ratio,0.1384615384615384
+Atacama West,alluvium,Selected index,0.14125
+Atacama West,alluvium,Clay ratio,0.05375
+Atacama West,playa,Selected index,0.13924050632911392
+Atacama West,playa,Clay ratio,0.10126582278481013
+Atacama West,ring,Selected index,0.274
+Atacama West,ring,Clay ratio,0.12542857142857142
+Atacama West,shadow,Selected index,0.4
+Atacama West,shadow,Clay ratio,0.2
+Atacama West,vegetation,Selected index,0.0
+Atacama West,vegetation,Clay ratio,0.99
+Atacama West,water,Selected index,0.12125
+Atacama West,water,Clay ratio,0.31125

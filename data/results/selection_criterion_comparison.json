@@ -1,0 +1,268 @@
+{
+ "n_expressions": 87000,
+ "clay": {
+  "auc_R4_ring": 0.6278637588652483,
+  "auc_R4_hard": 0.629034376303713,
+  "auc_R5_ring": 0.9025013962765958,
+  "auc_R5_hard": 0.8665769029068026
+ },
+ "criteria": {
+  "boxes": {
+   "winner": "B02\u00b7B05\u00b7B8A\u00b7B12 / (B03\u00b7B04^2\u00b7B11)",
+   "m": 4,
+   "auc_sel": 0.9094690753167954,
+   "auc_R4_ring": 0.6946624518743667,
+   "auc_R4_hard": 0.6859275260742594,
+   "auc_R5_ring": 0.918411170212766,
+   "auc_R5_hard": 0.8950522924782739,
+   "delta_R4_ring": 0.06679869300911845,
+   "delta_R4_hard": 0.05689314977054649,
+   "delta_R5_ring": 0.015909773936170213,
+   "delta_R5_hard": 0.028475389571471332,
+   "spearman_sel_vs": {
+    "R4_ring": -0.03368273195119467,
+    "R4_hard": -0.09676751287935154,
+    "R5_ring": 0.4121306878795703,
+    "R5_hard": 0.3106627972486342
+   },
+   "auc_gate_R4": true,
+   "auc_gate_R5": false
+  },
+  "ring": {
+   "winner": "B02\u00b7B04\u00b7B12^2 / (B03^2\u00b7B11^2)",
+   "m": 4,
+   "auc_sel": 0.8626681117259238,
+   "auc_R4_ring": 0.657780587639311,
+   "auc_R4_hard": 0.6556236128493951,
+   "auc_R5_ring": 0.922676329787234,
+   "auc_R5_hard": 0.8773669463590051,
+   "delta_R4_ring": 0.029916828774062765,
+   "delta_R4_hard": 0.026589236545682127,
+   "delta_R5_ring": 0.02017493351063826,
+   "delta_R5_hard": 0.01079004345220258,
+   "spearman_sel_vs": {
+    "R4_ring": 0.23122912022846118,
+    "R4_hard": 0.1031933248904093,
+    "R5_ring": 0.7191260591316345,
+    "R5_hard": 0.617360082574325
+   },
+   "auc_gate_R4": false,
+   "auc_gate_R5": false
+  },
+  "all": {
+   "winner": "B02\u00b7B8A^2\u00b7B12 / (B03\u00b7B04\u00b7B11^2)",
+   "m": 4,
+   "auc_sel": 0.8706874941816776,
+   "auc_R4_ring": 0.738066990881459,
+   "auc_R4_hard": 0.7524651981643722,
+   "auc_R5_ring": 0.959589295212766,
+   "auc_R5_hard": 0.9603470931974828,
+   "delta_R4_ring": 0.11020323201621074,
+   "delta_R4_hard": 0.12343082186065923,
+   "delta_R5_ring": 0.05708789893617028,
+   "delta_R5_hard": 0.09377019029068023,
+   "spearman_sel_vs": {
+    "R4_ring": 0.472193616005861,
+    "R4_hard": 0.529470166949631,
+    "R5_ring": 0.7008551458232419,
+    "R5_hard": 0.6631188550965216
+   },
+   "auc_gate_R4": true,
+   "auc_gate_R5": true
+  }
+ },
+ "fpr_at_youden_of_final_selection_set": {
+  "boxes": {
+   "R3": {
+    "fpr_ring": 0.20951859956236324,
+    "fpr_distractors_mean": 0.22615067902253058,
+    "by_group": {
+     "R3_ring": 0.20951859956236324,
+     "R3_litho_alluvium": 0.16199376947040497,
+     "R3_litho_andesite": 0.029154518950437316,
+     "R3_litho_basalt": 0.058981233243967826,
+     "R3_litho_granitoid": 0.029490616621983913,
+     "R3_litho_greenschist": 0.005154639175257732,
+     "R3_litho_sedimentary": 0.0,
+     "R3_salar_atacama": 0.17444717444717445,
+     "R3_salar_maricunga": 0.26291079812206575,
+     "R3_salar_pedernales": 0.6810551558752997,
+     "R3_salar_uyuni": 1.0,
+     "R3_sand_atacama": 0.0,
+     "R3_shadow": 0.3224852071005917,
+     "R3_snow": 0.21428571428571427,
+     "R3_vegetation": 0.0,
+     "R3_water": 0.8756613756613757
+    },
+    "recall": 0.7172814552804446
+   },
+   "R4": {
+    "fpr_ring": 0.030714285714285715,
+    "fpr_distractors_mean": 0.096,
+    "by_group": {
+     "R4_ring": 0.030714285714285715,
+     "R4_shadow": 0.096,
+     "R4_vegetation": 0.0
+    },
+    "recall": 0.16808510638297872
+   },
+   "R5": {
+    "fpr_ring": 0.003,
+    "fpr_distractors_mean": 0.05438888888888888,
+    "by_group": {
+     "R5_ring": 0.003,
+     "R5_alluvium": 0.00125,
+     "R5_playa": 0.15125,
+     "R5_shadow": 0.010666666666666666,
+     "R5_vegetation": 0.0,
+     "R5_water": 0.9903846153846154
+    },
+    "recall": 0.24335106382978725
+   }
+  },
+  "ring": {
+   "R3": {
+    "fpr_ring": 0.16466083150984684,
+    "fpr_distractors_mean": 0.24128277930086017,
+    "by_group": {
+     "R3_ring": 0.16466083150984684,
+     "R3_litho_alluvium": 0.1806853582554517,
+     "R3_litho_andesite": 0.1282798833819242,
+     "R3_litho_basalt": 0.1447721179624665,
+     "R3_litho_granitoid": 0.0938337801608579,
+     "R3_litho_greenschist": 0.030927835051546393,
+     "R3_litho_sedimentary": 0.002304147465437788,
+     "R3_salar_atacama": 0.18673218673218672,
+     "R3_salar_maricunga": 0.3051643192488263,
+     "R3_salar_pedernales": 0.8033573141486811,
+     "R3_salar_uyuni": 1.0,
+     "R3_sand_atacama": 0.0,
+     "R3_shadow": 0.21597633136094674,
+     "R3_snow": 0.044642857142857144,
+     "R3_vegetation": 0.996742671009772,
+     "R3_water": 0.91005291005291
+    },
+    "recall": 0.7157655381505811
+   },
+   "R4": {
+    "fpr_ring": 0.42142857142857143,
+    "fpr_distractors_mean": 0.456,
+    "by_group": {
+     "R4_ring": 0.42142857142857143,
+     "R4_shadow": 0.456,
+     "R4_vegetation": 0.99
+    },
+    "recall": 0.6567375886524822
+   },
+   "R5": {
+    "fpr_ring": 0.18425,
+    "fpr_distractors_mean": 0.28125,
+    "by_group": {
+     "R5_ring": 0.18425,
+     "R5_alluvium": 0.0175,
+     "R5_playa": 0.29625,
+     "R5_shadow": 0.53,
+     "R5_vegetation": 0.98,
+     "R5_water": 0.7846153846153846
+    },
+    "recall": 0.8896276595744681
+   }
+  },
+  "all": {
+   "R3": {
+    "fpr_ring": 0.27954048140043763,
+    "fpr_distractors_mean": 0.1127353853696011,
+    "by_group": {
+     "R3_ring": 0.27954048140043763,
+     "R3_litho_alluvium": 0.26479750778816197,
+     "R3_litho_andesite": 0.08746355685131195,
+     "R3_litho_basalt": 0.064343163538874,
+     "R3_litho_granitoid": 0.16353887399463807,
+     "R3_litho_greenschist": 0.10824742268041238,
+     "R3_litho_sedimentary": 0.013824884792626729,
+     "R3_salar_atacama": 0.04914004914004914,
+     "R3_salar_maricunga": 0.07042253521126761,
+     "R3_salar_pedernales": 0.3405275779376499,
+     "R3_salar_uyuni": 0.0,
+     "R3_sand_atacama": 0.0,
+     "R3_shadow": 0.3032544378698225,
+     "R3_snow": 0.0,
+     "R3_vegetation": 0.0,
+     "R3_water": 0.35978835978835977
+    },
+    "recall": 0.7306720565942395
+   },
+   "R4": {
+    "fpr_ring": 0.2412857142857143,
+    "fpr_distractors_mean": 0.10333333333333333,
+    "by_group": {
+     "R4_ring": 0.2412857142857143,
+     "R4_shadow": 0.10333333333333333,
+     "R4_vegetation": 0.0
+    },
+    "recall": 0.5826950354609929
+   },
+   "R5": {
+    "fpr_ring": 0.0335,
+    "fpr_distractors_mean": 0.04666666666666667,
+    "by_group": {
+     "R5_ring": 0.0335,
+     "R5_alluvium": 0.0,
+     "R5_playa": 0.13,
+     "R5_shadow": 0.01,
+     "R5_vegetation": 0.0,
+     "R5_water": 0.6923076923076923
+    },
+    "recall": 0.7829787234042553
+   }
+  },
+  "clay": {
+   "R3": {
+    "fpr_ring": 0.19310722100656455,
+    "fpr_distractors_mean": 0.2571331975930392,
+    "by_group": {
+     "R3_ring": 0.19310722100656455,
+     "R3_litho_alluvium": 0.14953271028037382,
+     "R3_litho_andesite": 0.12244897959183673,
+     "R3_litho_basalt": 0.26273458445040215,
+     "R3_litho_granitoid": 0.03485254691689008,
+     "R3_litho_greenschist": 0.023195876288659795,
+     "R3_litho_sedimentary": 0.004608294930875576,
+     "R3_salar_atacama": 0.15724815724815724,
+     "R3_salar_maricunga": 0.4671361502347418,
+     "R3_salar_pedernales": 0.894484412470024,
+     "R3_salar_uyuni": 1.0,
+     "R3_sand_atacama": 0.0,
+     "R3_shadow": 0.1997041420118343,
+     "R3_snow": 0.026785714285714284,
+     "R3_vegetation": 0.9739413680781759,
+     "R3_water": 0.5211640211640212
+    },
+    "recall": 0.7263769580596261
+   },
+   "R4": {
+    "fpr_ring": 0.5398571428571428,
+    "fpr_distractors_mean": 0.5473333333333333,
+    "by_group": {
+     "R4_ring": 0.5398571428571428,
+     "R4_shadow": 0.5473333333333333,
+     "R4_vegetation": 0.99125
+    },
+    "recall": 0.699290780141844
+   },
+   "R5": {
+    "fpr_ring": 0.22825,
+    "fpr_distractors_mean": 0.28191666666666665,
+    "by_group": {
+     "R5_ring": 0.22825,
+     "R5_alluvium": 0.0175,
+     "R5_playa": 0.22625,
+     "R5_shadow": 0.602,
+     "R5_vegetation": 0.97,
+     "R5_water": 0.13846153846153847
+    },
+    "recall": 0.8922872340425532
+   }
+  }
+ }
+}

@@ -316,7 +316,9 @@ spectral-indices-discovery/
   la compuerta falla. Con `all`, el ganador m=4 `B02·B8A²·B12/(B03·B04·B11²)` pasa la
   compuerta R4 por +0.11 AUC e iguala la logística sobre log-ratios (0.756). El ganador es
   uno de decenas de empates a 0.004: el resultado es la estructura
-  (SWIR² × B8A/B04 × B02/B03), no la fórmula puntual.
+  (B12/B11 · B8A/B11 · B8A/B04 · B02/B03; valores bajos = alterado), no la fórmula puntual.
+  Corrección 2026-10-17: no hay término SWIR al cuadrado; con el diseño final solo 4 expresiones
+  quedan a <0.005 del ganador (no decenas).
 - Literatura y gaps: `docs/revision_literatura_enumeracion_indices_2026-10-09.md`.
 - **m≤5 (10 oct 2026)**: ganador `B02·B8A³·B12/(B03·B04·B06·B11²)`, R4 ring 0.751 vs 0.738 de m=4 y 0.628 del
   clay ratio; techo de la familia en R4 ring 0.763. Rendimiento decreciente: m=4 es el índice a proponer,
@@ -356,5 +358,24 @@ spectral-indices-discovery/
   VNIR (B8A/B04, B02/B03) son sensibles a iluminación y nieve; el clay ratio es más robusto a la estación. El índice
   se declara para compuestos de verano. Chequeo: el base remuestreado reproduce los valores almacenados (dif. rel.
   mediana 0): la colección GEE no se movió.
+- **Tercer sitio R6 "Atacama oeste" y P-A con yacimientos (18 oct 2026)**: `scripts/sample_site6_and_pa.py` +
+  `scripts/evaluate_site6_and_pa.py` → `data/results/site6_and_pa.json`. R6 = 320 polígonos de 5 cartas SERNAGEOMIN
+  (La Guardia, Carrera Pinto, Los Loros, Qda Salitrosa, El Salvador; `data/external/sernageomin_atacama_oeste/`), nunca
+  usados; se descartan muestras a <5 km de la alteración del Atlas III. **La compuerta FALLA en R6**: ganador +0.016
+  (anillo) y +0.013 (con distractores), IC incluyen 0; el ganador de cajas lejanas es el mejor ahí (+0.029/+0.024).
+  Sombra casi ausente en R6 (10 px); distractores efectivos = playa + aluvio. P-A contra yacimientos (Yousefi &
+  Carranza; máscara NDVI/NDWI; IC bootstrap por clusters de 2 km): índice > clay en Coquimbo (intersección +10.6 pts,
+  success AUC +0.131) y en R6 (+11.4, +0.146), ambos IC excluyen 0; clay ≥ índice en Maricunga (n.s.) y Cuprite
+  (intersección −4.8 [−11.2, −0.3]). El clay ratio queda bajo azar (success AUC 0.40 y 0.47) en los distritos
+  cretácicos de Cu-Fe-Au (Coquimbo, R6): ahí el índice gana por sus términos férricos/VNIR, no por Al-OH; en
+  distritos epitermales dominados por SWIR (Maricunga, Goldfield-Cuprite) gana el clay ratio. Yacimientos:
+  `data/external/yacimientos/` (Coquimbo 609, MRDS Cuprite 308) y Atlas III `yacimientos.csv`.
+- **Remuestreo de la selección (18 oct 2026)**: `scripts/selection_resampling.py` (AUC vectorizado con searchsorted,
+  validado contra sklearn; 5 procesos) → `data/results/selection_resampling.csv`, 21 particiones × 3 criterios; la
+  semilla 0 reproduce la Tabla de criterios. Anillo+distractores: 5 ganadores distintos (el del paper en 13/21), pasa
+  Coquimbo y Cuprite 21/21, Atacama oeste 4/21. Cajas lejanas: Coquimbo 18/21, Cuprite y R6 0/21. Anillo solo: 4, 3 y
+  0/21. El efecto del criterio es robusto; ninguno transfiere de forma fiable al tercer sitio.
+- **Manuscrito vigente: `paper/main_v3.tex`** (reencuadre: índices específicos del tipo de depósito). Versión
+  Springer/NRR generada con `scripts/build_springer_v3.py` → `paper/springer_v3/` (editar solo main_v3.tex).
 - Corridas largas: checkpoint cada 10 lotes en `data/results/.ckpt_enum_logspace_*.npz` (reanuda solo), lanzar con
   `nice -n 10`, `OMP_NUM_THREADS=6` y `systemd-run --user --scope -p MemoryMax=12G` (la máquina se congeló el 9 oct).

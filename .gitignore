@@ -8,7 +8,9 @@ venv/
 
 # Large data (rasters, shapefiles, embeddings)
 data/sentinel2/
-data/external/
+data/external/*
+!data/external/sernageomin_atacama_oeste/
+!data/external/yacimientos/
 data/embeddings/
 data/ground_truth/*.npz
 data/ground_truth/*.tif
@@ -29,6 +31,10 @@ data/ground_truth/*.csv
 # Cuprite (site R5) of the hard-negative design (pilot_sample_cuprite.py)
 !data/ground_truth/cuprite_positives_geo.csv
 !data/ground_truth/cuprite_hard_negatives.csv
+# Atacama West (site R6) design and prediction-area inputs (2026-10-18)
+!data/ground_truth/site6_positives_geo.csv
+!data/ground_truth/site6_hard_negatives.csv
+!data/ground_truth/pa_*.csv
 # Alternative-composite re-samples (temporal_stability_sample.py): regenerable, not tracked
 data/ground_truth/temporal/
 
@@ -70,3 +76,9 @@ texput.log
 
 # Run logs of long enumerations (regenerable)
 logs/
+
+# Derived figure table (32 MB), regenerable with scripts/prep_figs_v2.py
+paper/data/figs_v2/f2_scatter.csv
+# Private drafting notes and correspondence
+paper/*.workbook.md
+docs/mensaje_coautores_*.md

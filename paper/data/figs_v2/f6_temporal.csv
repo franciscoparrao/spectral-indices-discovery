@@ -1,0 +1,19 @@
+site,period,index,auc
+Atacama (held-out),Base (2024),Clay ratio,0.7876684923701558
+Atacama (held-out),Base (2024),Selected index,0.8440668395139319
+Atacama (held-out),Same season 2023,Clay ratio,0.7858065712865301
+Atacama (held-out),Same season 2023,Selected index,0.8432138848669214
+Atacama (held-out),Opposite season,Clay ratio,0.7640841145587036
+Atacama (held-out),Opposite season,Selected index,0.7255925356877471
+Coquimbo,Base (2024),Clay ratio,0.6290342678347935
+Coquimbo,Base (2024),Selected index,0.7522322069253233
+Coquimbo,Same season 2023,Clay ratio,0.6286144096787651
+Coquimbo,Same season 2023,Selected index,0.7739037630371297
+Coquimbo,Opposite season,Clay ratio,0.5878568678187944
+Coquimbo,Opposite season,Selected index,0.7326828756191277
+Cuprite,Base (2024),Clay ratio,0.8668238874737788
+Cuprite,Base (2024),Selected index,0.9605415043452202
+Cuprite,Same season 2023,Clay ratio,0.8670602524722805
+Cuprite,Same season 2023,Selected index,0.956842860353611
+Cuprite,Opposite season,Clay ratio,0.8783167703026672
+Cuprite,Opposite season,Selected index,0.9026489736290082
